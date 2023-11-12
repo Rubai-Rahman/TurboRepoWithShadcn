@@ -1,9 +1,14 @@
 'use client';
 import React from 'react';
-import { Checkbox } from '../../shadcn/checkbox';
-import { Button } from '../../shadcn/button';
-import { Badge } from '../../shadcn/badge';
-import { Label } from '../../shadcn/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../../shadcn/ui/select';
+import { Input } from '../../shadcn/ui/input';
+import { Badge } from '../../shadcn/ui/badge';
 import {
   Card,
   CardContent,
@@ -11,15 +16,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../../shadcn/card';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../../shadcn/select';
-import { Input } from '../../shadcn/input';
+} from '../../shadcn/ui/card';
+import { Button } from '../../shadcn/ui/button';
+import { Checkbox } from '../../shadcn/ui/checkbox';
+import { Label } from '../../shadcn/ui/label';
 
 function TestCard() {
   return (

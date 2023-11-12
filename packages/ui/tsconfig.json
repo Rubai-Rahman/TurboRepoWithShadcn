@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/shadcn/*": ["../../shadcn/*"],
+      "@/shadcn/*": ["../components/shadcn/ui/*"],
       "@/utils/*": ["../../lib/*"]
     }
   },
