@@ -1,24 +1,15 @@
-const { resolve } = require("node:path");
+const { resolve } = require('node:path');
 
-const project = resolve(process.cwd(), "tsconfig.json");
-
-/*
- * This is a custom ESLint configuration for use with
- * Next.js apps.
- *
- * This config extends the Vercel Engineering Style Guide.
- * For more information, see https://github.com/vercel/style-guide
- *
- */
+const project = resolve(process.cwd(), 'tsconfig.json');
 
 module.exports = {
   extends: [
-    "@vercel/style-guide/eslint/node",
-    "@vercel/style-guide/eslint/browser",
-    "@vercel/style-guide/eslint/typescript",
-    "@vercel/style-guide/eslint/react",
-    "@vercel/style-guide/eslint/next",
-    "eslint-config-turbo",
+    '@vercel/style-guide/eslint/node',
+    '@vercel/style-guide/eslint/browser',
+    '@vercel/style-guide/eslint/typescript',
+    '@vercel/style-guide/eslint/react',
+    '@vercel/style-guide/eslint/next',
+    'eslint-config-turbo',
   ].map(require.resolve),
   parserOptions: {
     project,
@@ -28,15 +19,20 @@ module.exports = {
     JSX: true,
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
         project,
       },
     },
   },
-  ignorePatterns: ["node_modules/", "dist/"],
+  ignorePatterns: ['node_modules/', 'dist/'],
   // add rules configurations here
   rules: {
-    "import/no-default-export": "off",
+    // add specific rules configurations here
+    'import/no-default-export': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'unicorn/filename-case': 'off',
+    'jsx-a11y/heading-has-content': 'off',
+    'no-unsafe-assignment': 'off',
   },
 };

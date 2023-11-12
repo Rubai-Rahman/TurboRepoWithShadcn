@@ -1,4 +1,11 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/shadcn/*": ["../../shadcn/*"],
+      "@/utils/*": ["../../lib/*"]
+    }
+  },
   "extends": "tsconfig/react-library.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
