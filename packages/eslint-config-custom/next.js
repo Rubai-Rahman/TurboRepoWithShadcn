@@ -1,4 +1,5 @@
 const { resolve } = require('node:path');
+const { off } = require('node:process');
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
@@ -34,5 +35,8 @@ module.exports = {
     'unicorn/filename-case': 'off',
     'jsx-a11y/heading-has-content': 'off',
     'no-unsafe-assignment': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'tsdoc/syntax': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
   },
 };

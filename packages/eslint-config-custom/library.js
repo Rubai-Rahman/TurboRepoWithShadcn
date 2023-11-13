@@ -38,5 +38,8 @@ module.exports = {
     'unicorn/filename-case': 'off',
     'jsx-a11y/heading-has-content': 'off',
     'no-unsafe-assignment': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-unsafe-assignment': 'off',
+    'tsdoc/syntax': 'off',
   },
 };

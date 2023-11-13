@@ -7,7 +7,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../../shadcn/ui/select';
-import { Input } from '../../shadcn/ui/input';
 import { Badge } from '../../shadcn/ui/badge';
 import {
   Card,
@@ -20,6 +19,8 @@ import {
 import { Button } from '../../shadcn/ui/button';
 import { Checkbox } from '../../shadcn/ui/checkbox';
 import { Label } from '../../shadcn/ui/label';
+import { Input } from '../../shadcn/ui/input';
+import { Switch } from '../../shadcn/ui/switch';
 
 function TestCard() {
   return (
@@ -27,6 +28,10 @@ function TestCard() {
       <h3 className="text-red-900 text-xl bg-indigo-600 ">
         hello this is TestCard
       </h3>
+      <div className="flex items-center space-x-2">
+        <Switch id="airplane-mode" />
+        <Label htmlFor="airplane-mode">Airplane Mode</Label>
+      </div>
       <div className="flex items-center space-x-2">
         <Button>Button</Button>
         <Badge>Badge</Badge>
