@@ -1,4 +1,4 @@
-import TestCard from 'ui/components/shared/Card/TestCard';
+import TestCard from '@components/shared/Card/TestCard';
 
 export default function Page(): JSX.Element {
   return (

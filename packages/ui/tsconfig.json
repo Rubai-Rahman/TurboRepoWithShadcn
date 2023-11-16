@@ -1,11 +1,5 @@
+// ui -> tsconfig.json
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@shadcn/*": ["components/shadcn/ui/*"],
-      "@/utils/*": ["../../lib/*"]
-    }
-  },
   "extends": "tsconfig/react-library.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]

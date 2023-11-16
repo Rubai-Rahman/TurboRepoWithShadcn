@@ -1,12 +1,12 @@
-import { Label } from 'ui/components/shadcn/ui/label';
-import { Switch } from 'ui/components/shadcn/ui/switch';
-import TestCard from 'ui/components/shared/Card/TestCard';
+import { Label } from '@shadcn/label';
+import { Switch } from '@shadcn/switch';
+import TestCard from '@components/shared/Card/TestCard';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from 'ui/components/shadcn/ui/accordion';
+} from '@shadcn/accordion';
 
 export default function Home() {
   return (
