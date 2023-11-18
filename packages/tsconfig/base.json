@@ -20,7 +20,8 @@
     "paths": {
       "@components/*": ["../../packages/ui/components/*"],
       "@shadcn/*": ["../../packages/ui/components/shadcn/ui/*"],
-      "@cn/*": ["../../packages/ui/lib/*"]
+      "@lib/*": ["../../packages/ui/lib/*"],
+      "@shared": ["../../apps/test-pages/src/shared/*"]
     }
   },
   "exclude": ["node_modules"]
