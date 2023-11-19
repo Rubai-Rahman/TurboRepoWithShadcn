@@ -1,16 +1,16 @@
-import { GET_TICKET_BY_CONTACT_IDQuery } from "@api-lib/gql/graphql";
-import Link from "next/link";
-import React from "react";
-import { BsPieChartFill } from "react-icons/bs";
-import Dot from "@shared/components/CustomDot/CustomDot";
+import { GET_TICKET_BY_CONTACT_IDQuery } from '@api-lib/gql/graphql';
+import Link from 'next/link';
+import React from 'react';
+import { BsPieChartFill } from 'react-icons/bs';
+import Dot from '@localShared/components/CustomDot/CustomDot';
 
 const PreviousTicketPreview = ({
-  maxWidth = "w-full",
+  maxWidth = 'w-full',
   ticket,
   selected,
 }: {
   maxWidth?: string;
-  ticket: GET_TICKET_BY_CONTACT_IDQuery["payload"][0];
+  ticket: GET_TICKET_BY_CONTACT_IDQuery['payload'][0];
   selected?: boolean;
 }) => {
   return (
@@ -18,8 +18,8 @@ const PreviousTicketPreview = ({
       <div
         className={`border-l-2 border-b py-4 px-4 cursor-pointer hover:bg-blueCustom/10 ${maxWidth} ${
           selected
-            ? "bg-blueCustom/10 border-l-blueCustom"
-            : "border-l-transparent"
+            ? 'bg-blueCustom/10 border-l-blueCustom'
+            : 'border-l-transparent'
         }`}
       >
         <div className="flex justify-between">
@@ -33,15 +33,15 @@ const PreviousTicketPreview = ({
                 <p className="w-1.5 h-1.5 rounded-full bg-orangeCustom"></p>
                 <p className="text-small font-medium leading-4">
                   {ticket.status === 0
-                    ? "open"
+                    ? 'open'
                     : ticket.status === 1
-                    ? "On Progress"
+                    ? 'On Progress'
                     : ticket.status === 2
-                    ? "Waiting for Customer Reply"
+                    ? 'Waiting for Customer Reply'
                     : ticket.status === 3
-                    ? "Resolved"
+                    ? 'Resolved'
                     : ticket.status === 4
-                    ? "Closed"
+                    ? 'Closed'
                     : null}
                 </p>
               </div>
@@ -50,7 +50,7 @@ const PreviousTicketPreview = ({
           <div className="flex gap-x-2 items-center">
             <BsPieChartFill
               className={`text-big text-greenCustom ${
-                selected && "text-grayCustom"
+                selected && 'text-grayCustom'
               }`}
             />
             <p className="text-grayCustom text-small font-medium leading-4">
@@ -65,18 +65,18 @@ const PreviousTicketPreview = ({
           <div className="flex gap-x-2 items-center">
             <Dot dotColor="bg-greenCustom" />
             <p className="text-small font-medium leading-4 text-grayCustom">
-              {ticket?.agent?.name ? ticket?.agent?.name : "no agent assigned"}
+              {ticket?.agent?.name ? ticket?.agent?.name : 'no agent assigned'}
             </p>
           </div>
           <p className="bg-redCustom/10 px-2 py-1 rounded-full text-small font-medium leading-4 text-[#F3451E] capitalize">
             {ticket.priority === 0
-              ? "low"
+              ? 'low'
               : ticket.priority === 1
-              ? "medium"
+              ? 'medium'
               : ticket.priority === 2
-              ? "high"
+              ? 'high'
               : ticket.priority === 3
-              ? "urgent"
+              ? 'urgent'
               : null}
           </p>
         </div>

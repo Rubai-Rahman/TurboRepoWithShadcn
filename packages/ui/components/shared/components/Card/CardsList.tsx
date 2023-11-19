@@ -1,7 +1,7 @@
-import { CRMCustomerData } from "@pages/api/crm/customer";
-import React from "react";
-import { Button } from "@shadcn/button";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
+import { CRMCustomerData } from '@pages/api/crm/customer';
+import React from 'react';
+import { Button } from '@shadcn/button';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
 
 function CardsList({
   setScreen,
@@ -11,8 +11,8 @@ function CardsList({
 }: {
   setScreen: (value) => void;
   setSelectedCard: (value) => void;
-  selectedCard: CRMCustomerData["cardDetails"]["data"][0];
-  displayedCard: CRMCustomerData["cardDetails"]["data"];
+  selectedCard: CRMCustomerData['cardDetails']['data'][0];
+  displayedCard: CRMCustomerData['cardDetails']['data'];
 }) {
   return (
     <div className="h-full w-full overflow-y-auto focus:outline-none">
@@ -27,9 +27,9 @@ function CardsList({
 
       <div className="border-t py-1">
         <CustomAccordion
-          title={`Active Cards (${
-            displayedCard?.filter((item) => item?.status === 1).length
-          })`}
+          title={`Active Cards (${displayedCard?.filter(
+            (item) => item?.status === 1
+          ).length})`}
           titleClass="font-thin text-sm"
         >
           <div className="px-5 pt-2">
@@ -51,40 +51,40 @@ function CardsList({
                       <div className="w-full flex justify-end">
                         <p className="my-1.5 mr-6 bg-blueCustom/10 p-2.5 rounded-lg ">
                           {item?.status === 0
-                            ? "UNSPECIFIED"
+                            ? 'UNSPECIFIED'
                             : item?.status === 1
-                            ? "ACTIVE"
+                            ? 'ACTIVE'
                             : item?.status === 2
-                            ? "INACTIVE"
+                            ? 'INACTIVE'
                             : item?.status === 3
-                            ? "LOST"
+                            ? 'LOST'
                             : item?.status === 4
-                            ? "STOLEN"
+                            ? 'STOLEN'
                             : item?.status === 5
-                            ? "EXPIRED"
+                            ? 'EXPIRED'
                             : item?.status === 6
-                            ? "VOID"
+                            ? 'VOID'
                             : item?.status === 7
-                            ? "RESTRICTED"
-                            : ""}
+                            ? 'RESTRICTED'
+                            : ''}
                         </p>
                       </div>
                       <div className="w-full flex justify-between items-center px-6">
                         <div>
                           <h2 className="text-2xl">
-                            {item?.cardNumber || "-"}
+                            {item?.cardNumber || '-'}
                           </h2>
                           <p className="text-darkCustom text-xl">
-                            {item?.cardHolderName || "-"}
+                            {item?.cardHolderName || '-'}
                           </p>
                         </div>
                         <Button className="h-fit px-2.5 py-2.5 bg-white rounded-lg uppercase">
                           {item?.type === 0
-                            ? "UNSPECIFIED"
+                            ? 'UNSPECIFIED'
                             : item?.type === 1
-                            ? "PHYSICAL"
+                            ? 'PHYSICAL'
                             : item?.type === 2
-                            ? "VIRTUAL"
+                            ? 'VIRTUAL'
                             : null}
                         </Button>
                       </div>
@@ -97,9 +97,9 @@ function CardsList({
       </div>
       <div className="border-t py-1">
         <CustomAccordion
-          title={`Inactive Cards (${
-            displayedCard?.filter((item) => item?.status === 2).length
-          })`}
+          title={`Inactive Cards (${displayedCard?.filter(
+            (item) => item?.status === 2
+          ).length})`}
           titleClass="font-thin text-sm"
         >
           <div className="px-5 pt-2">
@@ -121,40 +121,40 @@ function CardsList({
                       <div className="w-full flex justify-end">
                         <p className="my-1.5 mr-6 bg-blueCustom/10 p-2.5 rounded-lg ">
                           {item?.status === 0
-                            ? "UNSPECIFIED"
+                            ? 'UNSPECIFIED'
                             : item?.status === 1
-                            ? "ACTIVE"
+                            ? 'ACTIVE'
                             : item?.status === 2
-                            ? "INACTIVE"
+                            ? 'INACTIVE'
                             : item?.status === 3
-                            ? "LOST"
+                            ? 'LOST'
                             : item?.status === 4
-                            ? "STOLEN"
+                            ? 'STOLEN'
                             : item?.status === 5
-                            ? "EXPIRED"
+                            ? 'EXPIRED'
                             : item?.status === 6
-                            ? "VOID"
+                            ? 'VOID'
                             : item?.status === 7
-                            ? "RESTRICTED"
-                            : ""}
+                            ? 'RESTRICTED'
+                            : ''}
                         </p>
                       </div>
                       <div className="w-full flex justify-between items-center px-6">
                         <div>
                           <h2 className="text-2xl">
-                            {item?.cardNumber || "-"}
+                            {item?.cardNumber || '-'}
                           </h2>
                           <p className="text-darkCustom text-xl">
-                            {item?.cardHolderName || "-"}
+                            {item?.cardHolderName || '-'}
                           </p>
                         </div>
                         <Button className="h-fit px-2.5 py-2.5 bg-white rounded-lg uppercase">
                           {item?.type === 0
-                            ? "UNSPECIFIED"
+                            ? 'UNSPECIFIED'
                             : item?.type === 1
-                            ? "PHYSICAL"
+                            ? 'PHYSICAL'
                             : item?.type === 2
-                            ? "VIRTUAL"
+                            ? 'VIRTUAL'
                             : null}
                         </Button>
                       </div>
@@ -167,11 +167,9 @@ function CardsList({
       </div>
       <div className="border-t border-b py-1">
         <CustomAccordion
-          title={`Other Cards (${
-            displayedCard?.filter(
-              (item) => item?.status > 2 || item?.status === 0
-            ).length
-          })`}
+          title={`Other Cards (${displayedCard?.filter(
+            (item) => item?.status > 2 || item?.status === 0
+          ).length})`}
           titleClass="font-thin text-sm"
         >
           <div className="px-5 pt-2">
@@ -193,40 +191,40 @@ function CardsList({
                       <div className="w-full flex justify-end">
                         <p className="my-1.5 mr-6 bg-blueCustom/10 p-2.5 rounded-lg ">
                           {item?.status === 0
-                            ? "UNSPECIFIED"
+                            ? 'UNSPECIFIED'
                             : item?.status === 1
-                            ? "ACTIVE"
+                            ? 'ACTIVE'
                             : item?.status === 2
-                            ? "INACTIVE"
+                            ? 'INACTIVE'
                             : item?.status === 3
-                            ? "LOST"
+                            ? 'LOST'
                             : item?.status === 4
-                            ? "STOLEN"
+                            ? 'STOLEN'
                             : item?.status === 5
-                            ? "EXPIRED"
+                            ? 'EXPIRED'
                             : item?.status === 6
-                            ? "VOID"
+                            ? 'VOID'
                             : item?.status === 7
-                            ? "RESTRICTED"
-                            : ""}
+                            ? 'RESTRICTED'
+                            : ''}
                         </p>
                       </div>
                       <div className="w-full flex justify-between items-center px-6">
                         <div>
                           <h2 className="text-2xl">
-                            {item?.cardNumber || "-"}
+                            {item?.cardNumber || '-'}
                           </h2>
                           <p className="text-darkCustom text-xl">
-                            {item?.cardHolderName || "-"}
+                            {item?.cardHolderName || '-'}
                           </p>
                         </div>
                         <Button className="h-fit px-2.5 py-2.5 bg-white rounded-lg uppercase">
                           {item?.type === 0
-                            ? "UNSPECIFIED"
+                            ? 'UNSPECIFIED'
                             : item?.type === 1
-                            ? "PHYSICAL"
+                            ? 'PHYSICAL'
                             : item?.type === 2
-                            ? "VIRTUAL"
+                            ? 'VIRTUAL'
                             : null}
                         </Button>
                       </div>

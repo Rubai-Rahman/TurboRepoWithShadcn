@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useContactById } from "@api-lib/graphql";
-import UserProfile from "./UserProfile/UserProfile";
-import KnowledgeBase from "./KnowledgeBase/KnowledgeBase";
-import ResponsePanel from "./ResponsePanel/ResponsePanel";
-import UserAccccount from "./UserAccount/UserAccccount";
-import Transaction from "./Transaction/Transaction/Transaction";
-import TicketProperties from "./TicketProperties/TicketProperties";
-import ProfileSkeleton from "./UserProfile/Profile.skeleton";
-import { IoCardOutline } from "react-icons/io5";
-import { BiTransfer, BiUserCircle } from "react-icons/bi";
-import { AiOutlineThunderbolt, AiOutlineUser } from "react-icons/ai";
-import { Knowledge_base_icon } from "@shared/icons/knowledgeBaseIcon";
-import { useRouter } from "next/router";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shadcn/tabs";
-import { TbArrowsCross } from "react-icons/tb";
-import { CRMCustomerData } from "@pages/api/crm/customer";
-import Cards from "@components/Card/Cards";
+import React, { useEffect, useState } from 'react';
+import { useContactById } from '@api-lib/graphql';
+import UserProfile from './UserProfile/UserProfile';
+import KnowledgeBase from './KnowledgeBase/KnowledgeBase';
+import ResponsePanel from './ResponsePanel/ResponsePanel';
+import UserAccccount from './UserAccount/UserAccccount';
+import Transaction from './Transaction/Transaction/Transaction';
+import TicketProperties from './TicketProperties/TicketProperties';
+import ProfileSkeleton from './UserProfile/Profile.skeleton';
+import { IoCardOutline } from 'react-icons/io5';
+import { BiTransfer, BiUserCircle } from 'react-icons/bi';
+import { AiOutlineThunderbolt, AiOutlineUser } from 'react-icons/ai';
+import { Knowledge_base_icon } from '@localShared/icons/knowledgeBaseIcon';
+import { useRouter } from 'next/router';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
+import { TbArrowsCross } from 'react-icons/tb';
+import { CRMCustomerData } from '@pages/api/crm/customer';
+import Cards from '@components/Card/Cards';
 
 const RightSide = ({ contactId }) => {
   const router = useRouter();
@@ -34,11 +34,11 @@ const RightSide = ({ contactId }) => {
 
   const appData = [
     {
-      section: "user",
+      section: 'user',
       icon: <AiOutlineUser className="h-6 w-6" />,
     },
     {
-      section: "knowledge",
+      section: 'knowledge',
       icon: <Knowledge_base_icon fill="green" />,
     },
     /*   {
@@ -47,7 +47,7 @@ const RightSide = ({ contactId }) => {
       panel: <GuidedWorkflow />,
     }, */
     {
-      section: "response",
+      section: 'response',
       icon: <AiOutlineThunderbolt className="h-6 w-6" />,
     },
   ];
@@ -56,19 +56,19 @@ const RightSide = ({ contactId }) => {
     crmData !== null
       ? [
           {
-            section: "account",
+            section: 'account',
             icon: <BiUserCircle className="h-6 w-6" />,
           },
           {
-            section: "transaction",
+            section: 'transaction',
             icon: <BiTransfer className="h-6 w-6" />,
           },
           {
-            section: "failed transaction",
+            section: 'failed transaction',
             icon: <TbArrowsCross className="h-6 w-6" />,
           },
           {
-            section: "Cards",
+            section: 'Cards',
             icon: <IoCardOutline className="h-6 w-6" />,
           },
           // {
@@ -105,7 +105,7 @@ const RightSide = ({ contactId }) => {
               {tab.icon}
             </TabsTrigger>
           ))}
-          {router.pathname.includes("/tickets") && (
+          {router.pathname.includes('/tickets') && (
             <TabsTrigger
               value="Tab-t"
               className="flex justify-center items-center overflow-hidden p-3 focus:outline-none [data-state=active]:text-blueCustom [data-state=active]:bg-blueCustom/10 [data-state=active]:border-l-2 [data-state=active]:border-blueCustom [data-state=inactive]:border-l-2 [data-state=inactive]:text-grayCustom [data-state=inactive]:border-transparent"
@@ -120,9 +120,9 @@ const RightSide = ({ contactId }) => {
               value="Tab-0"
               className="max-w-md w-[30rem] h-full overflow-hidden hover:overflow-y-auto"
             >
-              {contactStatus === "loading" ? (
+              {contactStatus === 'loading' ? (
                 <ProfileSkeleton />
-              ) : contactStatus === "error" ? (
+              ) : contactStatus === 'error' ? (
                 <p>data error</p>
               ) : (
                 <UserProfile
@@ -216,7 +216,7 @@ const RightSide = ({ contactId }) => {
               </>
             )}
 
-            {router.pathname.includes("/tickets") && (
+            {router.pathname.includes('/tickets') && (
               <TabsContent
                 value="Tab-11"
                 className="max-w-md w-[30rem] h-full overflow-hidden hover:overflow-y-auto"

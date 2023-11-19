@@ -1,38 +1,38 @@
-import { GET_TEAMSQuery, GET_TEAM_BY_IDQuery } from "@api-lib/gql/graphql";
+import { GET_TEAMSQuery, GET_TEAM_BY_IDQuery } from '@api-lib/gql/graphql';
 import {
   useCreateTicket,
   useTeamDetailsById,
   useTeamList,
   useTicketFormList,
-} from "@api-lib/graphql";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useQueryClient } from "@tanstack/react-query";
-import { useTranslation } from "next-i18next";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useMemo, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { FiEdit } from "react-icons/fi";
-import { GrClose } from "react-icons/gr";
-import { RxTrash } from "react-icons/rx";
-import { TiTick } from "react-icons/ti";
-import Select from "react-select";
-import { Model } from "survey-core";
-import "survey-core/defaultV2.min.css";
-import { Survey } from "survey-react";
-import * as yup from "yup";
-import { FormValues, NewTicketTypes } from "./NewTicket.types";
+} from '@api-lib/graphql';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useMemo, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { FiEdit } from 'react-icons/fi';
+import { GrClose } from 'react-icons/gr';
+import { RxTrash } from 'react-icons/rx';
+import { TiTick } from 'react-icons/ti';
+import Select from 'react-select';
+import { Model } from 'survey-core';
+import 'survey-core/defaultV2.min.css';
+import { Survey } from 'survey-react';
+import * as yup from 'yup';
+import { FormValues, NewTicketTypes } from './NewTicket.types';
 import {
   FixedToastMessage,
   ToastMessage,
-} from "@shared/components/ToastMessage/ToastMessage";
-import { Button } from "@shadcn/button";
-import { Input } from "@shadcn/input";
-import Icon from "@shared/components/Icon/Icon";
-import { Label } from "@shadcn/label";
-import { DropdownIndicator } from "@shared/DropdownIndicator";
-import { Textarea } from "@shadcn/textarea";
+} from '@localShared/components/ToastMessage/ToastMessage';
+import { Button } from '@shadcn/button';
+import { Input } from '@shadcn/input';
+import Icon from '@localShared/components/Icon/Icon';
+import { Label } from '@shadcn/label';
+import { DropdownIndicator } from '@localShared/DropdownIndicator';
+import { Textarea } from '@shadcn/textarea';
 
 type FormValues = {
   subject: string;
@@ -43,7 +43,7 @@ type FormValues = {
   priority: number;
   status: number;
 };
-const requiredMessage = "This field is required!";
+const requiredMessage = 'This field is required!';
 
 const schema = yup
   .object({
@@ -65,15 +65,15 @@ const schema = yup
 
 const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
   const router = useRouter();
-  const { t } = useTranslation("rightSide");
+  const { t } = useTranslation('rightSide');
   const queryClient = useQueryClient();
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState('');
   const [newTicketId, setNewTicketId] = useState<number>();
   const [show, setShow] = useState(false);
   const [selectedTeamId, setSelectedTeamId] = useState<number>();
-  const [teamList, setTeamList] = useState<GET_TEAMSQuery["payload"]>();
+  const [teamList, setTeamList] = useState<GET_TEAMSQuery['payload']>();
   const [agentList, setAgentList] =
-    useState<GET_TEAM_BY_IDQuery["payload"]["team_members"]>();
+    useState<GET_TEAM_BY_IDQuery['payload']['team_members']>();
   const [currentState, setCurrentState] = useState(false);
 
   const { data: surveyFormData, isLoading } = useTicketFormList();
@@ -114,14 +114,14 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
       setCurrentState(true);
       setNewTicketId(ticketId);
       survey.clear(true);
-      queryClient.invalidateQueries(["filtered_tickets"]);
+      queryClient.invalidateQueries(['filtered_tickets']);
       reset();
       // const tickets = router.push(`/tickets/${ticketId}`);
       // queryClient.invalidateQueries("tickets_list");
       // ToastMessage("success", "Successfully Created The Ticket ");
     },
     onError: () => {
-      ToastMessage("error", "Failed To Create Ticket");
+      ToastMessage('error', 'Failed To Create Ticket');
     },
   });
 
@@ -137,12 +137,12 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
       }
       setSelected({ ...contactData, phone_number: phone_number });
     } else {
-      FixedToastMessage("error", "Invalid input! min: 9 max: 15", "colored");
+      FixedToastMessage('error', 'Invalid input! min: 9 max: 15', 'colored');
     }
   };
 
   const selectedTeamId2: { value: number; label: string } =
-    watch("assigned_team");
+    watch('assigned_team');
 
   const { data: teamSingleData } = useTeamDetailsById(selectedTeamId2?.value, {
     onSuccess: (data) => {
@@ -156,39 +156,39 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
     });
 
   const surveyCss = {
-    root: "bg-white",
-    container: "w-full",
-    body: "w-full mx-0",
+    root: 'bg-white',
+    container: 'w-full',
+    body: 'w-full mx-0',
     // container: "ml-5",
     // row: "",
     // pageRow: "w-full",
     // header: "bg-white",
     page: {
-      root: "pb-4",
+      root: 'pb-4',
     },
     question: {
       // content: "my-3 bg-red-500",
-      title: "text-sm font-medium text-grayCustom py-1 pl-4",
-      asCell: "w-full bg-red-500",
-      number: "hidden",
-      input: "bg-red-500",
+      title: 'text-sm font-medium text-grayCustom py-1 pl-4',
+      asCell: 'w-full bg-red-500',
+      number: 'hidden',
+      input: 'bg-red-500',
     },
     dropdown: {
-      root: "border-none shadow-none",
+      root: 'border-none shadow-none',
       control:
-        "border border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-dropdown",
+        'border border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-dropdown',
     },
     text: {
-      root: "border border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-text",
+      root: 'border border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-text',
     },
     panel: {
-      title: "text-md font-medium text-slate-700 py-1",
+      title: 'text-md font-medium text-slate-700 py-1',
     },
   };
 
   const onSubmit = (formValues) => {
     if (!contactData?.id) {
-      FixedToastMessage("error", "Please select a contact", "colored");
+      FixedToastMessage('error', 'Please select a contact', 'colored');
     } else {
       const ticketDetails = {
         source: formValues.source,
@@ -216,7 +216,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
       };
       // survey.completeLastPage();
       if (Object.keys(survey?.data).length === 0) {
-        FixedToastMessage("error", "Please fill-up surveyJS form", "colored");
+        FixedToastMessage('error', 'Please fill-up surveyJS form', 'colored');
       } else {
         survey.onCompleting.add(mutate(newData));
       }
@@ -228,7 +228,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
       {currentState ? (
         <div className="flex flex-col justify-center items-center h-full">
           <p className="text-xl font-medium text-green-500">
-            {t("rightSide.newTicket.message.success")}
+            {t('rightSide.newTicket.message.success')}
           </p>
           <Link
             href={`/tickets/${newTicketId}`}
@@ -236,7 +236,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
             className="text-xl text-blueCustom my-3"
           >
             <p>
-              Ticket Id: <span className="underline">{newTicketId}</span>{" "}
+              Ticket Id: <span className="underline">{newTicketId}</span>{' '}
             </p>
           </Link>
           <Button
@@ -250,10 +250,10 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
         <div>
           <div className="flex items-center justify-between">
             <h3 className="text-darkCustom text-xl font-semibold">
-              {t("rightSide.newTicket.title")}
+              {t('rightSide.newTicket.title')}
             </h3>
             <div
-              onClick={() => setSelected("close")}
+              onClick={() => setSelected('close')}
               className="cursor-pointer float-right rounded-3xl hover:bg-sky-100 p-2 -mt-1.5"
             >
               <GrClose className="!text-grayCustom" />
@@ -286,20 +286,20 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
             </div>
             <div className="text-darkCustom text-justify w-3/5 inline-block">
               <p className="text-slate-700 truncate block">
-                {contactData?.name || "no data found"}
+                {contactData?.name || 'no data found'}
               </p>
               <p className="italic text-sm">
-                {contactData?.email || "no email found"}
+                {contactData?.email || 'no email found'}
               </p>
               <div className="italic text-sm inline-flex">
                 {!show && (
                   <>
                     <span>
-                      {" "}
-                      {contactData?.phone_number || "no number found"}
+                      {' '}
+                      {contactData?.phone_number || 'no number found'}
                     </span>
                     <span>
-                      {" "}
+                      {' '}
                       {
                         <Icon
                           name={FiEdit}
@@ -402,7 +402,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                   <div>
                     <select
                       className="border border-lineGrayCustom py-3 px-4 my-2 rounded bg-transparent block w-full leading-4 text-grayCustom placeholder:text-grayCustom outline-none focus:outline-none"
-                      {...register("source", { required: true })}
+                      {...register('source', { required: true })}
                     >
                       <option value="" disabled>
                         Select Source
@@ -438,7 +438,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                         name="priority"
                         value={0}
                         defaultChecked
-                        {...register("priority", { required: true })}
+                        {...register('priority', { required: true })}
                       />
                       <Label htmlFor="low">Low</Label>
                     </div>
@@ -449,7 +449,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                         id="medium"
                         name="priority"
                         value={1}
-                        {...register("priority", { required: true })}
+                        {...register('priority', { required: true })}
                       />
                       <Label htmlFor="medium">Medium</Label>
                     </div>
@@ -460,7 +460,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                         id="high"
                         name="priority"
                         value={2}
-                        {...register("priority", { required: true })}
+                        {...register('priority', { required: true })}
                       />
                       <Label htmlFor="high">High</Label>
                     </div>
@@ -471,7 +471,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                         id="urgent"
                         name="priority"
                         value={3}
-                        {...register("priority", { required: true })}
+                        {...register('priority', { required: true })}
                       />
                       <Label htmlFor="urgent">Urgent</Label>
                     </div>
@@ -583,9 +583,9 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                                 }),
                                 control: (base, state) => ({
                                   ...base,
-                                  boxShadow: "none",
-                                  background: "transparent",
-                                  overflow: "hidden",
+                                  boxShadow: 'none',
+                                  background: 'transparent',
+                                  overflow: 'hidden',
                                 }),
                               }}
                               components={{ DropdownIndicator }}
@@ -660,14 +660,14 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                               }),
                               valueContainer: (base, state) => ({
                                 ...base,
-                                paddingTop: ".4rem",
-                                paddingBottom: ".4rem",
+                                paddingTop: '.4rem',
+                                paddingBottom: '.4rem',
                               }),
                               control: (base, state) => ({
                                 ...base,
-                                boxShadow: "none",
-                                background: "transparent",
-                                overflow: "hidden",
+                                boxShadow: 'none',
+                                background: 'transparent',
+                                overflow: 'hidden',
                               }),
                             }}
                             className="w-full"
@@ -676,8 +676,8 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                             options={agentOptionsList}
                             placeholder={
                               !selectedTeamId2
-                                ? "Select a team for agent list"
-                                : "Select a agent"
+                                ? 'Select a team for agent list'
+                                : 'Select a agent'
                             }
                           />
                         );
@@ -730,7 +730,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                   <Input
                     type="text"
                     className="w-full focus:outline-none border border-lineGrayCustom rounded px-4 py-2"
-                    {...register("subject", { required: true })}
+                    {...register('subject', { required: true })}
                   />
                 </div>
               </div>
@@ -747,7 +747,7 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                     rows={5}
                     className="w-full placeholder:text-grayCustom focus:outline-none border border-lineGrayCustom rounded px-4 py-2 focus:ring-0"
                     placeholder="Write text here ..."
-                    {...register("description", { required: true })}
+                    {...register('description', { required: true })}
                   ></Textarea>
                 </div>
               </div>
@@ -756,14 +756,14 @@ const NewTicket = ({ contactData, setSelected }: NewTicketTypes) => {
                   type="submit"
                   className="w-2/4 rounded py-2 bg-blueCustom text-white font-medium text-normal leading-6"
                 >
-                  {t("rightSide.newTicket.button.create")}
+                  {t('rightSide.newTicket.button.create')}
                 </Button>
                 <Button
-                  onClick={() => setSelected("close")}
+                  onClick={() => setSelected('close')}
                   type="button"
                   className="w-2/4 rounded py-2 bg-lineBlueCustom text-grayCustom font-medium text-normal leading-6 hover:text-blueCustom"
                 >
-                  {t("rightSide.newTicket.button.cancel")}
+                  {t('rightSide.newTicket.button.cancel')}
                 </Button>
               </div>
             </form>

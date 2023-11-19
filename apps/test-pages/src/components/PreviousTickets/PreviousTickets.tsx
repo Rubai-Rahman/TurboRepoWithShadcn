@@ -1,18 +1,18 @@
-import { GET_CONTACT_BY_IDQuery } from "@api-lib/gql/graphql";
-import { useTicketsByContactId } from "@api-lib/graphql";
-import PreviousTicketPreview from "@components/TicketPreview/PreviousTicketPreview";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
-import { useTranslation } from "next-i18next";
+import { GET_CONTACT_BY_IDQuery } from '@api-lib/gql/graphql';
+import { useTicketsByContactId } from '@api-lib/graphql';
+import PreviousTicketPreview from '@components/TicketPreview/PreviousTicketPreview';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import { useTranslation } from 'next-i18next';
 
 const information = [
   {
-    title: "Ticket Title",
+    title: 'Ticket Title',
     ticketId: 25685,
-    status: "Open",
-    priority: "Medium",
-    remaining_time: "15 min",
-    text: "Is inquiry no he several excited am. Called though excuse length ye needed it he having.",
-    team: "Operation Team",
+    status: 'Open',
+    priority: 'Medium',
+    remaining_time: '15 min',
+    text: 'Is inquiry no he several excited am. Called though excuse length ye needed it he having.',
+    team: 'Operation Team',
   },
 ];
 
@@ -21,7 +21,7 @@ const PreviousTickets = ({
   contactData,
 }: {
   maxWidth: string;
-  contactData: GET_CONTACT_BY_IDQuery["payload"];
+  contactData: GET_CONTACT_BY_IDQuery['payload'];
 }) => {
   const contactId = +contactData.id;
   const {
@@ -29,7 +29,7 @@ const PreviousTickets = ({
     isLoading,
     status,
   } = useTicketsByContactId(contactId, { enabled: !!contactId });
-  const { t } = useTranslation("rightSide");
+  const { t } = useTranslation('rightSide');
   return (
     // <div className="px-4">
     //   <CustomAccordion
@@ -42,7 +42,7 @@ const PreviousTickets = ({
 
     <div className={`${maxWidth}`}>
       <CustomAccordion
-        title={t("rightSide.previousTicket")}
+        title={t('rightSide.previousTicket')}
         titleClass="font-thin"
       >
         {ticketDataByContactId?.length > 0 ? (

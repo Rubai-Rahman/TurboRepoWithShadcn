@@ -1,87 +1,87 @@
 import {
   GET_CONVERSATION_BY_IDQuery,
   GET_TICKET_BY_IDQuery,
-} from "@api-lib/gql/graphql";
+} from '@api-lib/gql/graphql';
 import {
   useConversationStatusUpdate,
   useSendNoteWithConversationClose,
-} from "@api-lib/graphql";
+} from '@api-lib/graphql';
 import {
   useSendCsat,
   useSendMessage,
   useSendTicketMessage,
-} from "@api-lib/requests";
-import ReplySection from "@module/conversations/components/textEditor/ReplySection";
+} from '@api-lib/requests';
+import ReplySection from '@module/conversations/components/textEditor/ReplySection';
 import {
   FilePreview,
   htmlToMarkDown,
-} from "@module/conversations/components/textEditor/utils";
-import { useConversationStore } from "@module/conversations/store/conversationStore";
-import { ToastMessage } from "@shared/components/Toastify/Toastify";
-import { useTweetReplyStore } from "@store";
-import { useQueryClient } from "@tanstack/react-query";
-import Image from "@tiptap/extension-image";
-import Link from "@tiptap/extension-link";
-import Placeholder from "@tiptap/extension-placeholder";
-import TextAlign from "@tiptap/extension-text-align";
-import { EditorContent, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import EmojiPicker from "emoji-picker-react";
-import { useTranslation } from "next-i18next";
+} from '@module/conversations/components/textEditor/utils';
+import { useConversationStore } from '@module/conversations/store/conversationStore';
+import { ToastMessage } from '@localShared/components/Toastify/Toastify';
+import { useTweetReplyStore } from '@store';
+import { useQueryClient } from '@tanstack/react-query';
+import Image from '@tiptap/extension-image';
+import Link from '@tiptap/extension-link';
+import Placeholder from '@tiptap/extension-placeholder';
+import TextAlign from '@tiptap/extension-text-align';
+import { EditorContent, useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import EmojiPicker from 'emoji-picker-react';
+import { useTranslation } from 'next-i18next';
 import React, {
   ChangeEvent,
   Fragment,
   useEffect,
   useReducer,
   useState,
-} from "react";
-import { BiAlignLeft, BiAlignRight } from "react-icons/bi";
-import { BsEmojiSmileFill } from "react-icons/bs";
-import { RiArrowUpSLine, RiAttachmentLine } from "react-icons/ri";
-import { shallow } from "zustand/shallow";
-import CloseTab from "./EditorParts/CloseTab/CloseTab";
-import { TextEditorStateType } from "./EditorField.types";
-import { Button } from "@shadcn/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@shadcn/popover";
+} from 'react';
+import { BiAlignLeft, BiAlignRight } from 'react-icons/bi';
+import { BsEmojiSmileFill } from 'react-icons/bs';
+import { RiArrowUpSLine, RiAttachmentLine } from 'react-icons/ri';
+import { shallow } from 'zustand/shallow';
+import CloseTab from './EditorParts/CloseTab/CloseTab';
+import { TextEditorStateType } from './EditorField.types';
+import { Button } from '@shadcn/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@shadcn/popover';
 import {
   Menubar,
   MenubarMenu,
   MenubarTrigger,
   MenubarContent,
   MenubarItem,
-} from "@shadcn/menubar";
-import { Label } from "@shadcn/label";
-import { Input } from "@shadcn/input";
-import CustomSwitch from "@shared/components/CustomSwitch/CustomSwitch";
+} from '@shadcn/menubar';
+import { Label } from '@shadcn/label';
+import { Input } from '@shadcn/input';
+import CustomSwitch from '@localShared/components/CustomSwitch/CustomSwitch';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ENTER_BUTTON_CHECK":
+    case 'ENTER_BUTTON_CHECK':
       return {
         ...state,
         enterCheck: true,
       };
-    case "ENTER_BUTTON_UNCHECK":
+    case 'ENTER_BUTTON_UNCHECK':
       return {
         ...state,
         enterCheck: false,
       };
-    case "CC_CHANGE":
+    case 'CC_CHANGE':
       return {
         ...state,
         emails: { cc: action.payload, bcc: state.emails.bcc },
       };
-    case "BCC_CHANGE":
+    case 'BCC_CHANGE':
       return {
         ...state,
         emails: { bcc: action.payload, cc: state.emails.bcc },
       };
-    case "RESET_CC_BCC":
+    case 'RESET_CC_BCC':
       return {
         ...state,
-        emails: { cc: "", bcc: "" },
+        emails: { cc: '', bcc: '' },
       };
-    case "CANNED_QUERY_UPDATE":
+    case 'CANNED_QUERY_UPDATE':
       return {
         ...state,
         cannedQuery: action.payload,
@@ -91,7 +91,7 @@ const reducer = (state, action) => {
     //     ...state,
     //     cannedSelected: action.payload,
     //   };
-    case "DM_LINK_TOGGLE":
+    case 'DM_LINK_TOGGLE':
       return {
         ...state,
         addDMLink: action.payload,
@@ -101,27 +101,27 @@ const reducer = (state, action) => {
     //     ...state,
     //     attachments: action.payload,
     //   };
-    case "TEXT_ALIGN_LEFT":
+    case 'TEXT_ALIGN_LEFT':
       return {
         ...state,
-        textAlign: "text-left",
+        textAlign: 'text-left',
       };
-    case "TEXT_ALIGN_RIGHT":
+    case 'TEXT_ALIGN_RIGHT':
       return {
         ...state,
-        textAlign: "text-right",
+        textAlign: 'text-right',
       };
-    case "CLOSE_TAB_STATUS_UPDATE":
+    case 'CLOSE_TAB_STATUS_UPDATE':
       return {
         ...state,
         closeTabSelectedStatus: action.payload,
       };
-    case "SET_SELECTED_TICKET_ID":
+    case 'SET_SELECTED_TICKET_ID':
       return {
         ...state,
         selectedTicketIdOnClose: action.payload,
       };
-    case "SET_CONTACT_REASON_DATA":
+    case 'SET_CONTACT_REASON_DATA':
       return {
         ...state,
         // contactReasonData: { ...state.contactReasonData, ...action.payload },
@@ -132,7 +132,7 @@ const reducer = (state, action) => {
   }
 };
 
-const channels = ["telegram", "whatsapp", "tweet", "twitter_dm"];
+const channels = ['telegram', 'whatsapp', 'tweet', 'twitter_dm'];
 
 // const EditorField = ({ tab, conversationData }: { tab: string; conversationData: GET_CONVERSATION_BY_IDQuery["payload"] }) => {
 const EditorField = ({
@@ -141,20 +141,20 @@ const EditorField = ({
   data,
 }: {
   tab: string;
-  type: "conversation" | "ticket";
+  type: 'conversation' | 'ticket';
   data:
-    | GET_CONVERSATION_BY_IDQuery["payload"]
-    | GET_TICKET_BY_IDQuery["payload"];
+    | GET_CONVERSATION_BY_IDQuery['payload']
+    | GET_TICKET_BY_IDQuery['payload'];
 }) => {
   const internalMsg =
-    tab.toLowerCase() === "note" || tab.toLowerCase() === "reply internally"
+    tab.toLowerCase() === 'note' || tab.toLowerCase() === 'reply internally'
       ? true
       : false; //in conversation this is for note
   const conversationData =
-    type === "conversation" && (data as GET_CONVERSATION_BY_IDQuery["payload"]);
+    type === 'conversation' && (data as GET_CONVERSATION_BY_IDQuery['payload']);
   const ticketData =
-    type === "ticket" && (data as GET_TICKET_BY_IDQuery["payload"]);
-  const { t } = useTranslation("common");
+    type === 'ticket' && (data as GET_TICKET_BY_IDQuery['payload']);
+  const { t } = useTranslation('common');
   const queryClient = useQueryClient();
   const { cannedResponses } = useConversationStore((state) => state);
   const [isTweet, replyToID, mentionedUsers] = useTweetReplyStore(
@@ -166,12 +166,12 @@ const EditorField = ({
 
   const InitialState: TextEditorStateType = {
     enterCheck: false,
-    emails: { cc: "", bcc: "" },
-    cannedQuery: "",
+    emails: { cc: '', bcc: '' },
+    cannedQuery: '',
     // cannedSelected: null,
     addDMLink: false,
     // attachments: [],
-    textAlign: "text-left",
+    textAlign: 'text-left',
     closeTabSelectedStatus: 5,
     selectedTicketIdOnClose: null,
     contactReasonData: conversationData?.closing_contact_reason_value,
@@ -192,25 +192,25 @@ const EditorField = ({
           ? `Conversation is Closed as "${
               statusOptionsList.find((item) => item.value === data.status).label
             }"`
-          : "",
+          : '',
       editable: data.status < 5,
       extensions: [
         StarterKit,
         Link.configure({
           openOnClick: false,
           HTMLAttributes: {
-            class: "text-sky-500",
+            class: 'text-sky-500',
           },
         }),
         TextAlign.configure({
-          types: ["heading", "paragraph"],
-          alignments: ["left", "center", "right"],
-          defaultAlignment: "left",
+          types: ['heading', 'paragraph'],
+          alignments: ['left', 'center', 'right'],
+          defaultAlignment: 'left',
         }),
         Placeholder.configure({
-          placeholder: t("chattingTab.placeholder"),
+          placeholder: t('chattingTab.placeholder'),
           emptyEditorClass:
-            "before:float-left before:text-slate-300 before:h-0 before:content-[attr(data-placeholder)]",
+            'before:float-left before:text-slate-300 before:h-0 before:content-[attr(data-placeholder)]',
         }),
         // CannedCommand.configure({
         //   suggestion: suggestion,
@@ -270,8 +270,8 @@ const EditorField = ({
         attributes: {
           class: `focus:outline-none px-2 rich-text overflow-hidden ${
             data.status > 4
-              ? "cursor-not-allowed font-bold"
-              : "h-[calc(100vh-84.5vh)]"
+              ? 'cursor-not-allowed font-bold'
+              : 'h-[calc(100vh-84.5vh)]'
           }`,
         },
       },
@@ -297,9 +297,9 @@ const EditorField = ({
   };
   //add emoji
   const addEmoji = (e) => {
-    const sym = e.unified.split("-");
+    const sym = e.unified.split('-');
     const codesArray = [];
-    sym.forEach((el: string) => codesArray.push("0x" + el));
+    sym.forEach((el: string) => codesArray.push('0x' + el));
     const emoji = String.fromCodePoint(...(codesArray as number[]));
     editor.chain().focus().insertContent(emoji).run();
   };
@@ -310,8 +310,8 @@ const EditorField = ({
   };
 
   // get editor messages as different format
-  const plainMsg = editor && editor.getText({ blockSeparator: " " });
-  const htmlMsg = plainMsg !== "" ? editor && editor.getHTML() : "";
+  const plainMsg = editor && editor.getText({ blockSeparator: ' ' });
+  const htmlMsg = plainMsg !== '' ? editor && editor.getHTML() : '';
   const markdownMsg = htmlToMarkDown(htmlMsg);
 
   const exceptionChannelExists = channels.includes(
@@ -334,31 +334,31 @@ const EditorField = ({
 
   const conversationMutation = useSendMessage({
     onSuccess: (data) => {
-      ToastMessage("success", "message sent");
-      dispatch({ type: "RESET_CC_BCC" });
+      ToastMessage('success', 'message sent');
+      dispatch({ type: 'RESET_CC_BCC' });
       editor && editor.commands.clearContent();
       setAttachments([]);
     },
     onError: (error) => {
       // console.log(error, error.cause, error.code, error.config, error.isAxiosError, error.message, error.name, error.request, error.response, error.stack, error.toJSON());
       // console.log(error);
-      ToastMessage("error", error.message);
+      ToastMessage('error', error.message);
     },
   });
 
   const ticketMutation = useSendTicketMessage(ticketData.id, body, {
     onSuccess: () => {
-      ToastMessage("success", "message sent");
+      ToastMessage('success', 'message sent');
       //   setEmails({ ...emails, cc: "", bcc: "" });
       //   editor && editor.commands.clearContent();
       //   setAttachments([]);
-      dispatch({ type: "RESET_CC_BCC" });
+      dispatch({ type: 'RESET_CC_BCC' });
       editor && editor.commands.clearContent();
       setAttachments([]);
     },
     onError: (error) => {
       //   setAttachments([]);
-      ToastMessage("error", `${error.message}`);
+      ToastMessage('error', `${error.message}`);
     },
     // onSettled: () => {
     //   setAttachments([]);
@@ -367,10 +367,10 @@ const EditorField = ({
 
   const csatMutation = useSendCsat({
     onSuccess: (data) => {
-      ToastMessage("success", "CSAT survey link sent");
+      ToastMessage('success', 'CSAT survey link sent');
     },
     onError: (error) => {
-      ToastMessage("error", error.message);
+      ToastMessage('error', error.message);
     },
   });
 
@@ -381,7 +381,7 @@ const EditorField = ({
     onSuccess: (data) => {
       editor && editor.commands.clearContent();
       queryClient.invalidateQueries([
-        "conversation_details",
+        'conversation_details',
         conversationData.id,
       ]);
       // dispatch({ type: "CLOSE_TAB_STATUS_UPDATE", payload: data.status });
@@ -390,40 +390,40 @@ const EditorField = ({
           conversation_id: conversationData.id,
           message: `conversation is closed with the option "${
             statusOptionsList.find((item) => item.value === data.status).label
-          }"  ${msgContent.length > 0 ? `and message "${msgContent}"` : ""} ${
-            data?.closing_contact_reason_value && "with contact reason"
+          }"  ${msgContent.length > 0 ? `and message "${msgContent}"` : ''} ${
+            data?.closing_contact_reason_value && 'with contact reason'
           }  "${JSON.stringify(data.closing_contact_reason_value).replaceAll(
             /[\{\}"]/g,
-            " "
+            ' '
           )}"`,
           message_type: 4, //! message_type = 4 for note
         }),
         dispatch({
-          type: "SET_CONTACT_REASON_DATA",
+          type: 'SET_CONTACT_REASON_DATA',
           payload: data.closing_contact_reason_value,
         }));
-      queryClient.invalidateQueries(["message_list", conversationData.id]);
+      queryClient.invalidateQueries(['message_list', conversationData.id]);
       ToastMessage(
-        "success",
-        `Conversation ${data.status > 4 ? "Closed" : "Reopened"}`
+        'success',
+        `Conversation ${data.status > 4 ? 'Closed' : 'Reopened'}`
       );
     },
     onError: () => {
       ToastMessage(
-        "error",
-        "Something went wrong, Conversation Closing Failed"
+        'error',
+        'Something went wrong, Conversation Closing Failed'
       );
     },
   });
 
   // send message
   const sendMessage = () => {
-    type === "conversation" &&
+    type === 'conversation' &&
       conversationMutation.mutateAsync({
         conversationId: +conversationData.id,
         body,
       });
-    type === "ticket" && ticketMutation.mutateAsync();
+    type === 'ticket' && ticketMutation.mutateAsync();
     // setEmails({ cc: "", bcc: "" });
     // dispatch({ type: "RESET_CC_BCC" });
     // editor && editor.commands.clearContent();
@@ -440,7 +440,7 @@ const EditorField = ({
   };
   const handleClose = () => {
     const formValue = {
-      ...(type === "conversation" && { conversation_id: conversationData.id }),
+      ...(type === 'conversation' && { conversation_id: conversationData.id }),
       updated_status: {
         status: state.closeTabSelectedStatus,
         ...((state.closeTabSelectedStatus === 5 ||
@@ -464,7 +464,7 @@ const EditorField = ({
 
   const handleReopen = () => {
     const formValue = {
-      ...(type === "conversation" && { conversation_id: conversationData.id }),
+      ...(type === 'conversation' && { conversation_id: conversationData.id }),
       updated_status: {
         status: 1,
       },
@@ -478,13 +478,13 @@ const EditorField = ({
       editorProps: {
         handleKeyDown: (view, event) => {
           if (
-            conversationData.conversation_type === "twitter_public" ||
-            conversationData.conversation_type === "twitter_stream"
+            conversationData.conversation_type === 'twitter_public' ||
+            conversationData.conversation_type === 'twitter_stream'
           ) {
             if (
               editor.getText().trim().length !== 0 &&
               event.ctrlKey &&
-              event.key === "Enter" &&
+              event.key === 'Enter' &&
               replyToID[conversationData.id] !== undefined
             ) {
               sendMessage();
@@ -494,7 +494,7 @@ const EditorField = ({
             if (
               editor.getText().trim().length !== 0 &&
               event.ctrlKey &&
-              event.key === "Enter"
+              event.key === 'Enter'
             ) {
               sendMessage();
               return true;
@@ -507,13 +507,13 @@ const EditorField = ({
 
   return (
     <div>
-      {tab.toLowerCase() === "reply public" && !body.inReplyTo && (
+      {tab.toLowerCase() === 'reply public' && !body.inReplyTo && (
         <div className="w-fit ml-3 px-2 py-0.5 rounded-md bg-orangeCustom/10 text-orangeCustom">
           <p>please select a conversation to reply</p>
         </div>
       )}
       {/* top part */}
-      {tab.toLowerCase() === "reply public" && (
+      {tab.toLowerCase() === 'reply public' && (
         <div className="flex items-center justify-start gap-x-2 px-4 py-2 w-full overflow-hidden">
           {/* <p className="text-grayCustom text-sm font-medium">Replying to:</p> */}
           {/* {mentionsList.map((handle, index) => (
@@ -525,7 +525,7 @@ const EditorField = ({
         </div>
       )}
 
-      {tab && tab.toLowerCase() === "close" && (
+      {tab && tab.toLowerCase() === 'close' && (
         <CloseTab
           conversationData={conversationData}
           reducerData={state}
@@ -535,12 +535,12 @@ const EditorField = ({
 
       {/* from/CC/to part */}
       {/* {(tab.toLowerCase() === "reply to customer" || tab.toLowerCase() === "forward internally") && ( */}
-      {conversationData.conversation_type === "email" && (
+      {conversationData.conversation_type === 'email' && (
         <div className="border-b border-lineGrayCustom py-2 px-4">
           <div className="text-grayCustom text-sm font-medium leading-6 flex justify-between">
             <div className="flex items-center gap-x-2">
               <p>
-                From:{" "}
+                From:{' '}
                 <span className="text-darkCustom">
                   {conversationData?.id &&
                     conversationData?.inbox?.channel?.smtp_email}
@@ -548,10 +548,10 @@ const EditorField = ({
               </p>
               {/* <CustomCombobox data={listbox1} buttonClass="border-0" /> */}
             </div>
-            {tab.toLowerCase() === "reply to customer" && (
+            {tab.toLowerCase() === 'reply to customer' && (
               <div className="flex items-center gap-x-2">
                 <p>
-                  To :{" "}
+                  To :{' '}
                   <span className="text-darkCustom">
                     {conversationData?.id && conversationData?.contact?.email}
                   </span>
@@ -559,7 +559,7 @@ const EditorField = ({
                 {/* <CustomCombobox data={listbox2} buttonClass="border-0" /> */}
               </div>
             )}
-            {tab.toLowerCase() === "forward internally" && (
+            {tab.toLowerCase() === 'forward internally' && (
               <div className="flex items-center gap-x-2">
                 <p>CC </p>
               </div>
@@ -598,7 +598,7 @@ const EditorField = ({
               })}
           </div>
         )} */}
-        {tab.toLowerCase() === "note" && (
+        {tab.toLowerCase() === 'note' && (
           <p className="text-grayCustom text-xs font-medium mb-3">
             Your note will not be visible to the customer
           </p>
@@ -630,7 +630,7 @@ const EditorField = ({
         {/* tools */}
         <div
           className={`flex items-center gap-x-2 ${
-            data.status > 4 && "invisible"
+            data.status > 4 && 'invisible'
           }`}
         >
           {/* left align */}
@@ -639,11 +639,11 @@ const EditorField = ({
           </Button> */}
           <Button
             onClick={() => (
-              editor.chain().focus().setTextAlign("left").run(),
-              dispatch({ type: "TEXT_ALIGN_LEFT" })
+              editor.chain().focus().setTextAlign('left').run(),
+              dispatch({ type: 'TEXT_ALIGN_LEFT' })
             )}
             className={`${
-              editor?.isActive({ textAlign: "left" }) ? "is-active" : ""
+              editor?.isActive({ textAlign: 'left' }) ? 'is-active' : ''
             } p-1.5 hover:bg-grayCustom/[0.15] rounded`}
             // className={` p-1.5 hover:bg-grayCustom/[0.15] rounded`}
             value="left"
@@ -655,11 +655,11 @@ const EditorField = ({
           {/* right align */}
           <Button
             onClick={() => (
-              editor.chain().focus().setTextAlign("right").run(),
-              dispatch({ type: "TEXT_ALIGN_RIGHT" })
+              editor.chain().focus().setTextAlign('right').run(),
+              dispatch({ type: 'TEXT_ALIGN_RIGHT' })
             )}
             className={`${
-              editor?.isActive({ textAlign: "right" }) ? "is-active" : ""
+              editor?.isActive({ textAlign: 'right' }) ? 'is-active' : ''
             } p-1.5 hover:bg-grayCustom/[0.15] rounded`}
             // className={` p-1.5 hover:bg-grayCustom/[0.15] rounded`}
             value="right"
@@ -750,14 +750,14 @@ const EditorField = ({
         </div>
         {/* action buttons */}
         <div className="flex justify-end gap-x-2 items-center">
-          {tab.toLowerCase() === "reply public" && (
+          {tab.toLowerCase() === 'reply public' && (
             <div className="flex items-center gap-x-3">
               <p className="text-grayCustom font-medium text-xs">Add PM Link</p>
               <CustomSwitch
                 checked={state.addDMLink}
                 handler={() =>
                   dispatch({
-                    type: "DM_LINK_TOGGLE",
+                    type: 'DM_LINK_TOGGLE',
                     payload: !state.addDMLink,
                   })
                 }
@@ -770,37 +770,37 @@ const EditorField = ({
           </div>
           {data.status < 5 ? (
             <>
-              {tab.toLowerCase() !== "close" && (
+              {tab.toLowerCase() !== 'close' && (
                 <Button
                   onClick={sendMessage}
                   disabled={
                     !(
                       body?.text?.length > 0 || body?.attachments?.length > 0
                     ) ||
-                    (tab.toLowerCase() === "reply public" && !body.inReplyTo)
+                    (tab.toLowerCase() === 'reply public' && !body.inReplyTo)
                   }
                   // disabled={!(body.text.length > 0 || body.attachments.length > 0)}
                   className={`text-white font-medium rounded-md text-sm px-4 py-1.5 disabled:cursor-not-allowed ${
-                    tab.toLowerCase() === "note"
-                      ? "bg-grayCustom disabled:bg-grayCustom/20"
-                      : "bg-blueCustom disabled:bg-blueCustom/20"
+                    tab.toLowerCase() === 'note'
+                      ? 'bg-grayCustom disabled:bg-grayCustom/20'
+                      : 'bg-blueCustom disabled:bg-blueCustom/20'
                   }`}
                 >
-                  {tab.toLowerCase() === "note"
-                    ? "Add Note"
-                    : tab.toLowerCase() === "reply to customer"
-                    ? "Submit as Open"
-                    : "Send"}
+                  {tab.toLowerCase() === 'note'
+                    ? 'Add Note'
+                    : tab.toLowerCase() === 'reply to customer'
+                    ? 'Submit as Open'
+                    : 'Send'}
                 </Button>
               )}
-              {tab.toLowerCase() === "close" && (
+              {tab.toLowerCase() === 'close' && (
                 <Button
                   onClick={handleClose}
                   // disabled={!(body.text.length > 0 || body.attachments.length > 0)}
                   className={`text-white font-medium rounded-md text-sm px-5 py-2.5 disabled:cursor-not-allowed ${
-                    tab.toLowerCase() === "note"
-                      ? "bg-grayCustom disabled:bg-grayCustom/20"
-                      : "bg-blueCustom disabled:bg-blueCustom/20"
+                    tab.toLowerCase() === 'note'
+                      ? 'bg-grayCustom disabled:bg-grayCustom/20'
+                      : 'bg-blueCustom disabled:bg-blueCustom/20'
                   }`}
                 >
                   Close
@@ -824,16 +824,16 @@ const EditorField = ({
 export default EditorField;
 
 const statusOptionsList = [
-  { value: 1, label: "Unassigned" },
-  { value: 2, label: "Assigned" },
-  { value: 3, label: "Pending - Replied to customer" },
-  { value: 4, label: "Pending - Snoozed" },
-  { value: 5, label: "Resolved" },
-  { value: 6, label: "Waiting for Customer Reply" },
-  { value: 7, label: "Ticket escalated" },
-  { value: 8, label: "Ticket follow up" },
-  { value: 9, label: "Irrelevant" },
-  { value: 10, label: "No Answer required" },
+  { value: 1, label: 'Unassigned' },
+  { value: 2, label: 'Assigned' },
+  { value: 3, label: 'Pending - Replied to customer' },
+  { value: 4, label: 'Pending - Snoozed' },
+  { value: 5, label: 'Resolved' },
+  { value: 6, label: 'Waiting for Customer Reply' },
+  { value: 7, label: 'Ticket escalated' },
+  { value: 8, label: 'Ticket follow up' },
+  { value: 9, label: 'Irrelevant' },
+  { value: 10, label: 'No Answer required' },
 ];
 
 const CsatMenuButton = ({ handleCsat }) => {
@@ -852,9 +852,9 @@ const CsatMenuButton = ({ handleCsat }) => {
             <div className="px-1 py-1">
               <MenubarItem>
                 <Button
-                  onClick={() => handleCsat("en")}
+                  onClick={() => handleCsat('en')}
                   className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
-                    active ? "bg-blueCustom text-white" : "text-gray-900"
+                    active ? 'bg-blueCustom text-white' : 'text-gray-900'
                   } `}
                 >
                   {/* {active ? <EditActiveIcon className="mr-2 h-5 w-5" aria-hidden="true" /> : <EditInactiveIcon className="mr-2 h-5 w-5" aria-hidden="true" />} */}
@@ -863,9 +863,9 @@ const CsatMenuButton = ({ handleCsat }) => {
               </MenubarItem>
               <MenubarItem>
                 <Button
-                  onClick={() => handleCsat("ar")}
+                  onClick={() => handleCsat('ar')}
                   className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
-                    active ? "bg-blueCustom text-white" : "text-gray-900"
+                    active ? 'bg-blueCustom text-white' : 'text-gray-900'
                   }`}
                 >
                   {/* {active ? <EditActiveIcon className="mr-2 h-5 w-5" aria-hidden="true" /> : <EditInactiveIcon className="mr-2 h-5 w-5" aria-hidden="true" />} */}

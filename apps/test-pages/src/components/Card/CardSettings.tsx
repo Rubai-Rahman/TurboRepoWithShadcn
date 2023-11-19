@@ -1,10 +1,10 @@
-import React, { useState, ReactElement } from "react";
-import { CRMCustomerData } from "@pages/api/crm/customer";
-import { FaMoneyBillWave } from "react-icons/fa";
-import { IoWifi } from "react-icons/io5";
-import { MdFlight } from "react-icons/md";
-import { RiShoppingBag3Line } from "react-icons/ri";
-import CustomSwitch from "@shared/components/CustomSwitch/CustomSwitch";
+import React, { useState, ReactElement } from 'react';
+import { CRMCustomerData } from '@pages/api/crm/customer';
+import { FaMoneyBillWave } from 'react-icons/fa';
+import { IoWifi } from 'react-icons/io5';
+import { MdFlight } from 'react-icons/md';
+import { RiShoppingBag3Line } from 'react-icons/ri';
+import CustomSwitch from '@localShared/components/CustomSwitch/CustomSwitch';
 
 interface CardSettingsType {
   id: number;
@@ -17,7 +17,7 @@ const CardSettings = ({
   selectedCard,
   setScreen,
 }: {
-  selectedCard: CRMCustomerData["cardDetails"]["data"][0];
+  selectedCard: CRMCustomerData['cardDetails']['data'][0];
   setScreen: (value) => void;
 }) => {
   const [enabled, setEnabled] = useState(true);
@@ -32,25 +32,25 @@ const CardSettings = ({
   const cardSettingsData: CardSettingsType[] = [
     {
       id: 1,
-      title: "Mada Atheer",
+      title: 'Mada Atheer',
       cardSwitch: madaSwitch,
       icon: <IoWifi className="text-xl rotate-90" />,
     },
     {
       id: 2,
-      title: "Online Payment",
+      title: 'Online Payment',
       cardSwitch: paySwitch,
       icon: <RiShoppingBag3Line className="text-xl" />,
     },
     {
       id: 3,
-      title: "ATM withdrwal",
+      title: 'ATM withdrwal',
       cardSwitch: atmSwitch,
       icon: <FaMoneyBillWave className="text-xl" />,
     },
     {
       id: 4,
-      title: "Roaming",
+      title: 'Roaming',
       cardSwitch: roamSwitch,
       icon: <MdFlight className="text-xl" />,
     },

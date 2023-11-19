@@ -1,6 +1,6 @@
-import React from "react";
-import { InputTypes } from "./Input.types";
-import CustomComboBox from "@shared/components/CustomComboBox/CustomComboBox";
+import React from 'react';
+import { InputTypes } from './Input.types';
+import CustomComboBox from '@localShared/components/CustomComboBox/CustomComboBox';
 
 const Input = ({
   label,
@@ -8,7 +8,7 @@ const Input = ({
   buttonClass,
   labelClass,
   showIcon,
-  maxWidth = "w-1/4",
+  maxWidth = 'w-1/4',
 }: InputTypes) => {
   return (
     <div className={maxWidth}>

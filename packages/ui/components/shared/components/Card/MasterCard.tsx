@@ -1,7 +1,7 @@
-import React from "react";
-import { Button } from "@shadcn/button";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
-import { CRMCustomerData } from "@pages/api/crm/customer";
+import React from 'react';
+import { Button } from '@shadcn/button';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import { CRMCustomerData } from '@pages/api/crm/customer';
 
 export interface MasterCardType {
   name: string;
@@ -16,7 +16,7 @@ const MasterCard = ({
   setScreen,
   setSelectedCard,
 }: {
-  displayedCard: CRMCustomerData["cardDetails"]["data"];
+  displayedCard: CRMCustomerData['cardDetails']['data'];
   setScreen: (value) => void;
   setSelectedCard: (value) => void;
 }) => {
@@ -45,20 +45,20 @@ const MasterCard = ({
                   className="flex my-1 justify-around items-end w-full h-[14rem] bg-[url('/images/mcard.svg')] bg-no-repeat bg-cover pb-4 cursor-pointer border border-blueCustom rounded-lg"
                 >
                   <div>
-                    <h2 className="text-2xl">{item?.cardNumber || "-"}</h2>
+                    <h2 className="text-2xl">{item?.cardNumber || '-'}</h2>
                     {/* <p className="text-darkCustom text-xl">01/24</p> */}
                     <p className="text-darkCustom text-xl">
-                      {item?.cardHolderName || "-"}
+                      {item?.cardHolderName || '-'}
                     </p>
                   </div>
                   {/* <button className="px-2.5 py-2.5 bg-white rounded-lg uppercase">Physical</button> */}
                   <Button className="px-2.5 py-2.5 bg-white rounded-lg uppercase">
                     {item.type === 0
-                      ? "UNSPECIFIED"
+                      ? 'UNSPECIFIED'
                       : item.type === 1
-                      ? "PHYSICAL"
+                      ? 'PHYSICAL'
                       : item.type === 2
-                      ? "VIRTUAL"
+                      ? 'VIRTUAL'
                       : null}
                   </Button>
                 </div>
@@ -77,9 +77,9 @@ const MasterCard = ({
       </div> */}
       <div className="border-t pb-5">
         <CustomAccordion
-          title={`Inactive Cards (${
-            displayedCard?.filter((item) => item.status === 2).length
-          })`}
+          title={`Inactive Cards (${displayedCard?.filter(
+            (item) => item.status === 2
+          ).length})`}
           titleClass="font-thin text-sm"
         >
           <div className="px-5 py-0">
@@ -92,18 +92,18 @@ const MasterCard = ({
                     className="flex justify-around items-end w-full h-[14rem] bg-[url('/images/mcard.svg')] bg-no-repeat bg-cover pb-4 border border-blueCustom rounded-lg"
                   >
                     <div>
-                      <h2 className="text-2xl">{item?.cardNumber || "-"}</h2>
+                      <h2 className="text-2xl">{item?.cardNumber || '-'}</h2>
                       <p className="text-darkCustom text-xl">
-                        {item?.cardHolderName || "-"}
+                        {item?.cardHolderName || '-'}
                       </p>
                     </div>
                     <Button className="px-2.5 py-2.5 bg-white rounded-lg uppercase">
                       {item.type === 0
-                        ? "UNSPECIFIED"
+                        ? 'UNSPECIFIED'
                         : item.type === 1
-                        ? "PHYSICAL"
+                        ? 'PHYSICAL'
                         : item.type === 2
-                        ? "VIRTUAL"
+                        ? 'VIRTUAL'
                         : null}
                     </Button>
                   </div>

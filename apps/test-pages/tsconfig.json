@@ -10,10 +10,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["../../packages/ui/components/*"],
+      "@globalComponents/*": ["../../packages/ui/components/*"],
       "@shadcn/*": ["../../packages/ui/components/shadcn/ui/*"],
       "@lib/*": ["../../packages/ui/lib/*"],
-      "@shared/*": ["./src/shared/components/*"]
+      "@localShared/*": ["./src/shared/components/*"],
+      "@localComponents/*": ["./src/components/*"]
     }
   }
 }

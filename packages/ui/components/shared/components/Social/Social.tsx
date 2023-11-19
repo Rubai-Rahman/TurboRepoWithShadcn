@@ -1,20 +1,20 @@
-import { GET_CONTACT_BY_IDQuery } from "@api-lib/gql/graphql";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
-import { BsTwitter } from "react-icons/bs";
+import { GET_CONTACT_BY_IDQuery } from '@api-lib/gql/graphql';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { BsTwitter } from 'react-icons/bs';
 
 const Social = ({
-  maxWidth = "w-1/4",
+  maxWidth = 'w-1/4',
   contactData,
 }: {
   maxWidth: string;
-  contactData: GET_CONTACT_BY_IDQuery["payload"];
+  contactData: GET_CONTACT_BY_IDQuery['payload'];
 }) => {
-  const { t } = useTranslation("rightSide");
+  const { t } = useTranslation('rightSide');
   return (
     <div className="w-full">
-      <CustomAccordion title={t("rightSide.social")} titleClass="font-thin">
+      <CustomAccordion title={t('rightSide.social')} titleClass="font-thin">
         <div className="flex flex-col justify-start items-start gap-3 px-4">
           {/* {options.map((item) => (
               <div key={item.id} className="flex justify-start items-center gap-x-4 gap-y-5">
@@ -77,20 +77,20 @@ const Social = ({
                     <p className="text-grayCustom text-small leading-4 font-semibold">
                       <span className="text-darkCustom">
                         {contactData?.profile_twitter.tweet_count}
-                      </span>{" "}
+                      </span>{' '}
                       Tweets
                     </p>
                   </div>
                   <p className="text-grayCustom text-small leading-4 font-semibold">
                     <span className="text-darkCustom">
                       {contactData?.profile_twitter.following_count}
-                    </span>{" "}
+                    </span>{' '}
                     Following
                   </p>
                   <p className="text-grayCustom text-small leading-4 font-semibold">
                     <span className="text-darkCustom">
                       {contactData?.profile_twitter.followers_count}
-                    </span>{" "}
+                    </span>{' '}
                     Followers
                   </p>
                 </div>

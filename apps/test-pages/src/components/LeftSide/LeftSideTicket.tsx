@@ -1,24 +1,24 @@
-import SearchBlock from "@components/SearchBlock/SearchBlock";
-import TicketPreview from "@components/TicketPreview/TicketPreview";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shadcn/tabs";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
-import React from "react";
+import SearchBlock from '@components/SearchBlock/SearchBlock';
+import TicketPreview from '@components/TicketPreview/TicketPreview';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import React from 'react';
 
 const LeftSideTicket = () => {
   const tabs = [
     {
-      name: "Mine",
+      name: 'Mine',
       count: 2,
     },
     {
-      name: "Team",
+      name: 'Team',
       count: 12,
     },
     {
-      name: "Watching",
+      name: 'Watching',
     },
     {
-      name: "History",
+      name: 'History',
     },
   ];
 

@@ -7,9 +7,9 @@
   "exclude": ["node_modules"],
   "baseUrl": ".",
   "paths": {
-    "@components/*": ["../../packages/ui/components/*"],
+    "@globalcomponents/*": ["../../packages/ui/components/*"],
     "@shadcn/*": ["../../packages/ui/components/shadcn/ui/*"],
     "@lib/*": ["../../packages/ui/lib/*"],
-    "@shared/*": ["./src/shared/components/*"]
+    "@localShared/*": ["./src/shared/components/*"]
   }
 }

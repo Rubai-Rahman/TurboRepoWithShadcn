@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from "react";
-import { IoChevronDownCircleOutline } from "react-icons/io5";
-import moment from "moment";
-import LinkedDevices from "./LinkedDevices";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
-import { CRMCustomerData } from "@pages/api/crm/customer";
-import InfoIcon from "@shared/assets/icons/InfoIcon";
+import React, { Fragment, useState } from 'react';
+import { IoChevronDownCircleOutline } from 'react-icons/io5';
+import moment from 'moment';
+import LinkedDevices from './LinkedDevices';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import { CRMCustomerData } from '@pages/api/crm/customer';
+import InfoIcon from '@localShared/assets/icons/InfoIcon';
 
 const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
-  const [userAccount, setUserAccount] = useState("close");
+  const [userAccount, setUserAccount] = useState('close');
   const { accountDetails, cardDetails, customerDetails } = crmData;
   // console.log("crmData", crmData);
   const account = accountDetails?.data[0];
@@ -15,59 +15,59 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
   const customer = customerDetails.data;
 
   const currency =
-    account?.currency === "682"
-      ? " SAR"
-      : account?.currency === "840"
-      ? " USD"
+    account?.currency === '682'
+      ? ' SAR'
+      : account?.currency === '840'
+      ? ' USD'
       : null;
   const registrationStatus =
     customer.registrationStatus === 0
-      ? "UNSPECIFIED"
+      ? 'UNSPECIFIED'
       : customer.registrationStatus === 1
-      ? "WAITING_FOR_NAFATH"
+      ? 'WAITING_FOR_NAFATH'
       : customer.registrationStatus === 2
-      ? "SCREENING_REJECTED"
+      ? 'SCREENING_REJECTED'
       : customer.registrationStatus === 3
-      ? "PENDING_SCREENING"
+      ? 'PENDING_SCREENING'
       : customer.registrationStatus === 5
-      ? "NAFATH_COMPLETED"
+      ? 'NAFATH_COMPLETED'
       : customer.registrationStatus === 6
-      ? "COMPLETED"
+      ? 'COMPLETED'
       : customer.registrationStatus === 7
-      ? "MOBILE_USED_BY_OTHER_CUSTOMER"
+      ? 'MOBILE_USED_BY_OTHER_CUSTOMER'
       : customer.registrationStatus === 8
-      ? "READY_TO_SET_PASSCODE"
+      ? 'READY_TO_SET_PASSCODE'
       : customer.registrationStatus === 9
-      ? "DEVICE_LIMIT"
+      ? 'DEVICE_LIMIT'
       : customer.registrationStatus === 10
-      ? "OLD_MOBILE_VERIFIED"
+      ? 'OLD_MOBILE_VERIFIED'
       : customer.registrationStatus === 11
-      ? "MOBILE_REPLACED_WITH_OLD"
+      ? 'MOBILE_REPLACED_WITH_OLD'
       : customer.registrationStatus === 12
-      ? "DIFFERENT_MOBILE"
+      ? 'DIFFERENT_MOBILE'
       : customer.registrationStatus === 13
-      ? "ID_VERIFIED"
+      ? 'ID_VERIFIED'
       : customer.registrationStatus === 14
-      ? "SHORTLISTED"
+      ? 'SHORTLISTED'
       : customer.registrationStatus === 15
-      ? "IN_WAITLIST"
+      ? 'IN_WAITLIST'
       : customer.registrationStatus === 16
-      ? "MOBILE_VERIFIED"
+      ? 'MOBILE_VERIFIED'
       : customer.registrationStatus === 17
-      ? "INIT"
+      ? 'INIT'
       : customer.registrationStatus === 18
-      ? "NAFATH_AUTH_FAILED"
+      ? 'NAFATH_AUTH_FAILED'
       : customer.registrationStatus === 19
-      ? "NAFATH_NATIONAL_ID_DIFFERENT_FROM_SESSION_ID_NUMBER"
+      ? 'NAFATH_NATIONAL_ID_DIFFERENT_FROM_SESSION_ID_NUMBER'
       : customer.registrationStatus === 20
-      ? "PENDING_FOR_VOICE_AUTHZ"
+      ? 'PENDING_FOR_VOICE_AUTHZ'
       : customer.registrationStatus === 21
-      ? "VOICE_AUTHZ_FAILED"
-      : "-";
+      ? 'VOICE_AUTHZ_FAILED'
+      : '-';
 
   return (
     <div>
-      {userAccount === "close" && (
+      {userAccount === 'close' && (
         <Fragment>
           <CustomAccordion
             title="Saudi Riyal account"
@@ -89,7 +89,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   <p className="font-semibold text-2xl leading-8 text-blueCustom my-1 pt-2">
                     {account?.availableBalance
                       ? (account?.availableBalance / 100).toFixed(2)
-                      : "-"}
+                      : '-'}
                     <span className="text-base">{currency}</span>
                   </p>
                 </div>
@@ -101,7 +101,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   <p className="font-semibold text-2xl leading-8 text-blueCustom my-1 pt-2">
                     {account?.currentBalance
                       ? (account?.currentBalance / 100).toFixed(2)
-                      : "-"}
+                      : '-'}
                     <span className="text-base">{currency}</span>
                   </p>
                 </div>
@@ -114,19 +114,19 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   </p>
                   <p className="font-semibold text-2xl leading-8 text-darkCustom my-1">
                     {account?.status === 0
-                      ? "Unspecified"
+                      ? 'Unspecified'
                       : account?.status === 1
-                      ? "Active"
+                      ? 'Active'
                       : account?.status === 2
-                      ? "Closed"
+                      ? 'Closed'
                       : account?.status === 3
-                      ? "Frozen"
-                      : "-"}
+                      ? 'Frozen'
+                      : '-'}
                   </p>
                   <p className="font-normal text-smaller leading-5 text-grayCustom">
-                    Updated{" "}
+                    Updated{' '}
                     {moment(crmData?.lastUpdated)
-                      .format("DD-MM-YYYY - hh:mm A")
+                      .format('DD-MM-YYYY - hh:mm A')
                       .toString()}
                   </p>
                 </div>
@@ -152,19 +152,19 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   </p>
                   <p className="font-semibold text-2xl leading-8 text-darkCustom my-1">
                     {customer?.riskAssessmentRating === 0
-                      ? "Unspecified"
+                      ? 'Unspecified'
                       : customer?.riskAssessmentRating === 1
-                      ? "Low"
+                      ? 'Low'
                       : customer?.riskAssessmentRating === 2
-                      ? "Medium"
+                      ? 'Medium'
                       : customer?.riskAssessmentRating === 3
-                      ? "High"
-                      : "-"}
+                      ? 'High'
+                      : '-'}
                   </p>
                   <p className="font-normal text-smaller leading-5 text-grayCustom">
-                    Updated{" "}
+                    Updated{' '}
                     {moment(crmData?.lastUpdated)
-                      .format("DD-MM-YYYY - hh:mm A")
+                      .format('DD-MM-YYYY - hh:mm A')
                       .toString()}
                   </p>
                 </div>
@@ -176,7 +176,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                     Account Status Reason
                   </p>
                   <p className="font-semibold text-2xl leading-8 text-darkCustom my-1 pt-2">
-                    {crmData?.accountDetails?.data[0]?.statusReason || "-"}
+                    {crmData?.accountDetails?.data[0]?.statusReason || '-'}
                   </p>
                 </div>
                 <div className="w-full h-24 border border-blueCustom/30 rounded-lg flex flex-col p-2">
@@ -184,7 +184,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                     Registration Status
                   </p>
                   <p className="font-semibold text-2xl leading-8 text-darkCustom my-1 pt-2">
-                    {registrationStatus ? registrationStatus : "-"}
+                    {registrationStatus ? registrationStatus : '-'}
                   </p>
                 </div>
               </div>
@@ -192,10 +192,10 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
               <div className="flex gap-x-4 pt-4">
                 <div className="w-full flex justify-between items-center">
                   <p className="font-semibold text-small leading-5 text-black pt-1">
-                    SAR{" "}
+                    SAR{' '}
                     {account?.onHoldBalance
                       ? (account?.onHoldBalance / 100).toFixed(2)
-                      : "-"}{" "}
+                      : '-'}{' '}
                     <span className="text-redCustom"> On hold</span>
                   </p>
                   <InfoIcon style="text-grayCustom" height={16} width={16} />
@@ -204,10 +204,10 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   <p className="font-semibold text-small leading-5 text-black pt-1">
                     ID Expires on
                     <span className="pl-1">
-                      {customer?.idExpiryDate?.day || "-"}
+                      {customer?.idExpiryDate?.day || '-'}
                     </span>
-                    /<span>{customer?.idExpiryDate?.month || "-"}</span>/
-                    {customer?.idExpiryDate?.year || "-"}
+                    /<span>{customer?.idExpiryDate?.month || '-'}</span>/
+                    {customer?.idExpiryDate?.year || '-'}
                   </p>
                   <InfoIcon style="text-grayCustom" height={16} width={16} />
                 </div>
@@ -226,7 +226,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Full Name (AR)
                 </p>
                 <p className="text-darkCustom font-medium text-bigger leading-6 px-4">
-                  {customer?.nameArabic || "-"}
+                  {customer?.nameArabic || '-'}
                 </p>
               </div>
 
@@ -235,7 +235,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Full Name (ER)
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nameEnglish || "-"}
+                  {customer?.nameEnglish || '-'}
                 </p>
               </div>
 
@@ -244,9 +244,9 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Date of Birth
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  <span>{customer?.dateOfBirth?.day || "-"}-</span>
-                  <span>{customer?.dateOfBirth?.month || "-"}</span>
-                  {-customer?.dateOfBirth?.year || "-"}
+                  <span>{customer?.dateOfBirth?.day || '-'}-</span>
+                  <span>{customer?.dateOfBirth?.month || '-'}</span>
+                  {-customer?.dateOfBirth?.year || '-'}
                 </p>
               </div>
 
@@ -255,7 +255,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Place of Birth
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.placeOfBirth || "-"}
+                  {customer?.placeOfBirth || '-'}
                 </p>
               </div>
 
@@ -264,7 +264,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Nationality
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationality || "-"}
+                  {customer?.nationality || '-'}
                 </p>
               </div>
 
@@ -273,9 +273,9 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   ID Expiry Date
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  <span>{customer?.idExpiryDate?.day || "-"}-</span>
-                  <span>{customer?.idExpiryDate?.month || "-"}</span>
-                  {-customer?.idExpiryDate?.year || "-"}
+                  <span>{customer?.idExpiryDate?.day || '-'}-</span>
+                  <span>{customer?.idExpiryDate?.month || '-'}</span>
+                  {-customer?.idExpiryDate?.year || '-'}
                 </p>
               </div>
 
@@ -284,7 +284,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   ID Tag
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.tag ? customer.tag : "no-tag"}
+                  {customer?.tag ? customer.tag : 'no-tag'}
                 </p>
               </div>
 
@@ -293,7 +293,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   ID Number
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.idNumber || "-"}
+                  {customer?.idNumber || '-'}
                 </p>
               </div>
             </div>
@@ -320,26 +320,26 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
                   {customer?.occupation?.employmentStatus === 0
-                    ? "Unspecified"
+                    ? 'Unspecified'
                     : customer?.occupation?.employmentStatus === 1
-                    ? "Private Sector Employee"
+                    ? 'Private Sector Employee'
                     : customer?.occupation?.employmentStatus === 2
-                    ? "Government Sector Employee"
+                    ? 'Government Sector Employee'
                     : customer?.occupation?.employmentStatus === 3
-                    ? "Both Salaried and Self employed"
+                    ? 'Both Salaried and Self employed'
                     : customer?.occupation?.employmentStatus === 4
-                    ? "Hafiz"
+                    ? 'Hafiz'
                     : customer?.occupation?.employmentStatus === 5
-                    ? "Housewife OR Dependant"
+                    ? 'Housewife OR Dependant'
                     : customer?.occupation?.employmentStatus === 6
-                    ? "Retired"
+                    ? 'Retired'
                     : customer?.occupation?.employmentStatus === 7
-                    ? "Self Employed"
+                    ? 'Self Employed'
                     : customer?.occupation?.employmentStatus === 8
-                    ? "Student"
+                    ? 'Student'
                     : customer?.occupation?.employmentStatus === 9
-                    ? "Unemployed"
-                    : "-"}
+                    ? 'Unemployed'
+                    : '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -356,7 +356,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Sponsor Name
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.occupation?.sponsorName || "-"}
+                  {customer?.occupation?.sponsorName || '-'}
                 </p>
               </div>
             </div>
@@ -373,7 +373,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   City
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.city || "-"}
+                  {customer?.nationalAddress?.city || '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -381,7 +381,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   District
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.district || "-"}
+                  {customer?.nationalAddress?.district || '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -389,7 +389,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Building Number
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.buildingNumber || "-"}
+                  {customer?.nationalAddress?.buildingNumber || '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -397,7 +397,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Unit Number
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.unitNumber || "-"}
+                  {customer?.nationalAddress?.unitNumber || '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -405,7 +405,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Street
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.streetName || "-"}
+                  {customer?.nationalAddress?.streetName || '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -413,7 +413,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Postal Code
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.postalCode || "-"}
+                  {customer?.nationalAddress?.postalCode || '-'}
                 </p>
               </div>
               <div className="mb-3">
@@ -421,7 +421,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
                   Additional Number
                 </p>
                 <p className="text-darkCustom font-medium text-normal leading-6 px-4">
-                  {customer?.nationalAddress?.additionalNumber || "-"}
+                  {customer?.nationalAddress?.additionalNumber || '-'}
                 </p>
               </div>
             </div>
@@ -473,7 +473,7 @@ const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
         </Fragment>
       )}
 
-      {userAccount === "linked" && (
+      {userAccount === 'linked' && (
         <LinkedDevices setUserAccount={setUserAccount} />
       )}
     </div>

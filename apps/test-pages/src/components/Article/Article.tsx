@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { BiGlobe } from 'react-icons/bi';
 import ReactMarkdown from 'react-markdown';
 import { GET_ALL_KNOWLEDGE_BASE_ARTICLESQuery } from '@api-lib/gql/graphql';
-import { Knowledge_base_icon } from '@shared/icons/knowledgeBaseIcon';
+import { Knowledge_base_icon } from '@localShared/icons/knowledgeBaseIcon';
 import ViewArticle from './ViewArticle';
-import CustomDialog from '@shared/components/CustomDialog/CustomDialog';
+import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
 
 const Article = ({
   kbItem,

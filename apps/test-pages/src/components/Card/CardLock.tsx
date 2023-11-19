@@ -1,12 +1,12 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { GrClose } from "react-icons/gr";
-import { Label } from "@shadcn/label";
-import { Textarea } from "@shadcn/textarea";
-import { Button } from "@shadcn/button";
-import { CRMCustomerData } from "@pages/api/crm/customer";
-import { useCRMTempLockCard } from "@api-lib/requests";
-import { ToastMessage } from "@shared/components/Toastify/Toastify";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { GrClose } from 'react-icons/gr';
+import { Label } from '@shadcn/label';
+import { Textarea } from '@shadcn/textarea';
+import { Button } from '@shadcn/button';
+import { CRMCustomerData } from '@pages/api/crm/customer';
+import { useCRMTempLockCard } from '@api-lib/requests';
+import { ToastMessage } from '@localShared/components/Toastify/Toastify';
 
 const CardLock = ({
   crmData,
@@ -14,7 +14,7 @@ const CardLock = ({
   setScreen,
 }: {
   crmData: CRMCustomerData;
-  selectedCard: CRMCustomerData["cardDetails"]["data"][0];
+  selectedCard: CRMCustomerData['cardDetails']['data'][0];
   setScreen: (value) => void;
 }) => {
   const {
@@ -38,13 +38,13 @@ const CardLock = ({
       {
         onSuccess: (data) => {
           data.data !== null &&
-            ToastMessage("success", "Card Lock successfully");
+            ToastMessage('success', 'Card Lock successfully');
           data.data === null &&
             data.error.code > 0 &&
-            ToastMessage("error", "Card Lock failed");
+            ToastMessage('error', 'Card Lock failed');
         },
         onError: (err) => {
-          ToastMessage("error", "Card Lock failed");
+          ToastMessage('error', 'Card Lock failed');
         },
       }
     );
@@ -92,8 +92,8 @@ const CardLock = ({
           <select
             id="reason"
             required={true}
-            {...register("reason")}
-            style={{ background: "none" }}
+            {...register('reason')}
+            style={{ background: 'none' }}
           >
             <option value={0}>UNSPECIFIED</option>
             <option value={1}>MISPLACEMENT</option>
@@ -116,7 +116,7 @@ const CardLock = ({
             placeholder="Write text here..."
             required={true}
             rows={4}
-            {...register("comment")}
+            {...register('comment')}
           ></Textarea>
         </div>
         <div className="flex justify-center items-center gap-3 mt-5">

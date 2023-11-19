@@ -1,21 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import { BiEnvelope } from "react-icons/bi";
-import { BsGlobe2 } from "react-icons/bs";
-import moment from "moment";
-import { useRouter } from "next/router";
-import { ChatPreviewTypes } from "./ChatPreview.types";
-import TwitterListeningIcon from "@shared/icons/TwitterListeningIcon";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import { BiEnvelope } from 'react-icons/bi';
+import { BsGlobe2 } from 'react-icons/bs';
+import moment from 'moment';
+import { useRouter } from 'next/router';
+import { ChatPreviewTypes } from './ChatPreview.types';
+import TwitterListeningIcon from '@localShared/icons/TwitterListeningIcon';
 
 const ChatPreview = ({
   selected,
   resolved,
   data,
-  maxWidth = "w-1/4",
+  maxWidth = 'w-1/4',
   tab,
-  assigned_to = "Hafiz Ahmed",
+  assigned_to = 'Hafiz Ahmed',
 }: ChatPreviewTypes) => {
   const router = useRouter();
   const inboxId = +router.query.inboxId;
@@ -24,17 +24,17 @@ const ChatPreview = ({
   const labelId = router.query.labelId;
 
   const pathUrl = (cnvId: number) => {
-    return router.pathname.includes("/inbox")
+    return router.pathname.includes('/inbox')
       ? `/inbox/${inboxId}/conversations/${cnvId}`
-      : router.pathname.includes("/smart-folder")
+      : router.pathname.includes('/smart-folder')
       ? `/smart-folder/${smartFolderId}/conversations/${cnvId}`
-      : router.pathname.includes("/mentions")
+      : router.pathname.includes('/mentions')
       ? `/mentions/conversations/${cnvId}`
-      : router.pathname.includes("/team")
+      : router.pathname.includes('/team')
       ? `/team/${teamId}/conversations/${cnvId}`
-      : router.pathname.includes("/label")
+      : router.pathname.includes('/label')
       ? `/label/${labelId as string}/conversations/${cnvId}`
-      : router.pathname.includes("/awaiting-approvals")
+      : router.pathname.includes('/awaiting-approvals')
       ? `/awaiting-approvals/conversations/${cnvId}`
       : `/conversations/${cnvId}`;
   };
@@ -123,8 +123,8 @@ const ChatPreview = ({
           <div
             className={`flex gap-x-3 border-l-2 h-full py-5 px-4 ${
               selected
-                ? "bg-blueCustom/5 border-blueCustom"
-                : "border-transparent"
+                ? 'bg-blueCustom/5 border-blueCustom'
+                : 'border-transparent'
             }`}
           >
             <div className="w-fit flex flex-col gap-y-2">
@@ -145,21 +145,21 @@ const ChatPreview = ({
               )}
 
               <div className="flex justify-center mt-1">
-                {data?.conversation_type === "twitter_stream" && (
+                {data?.conversation_type === 'twitter_stream' && (
                   <div className="w-6 h-6 rounded-full flex justify-center items-center bg-twitter">
                     <TwitterListeningIcon color="#fff" width="14" height="14" />
                   </div>
                 )}
-                {data?.conversation_type === "twitter_public" && (
+                {data?.conversation_type === 'twitter_public' && (
                   <AiFillTwitterCircle className="text-2xl text-twitter" />
                 )}
-                {data?.conversation_type === "twitter_private" && (
+                {data?.conversation_type === 'twitter_private' && (
                   <AiFillTwitterCircle className="text-2xl text-twitter" />
                 )}
-                {data?.conversation_type === "email" && (
+                {data?.conversation_type === 'email' && (
                   <BiEnvelope className="text-2xl text-orangeCustom" />
                 )}
-                {data?.conversation_type === "web_chat" && (
+                {data?.conversation_type === 'web_chat' && (
                   <BsGlobe2 className="text-2xl bg-black text-white rounded-full p-1" />
                 )}
                 {/* {data?.channel.name === "whatsapp" && (
@@ -183,7 +183,7 @@ const ChatPreview = ({
                   <p className="text-md font-semibold leading-6 text-darkCustom capitalize">
                     {data?.contact?.name
                       ? data.contact.name
-                      : "No name assigned"}
+                      : 'No name assigned'}
                   </p>
                   {/* <p className="text-small text-textGray font-medium leading-4">
                     {data?.channel.name === "twitter" && data?.channel.handle}
@@ -226,7 +226,7 @@ const ChatPreview = ({
               <p className="font-medium text-xs leading-4 text-darkCustom line-clamp-2 break-all mt-4">
                 {data?.messages.length > 0
                   ? data?.messages[0]?.message
-                  : "No messages for this"}
+                  : 'No messages for this'}
               </p>
 
               <div className="flex justify-between text-xs font-medium leading-4 text-grayCustom">
@@ -234,25 +234,25 @@ const ChatPreview = ({
                 <p className={`text-xs font-medium text-grayCustom`}>{`${
                   data?.inbox?.channel_type
                     .toLowerCase()
-                    .includes("twitterstream")
+                    .includes('twitterstream')
                     ? `Stream To ${data?.messages[0]?.conversation?.inbox?.channel?.value}`
-                    : data?.inbox?.channel_type.toLowerCase().includes("email")
+                    : data?.inbox?.channel_type.toLowerCase().includes('email')
                     ? `Email To ${data?.messages[0]?.conversation?.inbox?.channel?.imap_username}`
                     : data?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("twitterprofile")
+                        .includes('twitterprofile')
                     ? `Mention To @${data?.messages[0]?.conversation?.inbox?.channel?.screen_name}`
                     : data?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("twitterprivate")
+                        .includes('twitterprivate')
                     ? `DM To @${data?.messages[0]?.conversation?.inbox?.channel?.screen_name}`
-                    : ""
+                    : ''
                 }`}</p>
                 {/* //! seted as last message coming time */}
                 <p>
                   {data?.messages
                     ? moment(data?.messages[0]?.created_at).format(
-                        "DD MMM YYYY - h:m A"
+                        'DD MMM YYYY - h:m A'
                       )
                     : null}
                 </p>

@@ -7,67 +7,67 @@ import {
   useTicketById,
   useTicketFormList,
   useUpdateTicket,
-} from "@api-lib/graphql";
-import { FixedToastMessage, ToastMessage } from "@module/shared/Toastify";
-import { useQueryClient } from "@tanstack/react-query";
-import moment from "moment";
-import { useSession } from "next-auth/react";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
-import { BiSave } from "react-icons/bi";
-import { BsBoxArrowUpRight } from "react-icons/bs";
-import { RxCross2, RxPencil1 } from "react-icons/rx";
-import { Model } from "survey-core";
-import "survey-core/defaultV2.min.css";
-import { Survey } from "survey-react";
-import "survey-react/survey.min.css";
-import { Button } from "@shadcn/button";
-import { Input } from "@shadcn/input";
-import EditIcon from "@shared/icons/EditIcon";
-import CustomDialog from "@shared/components/CustomDialog/CustomDialog";
+} from '@api-lib/graphql';
+import { FixedToastMessage, ToastMessage } from '@module/shared/Toastify';
+import { useQueryClient } from '@tanstack/react-query';
+import moment from 'moment';
+import { useSession } from 'next-auth/react';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useMemo, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { BiSave } from 'react-icons/bi';
+import { BsBoxArrowUpRight } from 'react-icons/bs';
+import { RxCross2, RxPencil1 } from 'react-icons/rx';
+import { Model } from 'survey-core';
+import 'survey-core/defaultV2.min.css';
+import { Survey } from 'survey-react';
+import 'survey-react/survey.min.css';
+import { Button } from '@shadcn/button';
+import { Input } from '@shadcn/input';
+import EditIcon from '@localShared/icons/EditIcon';
+import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
 
 const surveyCss = {
-  root: "bg-white",
-  container: "w-full",
-  body: "w-full mx-0 pr-2",
+  root: 'bg-white',
+  container: 'w-full',
+  body: 'w-full mx-0 pr-2',
   // container: "ml-5",
   // row: "",
   // pageRow: "w-full",
   // header: "bg-white",
   page: {
-    root: "pb-4",
+    root: 'pb-4',
   },
   question: {
     // content: "my-3 bg-red-500",
-    title: "text-sm font-medium text-grayCustom py-1",
-    asCell: "w-full bg-red-500",
-    number: "hidden",
-    input: "bg-red-500",
+    title: 'text-sm font-medium text-grayCustom py-1',
+    asCell: 'w-full bg-red-500',
+    number: 'hidden',
+    input: 'bg-red-500',
   },
   dropdown: {
-    root: "border-none shadow-none",
+    root: 'border-none shadow-none',
     control:
-      "border-2 border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-dropdown",
+      'border-2 border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-dropdown',
   },
   text: {
-    root: "border-2 border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-text",
+    root: 'border-2 border-lineGrayCustom rounded p-2 flex justify-center items-center text-grayCustom sd-text',
   },
   panel: {
-    title: "text-md font-medium text-slate-700 py-1",
+    title: 'text-md font-medium text-slate-700 py-1',
   },
 };
 
 const TicketProperties = () => {
   const { query } = useRouter();
-  const { t } = useTranslation("ticket");
+  const { t } = useTranslation('ticket');
   const ticketId = +query.ticketId;
   const queryClient = useQueryClient();
   const [selectedTeamId, setSelectedTeamId] = useState<number>();
-  const [currentState, setCurrentState] = useState<"preview" | "edit">(
-    "preview"
+  const [currentState, setCurrentState] = useState<'preview' | 'edit'>(
+    'preview'
   );
   const [formValuesArr, setFormValuesArr] = useState<any[]>([]);
   const { data: surveyFormData, isLoading } = useTicketFormList();
@@ -103,23 +103,23 @@ const TicketProperties = () => {
 
   const { mutate: updateTicketMutation } = useUpdateTicket({
     onSuccess: () => {
-      queryClient.invalidateQueries(["tickets_by_id", ticketId]);
-      queryClient.invalidateQueries(["filtered_tickets"]);
-      ToastMessage("success", "Ticket updated successfully");
+      queryClient.invalidateQueries(['tickets_by_id', ticketId]);
+      queryClient.invalidateQueries(['filtered_tickets']);
+      ToastMessage('success', 'Ticket updated successfully');
     },
     onError: () => {
-      ToastMessage("error", "Ticket update failed");
+      ToastMessage('error', 'Ticket update failed');
     },
   });
   const { mutate: updateConversationId } = useLinkConversationToTicket({
     onSuccess: () => {
-      queryClient.invalidateQueries(["filtered_tickets"]);
-      queryClient.invalidateQueries(["tickets_by_id", ticketId]);
+      queryClient.invalidateQueries(['filtered_tickets']);
+      queryClient.invalidateQueries(['tickets_by_id', ticketId]);
       closeModal();
-      ToastMessage("success", "Conversation successfully linked to ticket.");
+      ToastMessage('success', 'Conversation successfully linked to ticket.');
     },
     onError: () => {
-      ToastMessage("error", "Conversation link failed");
+      ToastMessage('error', 'Conversation link failed');
     },
   });
 
@@ -162,7 +162,7 @@ const TicketProperties = () => {
       source: data.source,
       priority: +data.priority,
       status: +data.status,
-      ...(data.assigned_agent !== ""
+      ...(data.assigned_agent !== ''
         ? { assigned_agent: +data.assigned_agent }
         : { assigned_agent: null }),
       assigned_team: +data.assigned_team,
@@ -170,12 +170,12 @@ const TicketProperties = () => {
     };
     // survey.completeLastPage();
     if (Object.keys(survey?.data).length === 0) {
-      FixedToastMessage("error", "Please fill-up surveyJS form", "colored");
+      FixedToastMessage('error', 'Please fill-up surveyJS form', 'colored');
     } else {
       survey.onCompleting.add(updateTicketMutation(newData));
     }
     survey.clear(false);
-    setCurrentState("preview");
+    setCurrentState('preview');
   };
 
   return (
@@ -183,9 +183,9 @@ const TicketProperties = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-between items-center border-b border-lineGrayCustom px-4 py-1.5">
           <p className="text-big font-semibold leading-6 text-darkCustom">
-            {t("ticket.ticketProperties.title")}
+            {t('ticket.ticketProperties.title')}
           </p>
-          {currentState === "edit" && (
+          {currentState === 'edit' && (
             <div className="flex justify-center items-center gap-2">
               <Button
                 type="submit"
@@ -194,7 +194,7 @@ const TicketProperties = () => {
                 <BiSave className="h-5 w-5 text-greenCustom" />
               </Button>
               <Button
-                onClick={() => setCurrentState("preview")}
+                onClick={() => setCurrentState('preview')}
                 className="bg-redCustom/10 rounded-full p-2"
               >
                 <RxCross2 className="h-5 w-5 text-redCustom" />
@@ -202,33 +202,33 @@ const TicketProperties = () => {
             </div>
           )}
 
-          {currentUserRole === "agent" &&
+          {currentUserRole === 'agent' &&
             currentUserId === data?.agent?.id &&
-            currentState === "preview" && (
+            currentState === 'preview' && (
               <Button
                 className="w-8 h-8 rounded-full bg-blueCustom/10 flex justify-center items-center cursor-pointer"
-                onClick={() => setCurrentState("edit")}
+                onClick={() => setCurrentState('edit')}
               >
                 <EditIcon color="#3460FB" />
               </Button>
             )}
 
-          {currentUserRole === "supervisor" &&
+          {currentUserRole === 'supervisor' &&
             teamsID?.includes(data?.team?.id) &&
-            currentState === "preview" && (
+            currentState === 'preview' && (
               <Button
                 className="w-8 h-8 rounded-full bg-blueCustom/10 flex justify-center items-center cursor-pointer"
-                onClick={() => setCurrentState("edit")}
+                onClick={() => setCurrentState('edit')}
               >
                 <EditIcon color="#3460FB" />
               </Button>
             )}
 
-          {currentUserRole === "administrator" &&
-            currentState === "preview" && (
+          {currentUserRole === 'administrator' &&
+            currentState === 'preview' && (
               <Button
                 className="w-8 h-8 rounded-full bg-blueCustom/10 flex justify-center items-center cursor-pointer"
-                onClick={() => setCurrentState("edit")}
+                onClick={() => setCurrentState('edit')}
               >
                 <EditIcon color="#3460FB" />
               </Button>
@@ -285,7 +285,7 @@ const TicketProperties = () => {
 
           <div>
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.title")}
+              {t('ticket.ticketProperties.fields.title')}
             </p>
             <p className="text-bigger font-semibold leading-6 text-darkCustom">
               {data.subject}
@@ -294,7 +294,7 @@ const TicketProperties = () => {
 
           <div className="mt-5">
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.created")}
+              {t('ticket.ticketProperties.fields.created')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
               {data.created_user?.name}
@@ -303,16 +303,16 @@ const TicketProperties = () => {
 
           <div className="mt-5">
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.date")}
+              {t('ticket.ticketProperties.fields.date')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
-              {moment(data.created_at).format("DD MMM YYYY - hh:mm a")}
+              {moment(data.created_at).format('DD MMM YYYY - hh:mm a')}
             </p>
           </div>
 
           <div className="mt-5">
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.breached")}
+              {t('ticket.ticketProperties.fields.breached')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
               -
@@ -320,7 +320,7 @@ const TicketProperties = () => {
           </div>
           <div className="mt-5">
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.conversation.title")}
+              {t('ticket.ticketProperties.fields.conversation.title')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
               {!!data.conversation_id ? (
@@ -336,7 +336,7 @@ const TicketProperties = () => {
                     className="ml-3 text-blueCustom cursor-pointer"
                     onClick={() => setModalOpen(true)}
                   >
-                    {t("ticket.ticketProperties.fields.conversation.change")}
+                    {t('ticket.ticketProperties.fields.conversation.change')}
                   </span>
                 </>
               ) : (
@@ -345,7 +345,7 @@ const TicketProperties = () => {
                   onClick={() => setModalOpen(true)}
                 >
                   {t(
-                    "ticket.ticketProperties.fields.conversation.linkConversation"
+                    'ticket.ticketProperties.fields.conversation.linkConversation'
                   )}
                 </span>
               )}
@@ -354,19 +354,19 @@ const TicketProperties = () => {
 
           <div className="my-3">
             <p className="font-medium text-small leading-4 text-grayCustom mt-3">
-              {" "}
-              {t("ticket.ticketProperties.fields.source")}
+              {' '}
+              {t('ticket.ticketProperties.fields.source')}
             </p>
-            {currentState === "preview" && (
+            {currentState === 'preview' && (
               <p className="text-normal leading-6 font-medium text-darkCustom capitalize">
                 {data.source}
               </p>
             )}
-            {currentState === "edit" && (
+            {currentState === 'edit' && (
               <select
                 className="border border-lineGrayCustom bg-transparent py-3 px-4 my-2 rounded w-full leading-4 text-grayCustom placeholder:text-grayCustom outline-none focus:outline-none"
                 defaultValue={data.source}
-                {...register("source", { required: true })}
+                {...register('source', { required: true })}
               >
                 <option value="">Select Source</option>
                 <option value="twitter" className="text-darkCustom">
@@ -387,28 +387,28 @@ const TicketProperties = () => {
 
           <div className="my-3">
             <p className="font-medium text-small leading-4 text-grayCustom mt-3">
-              {t("ticket.ticketProperties.fields.status")}
+              {t('ticket.ticketProperties.fields.status')}
             </p>
-            {currentState === "preview" && (
+            {currentState === 'preview' && (
               <p className="text-normal leading-6 font-medium text-darkCustom capitalize">
                 {data.status === 4
-                  ? "closed"
+                  ? 'closed'
                   : data.status === 3
-                  ? "resolved"
+                  ? 'resolved'
                   : data.status === 2
-                  ? "waiting for customer reply"
+                  ? 'waiting for customer reply'
                   : data.status === 1
-                  ? "progress"
+                  ? 'progress'
                   : data.status === 0
-                  ? "open"
-                  : "-"}
+                  ? 'open'
+                  : '-'}
               </p>
             )}
-            {currentState === "edit" && (
+            {currentState === 'edit' && (
               <select
                 className="border border-lineGrayCustom bg-transparent capitalize py-3 px-4 my-2 rounded w-full leading-4 text-grayCustom placeholder:text-grayCustom outline-none focus:outline-none"
                 defaultValue={data.status}
-                {...register("status", { required: true })}
+                {...register('status', { required: true })}
               >
                 <option value="" disabled>
                   Select Source
@@ -434,26 +434,26 @@ const TicketProperties = () => {
 
           <div className="my-3">
             <p className="font-medium text-small leading-4 text-grayCustom mt-3">
-              {t("ticket.ticketProperties.fields.priority")}
+              {t('ticket.ticketProperties.fields.priority')}
             </p>
-            {currentState === "preview" && (
+            {currentState === 'preview' && (
               <p className="text-normal leading-6 font-medium text-darkCustom capitalize">
                 {data.priority === 3
-                  ? "urgent"
+                  ? 'urgent'
                   : data.priority === 2
-                  ? "high"
+                  ? 'high'
                   : data.priority === 1
-                  ? "medium"
+                  ? 'medium'
                   : data.priority === 0
-                  ? "low"
-                  : "-"}
+                  ? 'low'
+                  : '-'}
               </p>
             )}
-            {currentState === "edit" && (
+            {currentState === 'edit' && (
               <select
                 className="border border-lineGrayCustom text-grayCustom bg-transparent capitalize py-3 px-4 my-2 rounded w-full leading-4 placeholder:text-grayCustom outline-none focus:outline-none"
                 defaultValue={data.priority}
-                {...register("priority", { required: true })}
+                {...register('priority', { required: true })}
               >
                 <option value="" disabled>
                   Select Source
@@ -476,21 +476,21 @@ const TicketProperties = () => {
         </div>
         <div className="flex justify-between items-center border-b border-lineGrayCustom px-4 py-3">
           <p className="text-big font-semibold leading-6 text-darkCustom">
-            {t("ticket.ticketProperties.fields.assignDetails")}
+            {t('ticket.ticketProperties.fields.assignDetails')}
           </p>
         </div>
 
         <div className="my-3 px-4">
           <div>
             <p className="font-medium text-small leading-4 text-grayCustom mt-3">
-              {t("ticket.ticketProperties.fields.assignTeam")}
+              {t('ticket.ticketProperties.fields.assignTeam')}
             </p>
-            {currentState === "preview" && (
+            {currentState === 'preview' && (
               <p className="text-normal leading-6 font-medium text-darkCustom capitalize">
-                {data?.team?.name || "No team Assigned"}
+                {data?.team?.name || 'No team Assigned'}
               </p>
             )}
-            {currentState === "edit" && (
+            {currentState === 'edit' && (
               // <select
               //   className="w-full border-2 rounded-md border-lineGrayCustom focus:outline-none py-2"
               //   defaultValue={data.priority}
@@ -505,10 +505,10 @@ const TicketProperties = () => {
               <select
                 className="border border-lineGrayCustom text-grayCustom bg-transparent capitalize py-3 px-4 my-2 rounded w-full leading-4 placeholder:text-grayCustom outline-none focus:outline-none"
                 defaultValue={data?.team?.id}
-                {...register("assigned_team", { required: true })}
+                {...register('assigned_team', { required: true })}
                 onChange={(e) => {
                   setSelectedTeamId(+e.target.value),
-                    setValue("assigned_agent", "");
+                    setValue('assigned_agent', '');
                 }}
               >
                 <option>Select a Team</option>
@@ -524,14 +524,14 @@ const TicketProperties = () => {
 
           <div className="mt-5">
             <p className="font-medium text-small leading-4 text-grayCustom mt-3">
-              {t("ticket.ticketProperties.fields.assignTo")}
+              {t('ticket.ticketProperties.fields.assignTo')}
             </p>
-            {currentState === "preview" && (
+            {currentState === 'preview' && (
               <p className="text-normal leading-6 font-medium text-darkCustom capitalize">
-                {data?.agent?.name || "No agent assigned"}
+                {data?.agent?.name || 'No agent assigned'}
               </p>
             )}
-            {currentState === "edit" && !!teamSingle && (
+            {currentState === 'edit' && !!teamSingle && (
               // <select
               //   className="w-full border-2 rounded-md border-lineGrayCustom focus:outline-none py-2"
               //   defaultValue={data.priority}
@@ -546,7 +546,7 @@ const TicketProperties = () => {
               <select
                 className="border border-lineGrayCustom text-grayCustom bg-transparent capitalize py-3 px-4 my-2 rounded w-full leading-4 placeholder:text-grayCustom outline-none focus:outline-none"
                 defaultValue={data?.agent?.id}
-                {...register("assigned_agent")}
+                {...register('assigned_agent')}
               >
                 <option value="">Select a Agent</option>
                 {teamSingle.team_members.map((agent) => (
@@ -562,7 +562,7 @@ const TicketProperties = () => {
 
       <div className="flex justify-between items-center border-b border-lineGrayCustom px-4 py-2">
         <p className="text-big font-semibold leading-6 text-darkCustom">
-          {t("ticket.ticketProperties.fields.contactDetails.title")}
+          {t('ticket.ticketProperties.fields.contactDetails.title')}
         </p>
         <Link
           href={`/contacts/${data.contact_id}`}
@@ -576,7 +576,7 @@ const TicketProperties = () => {
         <div className="px-4 flex flex-col gap-y-4">
           <div>
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.contactDetails.name")}
+              {t('ticket.ticketProperties.fields.contactDetails.name')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
               {data.contact?.name}
@@ -584,18 +584,18 @@ const TicketProperties = () => {
           </div>
           <div>
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.contactDetails.email")}
+              {t('ticket.ticketProperties.fields.contactDetails.email')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
-              {data.contact.email ? data.contact.email : "-"}
+              {data.contact.email ? data.contact.email : '-'}
             </p>
           </div>
           <div>
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {t("ticket.ticketProperties.fields.contactDetails.phone")}
+              {t('ticket.ticketProperties.fields.contactDetails.phone')}
             </p>
             <p className="text-normal leading-6 font-medium text-darkCustom">
-              {data.contact.phone_number ? data.contact.phone_number : "-"}
+              {data.contact.phone_number ? data.contact.phone_number : '-'}
             </p>
           </div>
         </div>
@@ -603,7 +603,7 @@ const TicketProperties = () => {
 
       <div className="flex justify-between items-center border-b border-lineGrayCustom px-4 py-2">
         <p className="text-big font-semibold leading-6 text-darkCustom">
-          {t("ticket.ticketProperties.fields.survey.title")}
+          {t('ticket.ticketProperties.fields.survey.title')}
         </p>
         {/* <Link href={`/contacts/${data.contact_id}`}>
           <a className="bg-blueCustom/10 rounded-full p-2">
@@ -654,7 +654,7 @@ const TicketProperties = () => {
         </div>
       </div>*/}
 
-      {currentState === "preview" && (
+      {currentState === 'preview' && (
         <div className="py-6 px-4 flex flex-col gap-y-4">
           {formValuesArr.length > 0 ? (
             formValuesArr?.map((item, index) => (
@@ -669,13 +669,13 @@ const TicketProperties = () => {
             ))
           ) : (
             <p className="text-normal leading-6 font-medium text-darkCustom">
-              {t("ticket.ticketProperties.fields.survey.emptySurvey")}
+              {t('ticket.ticketProperties.fields.survey.emptySurvey')}
             </p>
           )}
         </div>
       )}
 
-      {currentState === "edit" && (
+      {currentState === 'edit' && (
         <div className="pt-6 px-4 flex flex-col gap-y-4">
           <Survey model={survey} css={surveyCss} />
         </div>
@@ -688,17 +688,17 @@ const TicketProperties = () => {
             className="flex flex-col gap-3"
           >
             <h2>
-              {t("ticket.ticketProperties.fields.conversationLink.title")}
+              {t('ticket.ticketProperties.fields.conversationLink.title')}
             </h2>
             <Input
               required={true}
               type="number"
-              {...register("conversation_id", { required: "true" })}
+              {...register('conversation_id', { required: 'true' })}
               placeholder="Place conversation ID here (only number)"
-              style={{ outline: "none" }}
+              style={{ outline: 'none' }}
             />
             <Button type="submit">
-              {t("ticket.ticketProperties.fields.conversationLink.buttonText")}
+              {t('ticket.ticketProperties.fields.conversationLink.buttonText')}
             </Button>
           </form>
         )}

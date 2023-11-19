@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { ProfileInformationTypes } from "./ProfileInformation.types";
-import { useRouter } from "next/router";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsBoxArrowUpRight } from "react-icons/bs";
-import { FiEdit2 } from "react-icons/fi";
-import { IoMdFemale, IoMdMale } from "react-icons/io";
-import { TbPhone, TbTicket } from "react-icons/tb";
-import { Button } from "@shadcn/button";
-import Link from "next/link";
-import Image from "next/image";
-import { useTranslation } from "next-i18next";
-import GetUserCardInfo from "./GetUserCardInfo";
-import CustomDialog from "@shared/components/CustomDialog/CustomDialog";
+import React, { useState } from 'react';
+import { ProfileInformationTypes } from './ProfileInformation.types';
+import { useRouter } from 'next/router';
+import { AiOutlineMail } from 'react-icons/ai';
+import { BsBoxArrowUpRight } from 'react-icons/bs';
+import { FiEdit2 } from 'react-icons/fi';
+import { IoMdFemale, IoMdMale } from 'react-icons/io';
+import { TbPhone, TbTicket } from 'react-icons/tb';
+import { Button } from '@shadcn/button';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+import GetUserCardInfo from './GetUserCardInfo';
+import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
 
 const profileOptions = [
   // { item: "chat", icon: BsChat },
   // { item: "arrow", icon: TbArrowMerge },
-  { item: "ticket", icon: TbTicket },
-  { item: "edit", icon: FiEdit2 },
+  { item: 'ticket', icon: TbTicket },
+  { item: 'edit', icon: FiEdit2 },
 ];
 
 const ProfileInformation = ({
-  maxWidth = "w-1/4",
+  maxWidth = 'w-1/4',
   setSelected,
   contactData,
   handleCrmData,
@@ -29,7 +29,7 @@ const ProfileInformation = ({
 }: ProfileInformationTypes) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation("rightSide");
+  const { t } = useTranslation('rightSide');
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -40,7 +40,7 @@ const ProfileInformation = ({
     <div className={`${maxWidth}`}>
       <div className="flex justify-start items-center gap-x-3 px-4 py-1">
         {profileOptions.map((option, index) =>
-          option.item === "ticket" ? (
+          option.item === 'ticket' ? (
             <div
               key={option.item}
               className="w-10 h-10 bg-blueCustom/10 rounded-full flex items-center justify-center cursor-pointer"
@@ -89,10 +89,10 @@ const ProfileInformation = ({
 
           {contactData?.gender && (
             <div className="flex justify-center items-center w-6 h-6 bg-blueCustom rounded-full absolute -top-1.5 right-0">
-              {contactData.gender?.toLowerCase() === "male" && (
+              {contactData.gender?.toLowerCase() === 'male' && (
                 <IoMdMale className="text-sm font-bold text-white" />
               )}
-              {contactData.gender?.toLowerCase() === "female" && (
+              {contactData.gender?.toLowerCase() === 'female' && (
                 <IoMdFemale className="text-sm font-bold text-white" />
               )}
             </div>
@@ -109,7 +109,7 @@ const ProfileInformation = ({
             <span className="line-clamp-1">{contactData?.name}</span>
           </h5>
           <p className="font-medium leading-4 text-small text-grayCustom">
-            {contactData?.city ? contactData.city : "No Address Available"}
+            {contactData?.city ? contactData.city : 'No Address Available'}
           </p>
         </div>
       </div>
@@ -132,20 +132,20 @@ const ProfileInformation = ({
           <p className="text-blueCustom font-semibold text-small leading-4">
             {contactData?.phone_number
               ? contactData?.phone_number
-              : "No phone number available"}
+              : 'No phone number available'}
           </p>
           <Button
             disabled={!!crmData}
             onClick={() => setIsOpen(true)}
             className="outline-none px-3 py-1 text-sm border rounded-md  text-blueCustom hover:text-grayCustom disabled:text-grayCustom font-medium"
           >
-            {t("rightSide.tweeqInfo.buttonName")}
+            {t('rightSide.tweeqInfo.buttonName')}
           </Button>
         </div>
         <div className="flex gap-x-3 items-center mt-1">
           <AiOutlineMail className="text-grayCustom text-xl" />
           <p className="font-semibold text-small leading-4 text-darkCustom">
-            {contactData?.email ? contactData?.email : "No Email available"}
+            {contactData?.email ? contactData?.email : 'No Email available'}
           </p>
         </div>
       </div>

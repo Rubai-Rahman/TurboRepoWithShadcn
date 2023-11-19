@@ -1,10 +1,10 @@
-import React from "react";
-import { FaApple } from "react-icons/fa";
-import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
-import { TransactionDataType } from "./SingleProfileTransaction.types";
-import { RxCross1 } from "react-icons/rx";
-import moment from "moment";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
+import React from 'react';
+import { FaApple } from 'react-icons/fa';
+import { FiArrowDownLeft, FiArrowUpRight } from 'react-icons/fi';
+import { TransactionDataType } from './SingleProfileTransaction.types';
+import { RxCross1 } from 'react-icons/rx';
+import moment from 'moment';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
 
 const SingleProfileTransaction = ({
   setSingleTransaction,
@@ -15,15 +15,15 @@ const SingleProfileTransaction = ({
 }) => {
   // console.log(activeTransactionData);
   const transactionIcon = (item: TransactionDataType) => {
-    return item.type === "INCOMING_P2P_TRANSFER" ? (
+    return item.type === 'INCOMING_P2P_TRANSFER' ? (
       <div className="h-[70px] w-20 rounded-full flex justify-center items-center bg-[#3AB545]/10">
         <FiArrowDownLeft className="text-[#3AB545] text-5xl font-semibold " />
       </div>
-    ) : item.type === "OUTGOING_P2P_TRANSFER" ? (
+    ) : item.type === 'OUTGOING_P2P_TRANSFER' ? (
       <div className="h-[70px] w-20 rounded-full flex justify-center items-center bg-[#3AB545]/10">
         <FiArrowUpRight className="text-blueCustom text-5xl font-semibold " />
       </div>
-    ) : item.type === "NOON_TOPUP_VISA_APPLE_PAY" ? (
+    ) : item.type === 'NOON_TOPUP_VISA_APPLE_PAY' ? (
       <div className="h-[70px] w-20 rounded-full flex justify-center items-center bg-black">
         <FaApple className="text-white text-5xl font-semibold -mt-1" />
       </div>
@@ -34,7 +34,7 @@ const SingleProfileTransaction = ({
     //     </div>
     //   </div>
     // )
-    item.type === "NOON_TOPUP_MASTERCARD_CARD" ? (
+    item.type === 'NOON_TOPUP_MASTERCARD_CARD' ? (
       <div className="h-[70px] w-20 rounded-full flex justify-center items-center bg-[#3AB545]/10">
         <FiArrowDownLeft className="text-[#3AB545] text-5xl font-semibold " />
       </div>
@@ -48,7 +48,7 @@ const SingleProfileTransaction = ({
           Transaction details
         </p>
         <RxCross1
-          onClick={() => setSingleTransaction("close")}
+          onClick={() => setSingleTransaction('close')}
           className="cursor-pointer font-thin h-5 w-5"
         />
       </div>
@@ -57,10 +57,10 @@ const SingleProfileTransaction = ({
         {transactionIcon(activeTransactionData)}
         <div className="flex flex-col gap-y-3 justify-center items-center">
           <p className="font-bold text-2xl leading-6 text-darkCustom">
-            {activeTransactionData?.detailsMap?.sender_first_name_english}{" "}
+            {activeTransactionData?.detailsMap?.sender_first_name_english}{' '}
             {activeTransactionData?.detailsMap?.sender_last_name_english}
             {/* {activeTransactionData?.detailsMap?.scheme_acceptor_name} */}
-            {activeTransactionData.type === "NOON_TOPUP_MASTERCARD_CARD" && (
+            {activeTransactionData.type === 'NOON_TOPUP_MASTERCARD_CARD' && (
               <span className="uppercase">Topup Amount</span>
             )}
             {activeTransactionData.detailsMap?.scheme_acceptor_name}
@@ -69,23 +69,23 @@ const SingleProfileTransaction = ({
             {/* {activeTransactionData?.detailsMap?.funds_transfer_tx_created_at && moment(activeTransactionData?.detailsMap?.funds_transfer_tx_created_at).format("DD MMMM, hh:mm a")} */}
             {moment
               .unix(activeTransactionData?.createdAt?.seconds)
-              .format("DD MMMM, hh:mm a")}
+              .format('DD MMMM, hh:mm a')}
           </p>
           <p
             className={`${
               !activeTransactionData.isDebit
-                ? "font-medium text-big leading-5 text-[#3AB545]"
-                : "font-medium text-big leading-5 text-red-500"
+                ? 'font-medium text-big leading-5 text-[#3AB545]'
+                : 'font-medium text-big leading-5 text-red-500'
             }`}
           >
-            {activeTransactionData?.detailsMap?.cr_currency === "682"
-              ? "SAR"
-              : activeTransactionData?.detailsMap?.cr_currency === "840"
-              ? "USD"
-              : activeTransactionData?.detailsMap?.scheme_tx_currency === "682"
-              ? "SAR"
-              : activeTransactionData?.detailsMap?.scheme_tx_currency === "840"
-              ? "USD"
+            {activeTransactionData?.detailsMap?.cr_currency === '682'
+              ? 'SAR'
+              : activeTransactionData?.detailsMap?.cr_currency === '840'
+              ? 'USD'
+              : activeTransactionData?.detailsMap?.scheme_tx_currency === '682'
+              ? 'SAR'
+              : activeTransactionData?.detailsMap?.scheme_tx_currency === '840'
+              ? 'USD'
               : null}
             <span className="text-bigger font-semibold pl-1">
               {(activeTransactionData?.amount / 100).toFixed(2)}
@@ -109,7 +109,7 @@ const SingleProfileTransaction = ({
 
             {Object.keys(activeTransactionData.detailsMap).map((key) => (
               <div key={key} className="py-2">
-                <strong>{key.replaceAll("_", " ")}: </strong>
+                <strong>{key.replaceAll('_', ' ')}: </strong>
                 <p>{activeTransactionData.detailsMap[key]}</p>
               </div>
             ))}

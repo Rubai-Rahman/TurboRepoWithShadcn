@@ -3,15 +3,15 @@ import {
   SearchBar,
   SearchContext,
   SearchContextManager,
-} from "@giphy/react-components";
-// import Button from "@shared-components/Button";
-import { useContext } from "react";
+} from '@giphy/react-components';
+// import Button from "@localShared-components/Button";
+import { useContext } from 'react';
 
 // the search experience consists of the manager and its child components that use SearchContext
 const GifBox = ({ onGifClick }) => (
   <SearchContextManager
     shouldDefaultToTrending
-    apiKey={"4xbo1NYX9EUqUIY8l2Z4IPdBkA844z2O"}
+    apiKey={'4xbo1NYX9EUqUIY8l2Z4IPdBkA844z2O'}
   >
     <Components onGifClick={onGifClick} />
   </SearchContextManager>

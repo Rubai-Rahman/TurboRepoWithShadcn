@@ -1,14 +1,9 @@
 import React from 'react';
 import SearchBlock from '../SearchBlock/SearchBlock';
 import ChatPreview from '../ChatPreview/ChatPreview';
-import CustomAccordion from '@shared/components/CustomAccordion/CustomAccordion';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@shadcn/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
 
 const tabs = [
   {
@@ -335,7 +330,7 @@ const ChatPReviews = () => {
         </TabsList>
         <TabsContent value={`Tab-0`} className="mt-3">
           {tabs.map((tab, index) => (
-            <div key={index} className='flex flex-col gap-y-2'>
+            <div key={index} className="flex flex-col gap-y-2">
               {tab.components.map((component, index) => (
                 <ChatPreview
                   key={component.id}

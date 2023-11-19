@@ -1,22 +1,22 @@
-import React from "react";
-import { IoMdClose } from "react-icons/io";
-import moment from "moment";
-import { Knowledge_base_icon } from "@shared/icons/knowledgeBaseIcon";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Props } from "./Article.types";
+import React from 'react';
+import { IoMdClose } from 'react-icons/io';
+import moment from 'moment';
+import { Knowledge_base_icon } from '@localShared/icons/knowledgeBaseIcon';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Props } from './Article.types';
 
 function flatten(text, child) {
-  return typeof child === "string"
+  return typeof child === 'string'
     ? text + child
     : React.Children.toArray(child.props.children).reduce(flatten, text);
 }
 
 function HeadingRenderer(props) {
   var children = React.Children.toArray(props.children);
-  var text = children.reduce(flatten, "");
-  var slug = text.toLowerCase().replace(/\W/g, "-");
-  return React.createElement("h" + props.level, { id: slug }, props.children);
+  var text = children.reduce(flatten, '');
+  var slug = text.toLowerCase().replace(/\W/g, '-');
+  return React.createElement('h' + props.level, { id: slug }, props.children);
 }
 
 const ViewArticle = ({ articleContent, closeModal }: Props) => {
@@ -44,7 +44,7 @@ const ViewArticle = ({ articleContent, closeModal }: Props) => {
         </h5>
         <p className="text-grayCustom">
           {moment(articleContent.created_at)
-            .format("DD-MM-YYYY - h:mm a")
+            .format('DD-MM-YYYY - h:mm a')
             .toString()}
         </p>
       </div>

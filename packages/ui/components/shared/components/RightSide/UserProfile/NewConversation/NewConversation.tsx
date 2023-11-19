@@ -1,15 +1,15 @@
-import React from "react";
-import { RxCross1 } from "react-icons/rx";
-import { Button } from "@shadcn/button";
-import { NewConversationTypes } from "./NewConversation.types";
-import CustomComboBox from "@shared/components/CustomComboBox/CustomComboBox";
+import React from 'react';
+import { RxCross1 } from 'react-icons/rx';
+import { Button } from '@shadcn/button';
+import { NewConversationTypes } from './NewConversation.types';
+import CustomComboBox from '@localShared/components/CustomComboBox/CustomComboBox';
 
 const NewConversation = ({ setSelected }: NewConversationTypes) => {
   const list = [
-    { value: "Option 1", label: "Option 1" },
-    { value: "Option 2", label: "Option 2" },
-    { value: "Option 3", label: "Option 3" },
-    { value: "Option 4", label: "Option 4" },
+    { value: 'Option 1', label: 'Option 1' },
+    { value: 'Option 2', label: 'Option 2' },
+    { value: 'Option 3', label: 'Option 3' },
+    { value: 'Option 4', label: 'Option 4' },
     ,
   ];
 
@@ -20,7 +20,7 @@ const NewConversation = ({ setSelected }: NewConversationTypes) => {
           New Conversation
         </p>
         <RxCross1
-          onClick={() => setSelected("close")}
+          onClick={() => setSelected('close')}
           className="cursor-pointer font-light h-5 w-5"
         />
       </div>
@@ -51,14 +51,14 @@ const NewConversation = ({ setSelected }: NewConversationTypes) => {
         <Button
           type="button"
           className="text-white bg-blueCustom rounded text-normal leading-6 font-semibold w-full py-1"
-          onClick={() => setSelected("close")}
+          onClick={() => setSelected('close')}
         >
           Create
         </Button>
         <Button
           type="button"
           className="text-blueCustom bg-blueCustom/5 rounded text-normal leading-6 font-semibold w-full py-1"
-          onClick={() => setSelected("close")}
+          onClick={() => setSelected('close')}
         >
           Cancel
         </Button>

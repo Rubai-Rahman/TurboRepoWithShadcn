@@ -1,33 +1,33 @@
 import {
   GET_MESSAGESQuery,
   GET_TICKET_MESSAGES_BY_TICKET_IDQuery,
-} from "@api-lib/gql/graphql";
-import ReadOnlyEditor from "@module/conversations/components/ReadOnlyEditor";
-import Sanitize from "@module/conversations/components/conversationPanel/Sanitize";
-import { UseInfiniteQueryResult } from "@tanstack/react-query";
-import moment from "moment";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
-import Link from "next/link";
-import { Fragment, useState } from "react";
-import { BsArrow90DegRight, BsFileEarmarkArrowDown } from "react-icons/bs";
-import { FiExternalLink } from "react-icons/fi";
-import { RiCloseLine } from "react-icons/ri";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { shallow } from "zustand/shallow";
-import { messageTypes } from "./CustomMessageBubble.types";
+} from '@api-lib/gql/graphql';
+import ReadOnlyEditor from '@module/conversations/components/ReadOnlyEditor';
+import Sanitize from '@module/conversations/components/conversationPanel/Sanitize';
+import { UseInfiniteQueryResult } from '@tanstack/react-query';
+import moment from 'moment';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Fragment, useState } from 'react';
+import { BsArrow90DegRight, BsFileEarmarkArrowDown } from 'react-icons/bs';
+import { FiExternalLink } from 'react-icons/fi';
+import { RiCloseLine } from 'react-icons/ri';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { shallow } from 'zustand/shallow';
+import { messageTypes } from './CustomMessageBubble.types';
 
-import Icon from "@shared/components/Icon/Icon";
-import { Button } from "@shadcn/button";
-import { Dialog, DialogContent, DialogTrigger } from "@shadcn/dialog";
-import CustomDialog from "@shared/components/CustomDialog/CustomDialog";
-import { useTweetReplyStore } from "@store";
+import Icon from '@localShared/components/Icon/Icon';
+import { Button } from '@shadcn/button';
+import { Dialog, DialogContent, DialogTrigger } from '@shadcn/dialog';
+import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
+import { useTweetReplyStore } from '@store';
 
 const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
-  const conversationMessage = message as GET_MESSAGESQuery["payload"][0];
+  const conversationMessage = message as GET_MESSAGESQuery['payload'][0];
   const ticketMessage =
-    message as GET_TICKET_MESSAGES_BY_TICKET_IDQuery["payload"][0];
+    message as GET_TICKET_MESSAGES_BY_TICKET_IDQuery['payload'][0];
 
   const [setReplyToId, setTweetReplyToContent, setMentionedUsers] =
     useTweetReplyStore(
@@ -57,7 +57,7 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
   };
 
   const TWITTER_USERNAME_REGEX = /(^|[^@\w])@(\w{1,15})\b/g;
-  const TWITTER_USERNAME_REPLACEMENT = "$1[@$2](http://twitter.com/$2)";
+  const TWITTER_USERNAME_REPLACEMENT = '$1[@$2](http://twitter.com/$2)';
 
   const twitterContent = message?.message?.replace(
     TWITTER_USERNAME_REGEX,
@@ -67,7 +67,7 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
   return (
     <div
       className={`flex gap-x-2 order-last ${
-        message_type > 0 && "flex-row-reverse"
+        message_type > 0 && 'flex-row-reverse'
       }`}
     >
       <div className="relative">
@@ -119,7 +119,7 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
 
       <div
         className={`flex flex-col w-full ${
-          message_type === 0 ? "items-start" : "items-end"
+          message_type === 0 ? 'items-start' : 'items-end'
         }`}
       >
         {message.attachments.length > 0 && (
@@ -130,11 +130,11 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
             {message.message.length === 0 && (
               <p
                 className={`text-darkCustom rounded-xl px-2 ${
-                  message_type > 0 && "text-right"
+                  message_type > 0 && 'text-right'
                 }`}
               >
                 <span>
-                  {moment(message.created_at).format("DD/MM/YYYY h:mm a")}
+                  {moment(message.created_at).format('DD/MM/YYYY h:mm a')}
                 </span>
               </p>
             )}
@@ -144,14 +144,14 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
           <div
             className={`w-9/12 px-6 py-3 border-2 border-gray-200 ${
               message_type === 0
-                ? "rounded-r-2xl rounded-bl-2xl"
+                ? 'rounded-r-2xl rounded-bl-2xl'
                 : message_type === 1
-                ? "bg-blueCustom border-transparent rounded-l-2xl rounded-br-2xl"
+                ? 'bg-blueCustom border-transparent rounded-l-2xl rounded-br-2xl'
                 : message_type === 3
-                ? "bg-blueCustom/10 border-transparent rounded-l-2xl rounded-br-2xl"
+                ? 'bg-blueCustom/10 border-transparent rounded-l-2xl rounded-br-2xl'
                 : message_type === 4
-                ? "bg-orangeCustom border-transparent rounded-l-2xl rounded-br-2xl text-white"
-                : "bg-blueCustom/10 rounded-l-2xl rounded-br-2xl"
+                ? 'bg-orangeCustom border-transparent rounded-l-2xl rounded-br-2xl text-white'
+                : 'bg-blueCustom/10 rounded-l-2xl rounded-br-2xl'
             }`}
           >
             <div className="flex justify-between items-center">
@@ -160,14 +160,14 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
                   {/* <p className={`text-base font-semibold ${(message_type === 1 || message_type === 2) && "text-white"}`}>{message?.conversation?.contact?.name}</p> */}
                   <p
                     className={`text-normal font-semibold ${
-                      message_type > 0 && "text-white"
+                      message_type > 0 && 'text-white'
                     }`}
                   >
                     {message?.sender_info?.name}
                   </p>
                   <p
                     className={`pt-1 text-xs font-medium  ${
-                      message_type > 0 ? "text-white/90" : "text-grayCustom"
+                      message_type > 0 ? 'text-white/90' : 'text-grayCustom'
                     }`}
                     // >{`@${message?.conversation?.contact?.source.username}`}</p>
                   >
@@ -176,10 +176,10 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
                 </div>
                 <p
                   className={`text-xs font-medium  ${
-                    message_type > 0 ? "text-white/60" : "text-grayCustom"
+                    message_type > 0 ? 'text-white/60' : 'text-grayCustom'
                   }`}
                 >
-                  {moment(message.created_at).format("DD/MM/YYYY h:mm a")}
+                  {moment(message.created_at).format('DD/MM/YYYY h:mm a')}
                 </p>
               </div>
 
@@ -193,36 +193,36 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
             </div>
           )} */}
             </div>
-            {conversationMessage?.conversation?.type.includes("email") &&
+            {conversationMessage?.conversation?.type.includes('email') &&
               message_type !== 4 && (
                 <div
                   className={`flex flex-col gap-1.5 py-2 text-third font-semibold ${
-                    message.message_type === 1 && "text-white"
+                    message.message_type === 1 && 'text-white'
                   }`}
                 >
                   <p className="font-normal">
-                    <span className="font-bold">From : </span>{" "}
+                    <span className="font-bold">From : </span>{' '}
                     {conversationMessage?.content_attributes?.from}
                   </p>
                   <p className="font-normal">
-                    <span className="font-bold">To : </span>{" "}
+                    <span className="font-bold">To : </span>{' '}
                     {conversationMessage?.content_attributes?.to}
                   </p>
                   {conversationMessage?.content_attributes?.cc && (
                     <p className="font-semibold">
-                      <span className="font-bold">CC : </span>{" "}
-                      {conversationMessage?.content_attributes?.cc.join(", ")}
+                      <span className="font-bold">CC : </span>{' '}
+                      {conversationMessage?.content_attributes?.cc.join(', ')}
                     </p>
                   )}
                   <p className="font-normal">
-                    <span className="font-bold">Subject : </span>{" "}
+                    <span className="font-bold">Subject : </span>{' '}
                     {conversationMessage?.content_attributes?.subject}
                   </p>
                 </div>
               )}
             <div
               className={`py-3 font-medium text-[0.9rem] break-all ${
-                message_type > 0 ? "text-white" : "text-darkCustom"
+                message_type > 0 ? 'text-white' : 'text-darkCustom'
               }`}
             >
               {message.content_attributes.html ? (
@@ -234,7 +234,7 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
                 conversationMessage.conversation.type ? (
                 <ReadOnlyEditor
                   content={
-                    conversationMessage.conversation.type.includes("twitter")
+                    conversationMessage.conversation.type.includes('twitter')
                       ? twitterContent
                       : message.message
                   }
@@ -250,56 +250,56 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
             </div>
             <p
               className={`text-xs font-medium ${
-                message_type > 0 ? "text-white/60" : "text-grayCustom"
+                message_type > 0 ? 'text-white/60' : 'text-grayCustom'
               }`}
             >
               {message_type === 0 &&
                 `${
                   conversationMessage?.conversation?.inbox?.channel_type
                     .toLowerCase()
-                    .includes("twitterstream")
+                    .includes('twitterstream')
                     ? `Stream To ${conversationMessage?.conversation?.inbox?.channel?.value}`
                     : conversationMessage?.conversation?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("email")
+                        .includes('email')
                     ? `Email To ${conversationMessage?.conversation?.inbox?.channel?.smtp_email}`
                     : conversationMessage?.conversation?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("twitterprofile")
+                        .includes('twitterprofile')
                     ? `Mention To @${conversationMessage?.conversation?.inbox?.channel?.screen_name}`
                     : conversationMessage?.conversation?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("twitterprivate")
+                        .includes('twitterprivate')
                     ? `DM To @${conversationMessage?.conversation?.inbox?.channel?.screen_name}`
-                    : ""
+                    : ''
                 }`}
 
-              {message_type === 4 && "Note"}
+              {message_type === 4 && 'Note'}
 
               {message_type !== 0 &&
                 message_type !== 4 &&
                 `${
                   conversationMessage?.conversation?.inbox?.channel_type
                     .toLowerCase()
-                    .includes("twitterstream")
+                    .includes('twitterstream')
                     ? `Stream To ${conversationMessage?.content_attributes?.mentioned_users?.map(
                         (user) => ` @${user.username}`
                       )}`
                     : conversationMessage?.conversation?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("email")
+                        .includes('email')
                     ? `Email To ${conversationMessage?.conversation?.inbox?.channel?.smtp_email}`
                     : conversationMessage?.conversation?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("twitterprofile")
+                        .includes('twitterprofile')
                     ? `Mention To ${conversationMessage?.content_attributes?.mentioned_users?.map(
                         (user) => ` @${user.username}`
                       )}`
                     : conversationMessage?.conversation?.inbox?.channel_type
                         .toLowerCase()
-                        .includes("twitterprivate")
+                        .includes('twitterprivate')
                     ? `DM To @${conversationMessage?.conversation?.contact?.source?.username}`
-                    : ""
+                    : ''
                 }`}
             </p>
 
@@ -335,22 +335,22 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
 
               <div
                 className={`flex gap-x-3 items-center ${
-                  message_type > 0 ? "text-white" : "text-grayCustom"
+                  message_type > 0 ? 'text-white' : 'text-grayCustom'
                 }`}
               >
                 {message_type === 0 &&
-                  (conversationMessage.conversation.type === "twitter_stream" ||
+                  (conversationMessage.conversation.type === 'twitter_stream' ||
                     conversationMessage.conversation.type ===
-                      "twitter_public") && (
+                      'twitter_public') && (
                     <BsArrow90DegRight
                       onClick={handleTweet}
                       className="cursor-pointer"
                     />
                   )}
                 {(conversationMessage?.conversation?.type ===
-                  "twitter_stream" ||
+                  'twitter_stream' ||
                   conversationMessage?.conversation?.type ===
-                    "twitter_public") && (
+                    'twitter_public') && (
                   <Link
                     href={`https://twitter.com/${conversationMessage?.conversation?.contact?.source.username}/status/${message?.source_id}`}
                     data-tip="View tweet in twitter"
@@ -377,8 +377,8 @@ const AttachmentMsg = ({
   fileInfo,
 }: {
   fileInfo: UseInfiniteQueryResult<
-    GET_MESSAGESQuery["payload"]
-  >["data"]["pages"][0][0]["attachments"][0];
+    GET_MESSAGESQuery['payload']
+  >['data']['pages'][0][0]['attachments'][0];
 }) => {
   const { key, file_name: fileName, file_type: fileType, url } = fileInfo;
   const fileSrc = url !== null ? url : `/api/file/${key}`;
@@ -464,11 +464,11 @@ const AttachmentMsg = ({
   );
 
   // return displayed file message based on file type
-  return fileType === "image"
+  return fileType === 'image'
     ? imageDisplay
-    : fileType === "video"
+    : fileType === 'video'
     ? videoDisplay
-    : fileType === "audio"
+    : fileType === 'audio'
     ? audioDisplay
     : fileDisplay;
 };

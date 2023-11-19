@@ -1,6 +1,6 @@
-import React from "react";
-import { TweeqUserData } from "./TweeqInfo.types";
-import CustomAccordion from "@shared/components/CustomAccordion/CustomAccordion";
+import React from 'react';
+import { TweeqUserData } from './TweeqInfo.types';
+import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
 
 const TweeqInfo = ({ tweeqData }: { tweeqData: TweeqUserData }) => {
   return (
