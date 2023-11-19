@@ -15,14 +15,7 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "strictNullChecks": true,
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["../../packages/ui/components/*"],
-      "@shadcn/*": ["../../packages/ui/components/shadcn/ui/*"],
-      "@lib/*": ["../../packages/ui/lib/*"],
-      "@shared": ["../../apps/test-pages/src/shared/*"]
-    }
+    "strictNullChecks": true
   },
   "exclude": ["node_modules"]
 }

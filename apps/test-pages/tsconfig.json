@@ -8,6 +8,12 @@
     "incremental": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["../../packages/ui/components/*"],
+      "@shadcn/*": ["../../packages/ui/components/shadcn/ui/*"],
+      "@lib/*": ["../../packages/ui/lib/*"],
+      "@shared/*": ["./src/shared/components/*"]
+    }
   }
 }

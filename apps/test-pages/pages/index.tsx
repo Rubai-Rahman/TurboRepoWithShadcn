@@ -8,12 +8,12 @@ import { AiOutlineCheck } from 'react-icons/ai';
 import { ImAttachment } from 'react-icons/im';
 import { BsEmojiSmileFill } from 'react-icons/bs';
 import { CreditCard, Keyboard, Settings, User } from 'lucide-react';
-import CustomComboBox from '../src/shared/components/CustomComboBox/CustomComboBox';
-import CustomDialog from '../src/shared/components/CustomDialog/CustomDialog';
-import { CustomTabs } from '../src/shared/components/CustomTabs/CustomTabs';
-import { CustomDropDownMenu } from '../src/shared/components/CustomDropDown/CustomDropDownMenu';
-import CustomSwitch from '../src/shared/components/CustomSwitch/CustomSwitch';
-import CustomAccordion from '../src/shared/components/CustomAccordion/CustomAccordion';
+import CustomComboBox from '@shared/CustomComboBox/CustomComboBox';
+import CustomDialog from '@shared/CustomDialog/CustomDialog';
+import { CustomTabs } from '@shared/CustomTabs/CustomTabs';
+import { CustomDropDownMenu } from '@shared/CustomDropDown/CustomDropDownMenu';
+import CustomSwitch from '@shared/CustomSwitch/CustomSwitch';
+import CustomAccordion from '@shared/CustomAccordion/CustomAccordion';
 import Beneficiaris from '../src/components/Beneficiaries/Beneficiaris';
 
 const data = [
