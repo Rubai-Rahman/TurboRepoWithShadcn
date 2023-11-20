@@ -14,7 +14,9 @@ import { CustomTabs } from '@localShared/CustomTabs/CustomTabs';
 import { CustomDropDownMenu } from '@localShared/CustomDropDown/CustomDropDownMenu';
 import CustomSwitch from '@localShared/CustomSwitch/CustomSwitch';
 import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
+import AddFolder from '@localComponents/AddFolder/AddFolder';
 import Beneficiaris from '../src/components/Beneficiaries/Beneficiaris';
+import ActivityLog from '@localComponents/ActivityLog/ActivityLog';
 
 const data = [
   {
@@ -133,7 +135,6 @@ export default function Home() {
       <Button>Hello</Button>
       <Switch id="airplane-mode" />
       <CustomSwitch checked={checked} handler={handleChecked} />
-
       <CustomAccordion
         buttonClass=" flex justify-between"
         title="Appearance"
@@ -190,7 +191,6 @@ export default function Home() {
           </div>
         </div>
       </CustomAccordion>
-
       <CustomAccordion
         buttonClass=" flex justify-between"
         title="Settings"
@@ -248,7 +248,6 @@ export default function Home() {
           </div>
         </div>
       </CustomAccordion>
-
       <CustomAccordion
         buttonClass=" flex justify-between"
         title="Pre-Chat Survey"
@@ -321,9 +320,7 @@ export default function Home() {
           </div>
         </div>
       </CustomAccordion>
-
       <CustomComboBox data={data} />
-
       <Button
         onClick={() => {
           handleAction();
@@ -331,7 +328,6 @@ export default function Home() {
       >
         Modal
       </Button>
-
       <CustomDialog closeModal={closeModal} isOpen={isOpen}>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -350,13 +346,11 @@ export default function Home() {
           <Button type="submit">Save changes</Button>
         </div>
       </CustomDialog>
-
       <CustomTabs
         data={tabsData}
         tabListClassName="bg-transparent rounded-none"
         tabTriggerClassName="data-[state=active]:border-b-2 data-[state=inactive]:border-b-2 data-[state=active]:border-blue-500 data-[state=inactive]:border-transparent data-[state=inactive]:text-blue-500 data-[state=active]:text-blue-500 rounded-none"
       />
-
       <CustomDropDownMenu
         data={menuData}
         menuClassName="w-[300px]"
@@ -365,6 +359,13 @@ export default function Home() {
         <Button>click me</Button>
       </CustomDropDownMenu>
       <Beneficiaris />
+      <AddFolder
+        cancelBtnText="Cancel"
+        maxWidth={500}
+        placeholder="Enter folder name"
+        saveBtnText="Save"
+      />
+      <ActivityLog/>
     </div>
   );
 }

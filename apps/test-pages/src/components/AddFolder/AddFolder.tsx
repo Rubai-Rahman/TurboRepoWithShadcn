@@ -1,17 +1,29 @@
-import React from "react";
-import { Button } from "@shadcn/button";
-import { Input } from "@shadcn/input";
+import React from 'react';
+import { Button } from '@shadcn/button';
+import { Input } from '@shadcn/input';
 
-const AddFolder = ({ maxWidth, placeholder, cancelBtnText, saveBtnText }) => {
+interface Foldertype {
+  maxWidth: number;
+  placeholder: string;
+  cancelBtnText: string;
+  saveBtnText: string;
+}
+
+function AddFolder({
+  maxWidth,
+  placeholder,
+  cancelBtnText,
+  saveBtnText,
+}: Foldertype) {
   return (
     <div className={`${maxWidth} space-y-3 max-h-12 shadow-sm py-2 px-3`}>
       <div className="flex items-center justify-between">
         <Input
-          type="text"
-          name=""
-          id=""
-          placeholder={placeholder}
           className="w-7/12 py-1 outline-none border-none placeholder:text-gray-400 placeholder:text-sm"
+          id=""
+          name=""
+          placeholder={placeholder}
+          type="text"
         />
         <div className="space-x-3">
           <Button className="text-gray-400 text-xs font-Inter font-medium">
@@ -24,6 +36,6 @@ const AddFolder = ({ maxWidth, placeholder, cancelBtnText, saveBtnText }) => {
       </div>
     </div>
   );
-};
+}
 
 export default AddFolder;

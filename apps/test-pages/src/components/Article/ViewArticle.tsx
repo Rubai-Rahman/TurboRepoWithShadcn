@@ -1,10 +1,9 @@
 import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 import moment from 'moment';
-import { Knowledge_base_icon } from '@localShared/icons/knowledgeBaseIcon';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Props } from './Article.types';
+import type { Props } from './Article.types';
 
 function flatten(text, child) {
   return typeof child === 'string'
@@ -13,18 +12,18 @@ function flatten(text, child) {
 }
 
 function HeadingRenderer(props) {
-  var children = React.Children.toArray(props.children);
-  var text = children.reduce(flatten, '');
-  var slug = text.toLowerCase().replace(/\W/g, '-');
-  return React.createElement('h' + props.level, { id: slug }, props.children);
+  const children = React.Children.toArray(props.children);
+  const text = children.reduce(flatten, '');
+  const slug = text.toLowerCase().replace(/\W/g, '-');
+  return React.createElement(`h${props.level}`, { id: slug }, props.children);
 }
 
-const ViewArticle = ({ articleContent, closeModal }: Props) => {
+function ViewArticle({ articleContent, closeModal }: Props) {
   return (
     <div className="border-transparent cursor-pointer group px-3">
       <div className="flex justify-between items-center gap-3" dir="auto">
         <div className="flex items-center gap-3">
-          <Knowledge_base_icon />
+          <Knowledge_base_iconn />
           <span className="text-grayCustom capitalize">
             {articleContent?.category?.name}
           </span>
@@ -51,14 +50,14 @@ const ViewArticle = ({ articleContent, closeModal }: Props) => {
       <div dir="auto">
         <ReactMarkdown
           className="rich-text space-y-3"
-          remarkPlugins={[remarkGfm]}
           components={{ h1: HeadingRenderer, h2: HeadingRenderer }}
+          remarkPlugins={[remarkGfm]}
         >
           {articleContent?.body}
         </ReactMarkdown>
       </div>
     </div>
   );
-};
+}
 
 export default ViewArticle;

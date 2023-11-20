@@ -38,5 +38,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'tsdoc/syntax': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
+    ' @typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
   },
 };

@@ -6,21 +6,21 @@ import { BiEnvelope } from 'react-icons/bi';
 import { BsGlobe2 } from 'react-icons/bs';
 import moment from 'moment';
 import { useRouter } from 'next/router';
-import { ChatPreviewTypes } from './ChatPreview.types';
-import TwitterListeningIcon from '@localShared/icons/TwitterListeningIcon';
+import TwitterListeningIcon from '';
+import type { ChatPreviewTypes } from './ChatPreview.types';
 
-const ChatPreview = ({
+function ChatPreview({
   selected,
   resolved,
   data,
   maxWidth = 'w-1/4',
   tab,
   assigned_to = 'Hafiz Ahmed',
-}: ChatPreviewTypes) => {
+}: ChatPreviewTypes) {
   const router = useRouter();
-  const inboxId = +router.query.inboxId;
-  const smartFolderId = +router.query.smartFolderId;
-  const teamId = +router.query.teamId;
+  const inboxId = Number(router.query.inboxId);
+  const smartFolderId = Number(router.query.smartFolderId);
+  const teamId = Number(router.query.teamId);
   const labelId = router.query.labelId;
 
   const pathUrl = (cnvId: number) => {
@@ -39,7 +39,7 @@ const ChatPreview = ({
       : `/conversations/${cnvId}`;
   };
 
-  if (data.id === +router.query.conversationId) {
+  if (data.id === Number(router.query.conversationId)) {
     selected = true;
   } else {
     selected = false;
@@ -117,9 +117,7 @@ const ChatPreview = ({
           </div>
         ))
       ) : ( */}
-        <div
-          className={`w-full h-36 border-b border-lineGrayCustom hover:bg-blueCustom/10`}
-        >
+        <div className="w-full h-36 border-b border-lineGrayCustom hover:bg-blueCustom/10">
           <div
             className={`flex gap-x-3 border-l-2 h-full py-5 px-4 ${
               selected
@@ -130,11 +128,11 @@ const ChatPreview = ({
             <div className="w-fit flex flex-col gap-y-2">
               {data?.contact?.profile_image ? (
                 <Image
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                  src={data?.contact?.profile_image}
                   alt={data?.contact?.name}
+                  className="rounded-full"
+                  height={40}
+                  src={data?.contact?.profile_image}
+                  width={40}
                 />
               ) : (
                 <div className="rounded-full cursor-pointer h-10 w-10 bg-sky-200 flex justify-center items-center">
@@ -147,7 +145,7 @@ const ChatPreview = ({
               <div className="flex justify-center mt-1">
                 {data?.conversation_type === 'twitter_stream' && (
                   <div className="w-6 h-6 rounded-full flex justify-center items-center bg-twitter">
-                    <TwitterListeningIcon color="#fff" width="14" height="14" />
+                    <TwitterListeningIcon color="#fff" height="14" width="14" />
                   </div>
                 )}
                 {data?.conversation_type === 'twitter_public' && (
@@ -231,7 +229,7 @@ const ChatPreview = ({
 
               <div className="flex justify-between text-xs font-medium leading-4 text-grayCustom">
                 {/* //! this needs to be modified with proper handle */}
-                <p className={`text-xs font-medium text-grayCustom`}>{`${
+                <p className="text-xs font-medium text-grayCustom">{`${
                   data?.inbox?.channel_type
                     .toLowerCase()
                     .includes('twitterstream')
@@ -270,6 +268,6 @@ const ChatPreview = ({
       </div>
     </Link>
   );
-};
+}
 
 export default ChatPreview;

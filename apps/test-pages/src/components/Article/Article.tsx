@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { BiGlobe } from 'react-icons/bi';
 import ReactMarkdown from 'react-markdown';
-import { GET_ALL_KNOWLEDGE_BASE_ARTICLESQuery } from '@api-lib/gql/graphql';
-import { Knowledge_base_icon } from '@localShared/icons/knowledgeBaseIcon';
+import type { GET_ALL_KNOWLEDGE_BASE_ARTICLESQuery } from '@api-lib/gql/graphql';
+import { Knowledge_base_icon } from 'src/shared/assets/icons/knowledgeBaseIcon';
+import CustomDialog from '@localShared/CustomDialog/CustomDialog';
 import ViewArticle from './ViewArticle';
-import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
 
-const Article = ({
+function Article({
   kbItem,
 }: {
   kbItem: GET_ALL_KNOWLEDGE_BASE_ARTICLESQuery['payload'][0];
-}) => {
+}) {
   const [selected, setSelected] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   // const { data: categoryById, isLoading } = useKbCategoriesById(kbItem?.category_id);
@@ -24,7 +24,7 @@ const Article = ({
     <div className="w-full group border-b border-newBorder hover:bg-blueCustom/10 cursor-pointer">
       <div
         className={`${
-          !!isOpen
+          isOpen
             ? 'bg-blueCustom/5 border-blueCustom border-l-2'
             : 'border-transparent'
         } `}
@@ -54,11 +54,11 @@ const Article = ({
         </div>
       </div>
 
-      <CustomDialog isOpen={isOpen} closeModal={closeModal}>
+      <CustomDialog closeModal={closeModal} isOpen={isOpen}>
         <ViewArticle articleContent={kbItem} closeModal={closeModal} />
       </CustomDialog>
     </div>
   );
-};
+}
 
 export default Article;

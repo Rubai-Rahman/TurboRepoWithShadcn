@@ -41,5 +41,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-unsafe-assignment': 'off',
     'tsdoc/syntax': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
   },
 };
