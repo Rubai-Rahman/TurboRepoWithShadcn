@@ -42,5 +42,6 @@ module.exports = {
     'no-unsafe-assignment': 'off',
     'tsdoc/syntax': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/camelcase': 'off',
   },
 };

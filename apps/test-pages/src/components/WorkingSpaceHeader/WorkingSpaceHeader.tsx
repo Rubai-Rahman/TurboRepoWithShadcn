@@ -1,35 +1,35 @@
-import { GET_CONVERSATION_BY_IDQuery } from "@api-lib/gql/graphql";
-import { useConversationAgentAssign } from "@api-lib/graphql";
-import AgentSelection from "@module/conversations/components/AgentSelection";
-import { ToastMessage } from "@module/shared/Toastify";
-import { useQueryClient } from "@tanstack/react-query";
-import { useSession } from "next-auth/react";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { Button } from "@shadcn/button";
+import { GET_CONVERSATION_BY_IDQuery } from '@api-lib/gql/graphql';
+import { useConversationAgentAssign } from '@api-lib/graphql';
+import AgentSelection from '@module/conversations/components/AgentSelection';
+import { ToastMessage } from '@module/shared/Toastify';
+import { useQueryClient } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { Button } from '@shadcn/button';
 
-const WorkingSpaceHeader = ({
+function WorkingSpaceHeader({
   conversationDataById,
   isFetching,
   showActivity,
   toggleActivity,
 }: {
-  conversationDataById: GET_CONVERSATION_BY_IDQuery["payload"];
+  conversationDataById: GET_CONVERSATION_BY_IDQuery['payload'];
   isFetching: boolean;
   showActivity: boolean;
   toggleActivity: () => void;
-}) => {
+}) {
   const { data: sessionData } = useSession();
   const queryClient = useQueryClient();
 
   const { mutate: assignAgent } = useConversationAgentAssign({
     onSuccess: (data) => {
-      ToastMessage("success", `conversation is successfully unassigned`);
-      queryClient.invalidateQueries(["message_list", data.id]);
-      queryClient.invalidateQueries(["conversation_details", data.id]);
-      queryClient.invalidateQueries(["conversation_counts"]);
+      ToastMessage('success', `conversation is successfully unassigned`);
+      queryClient.invalidateQueries(['message_list', data.id]);
+      queryClient.invalidateQueries(['conversation_details', data.id]);
+      queryClient.invalidateQueries(['conversation_counts']);
     },
     onError: () => {
-      ToastMessage("error", "Conversation unassign failed");
+      ToastMessage('error', 'Conversation unassign failed');
     },
   });
 
@@ -51,7 +51,7 @@ const WorkingSpaceHeader = ({
           {/* <CustomAccordion title="Assigned to Ahmed / DM Team" /> */}
           {isFetching ? (
             <div className="w-80 py-1 flex justify-start items-center">
-              <p className="w-72 h-3.5  rounded-md animate-pulse bg-blueCustom/20 ml-4"></p>
+              <p className="w-72 h-3.5  rounded-md animate-pulse bg-blueCustom/20 ml-4" />
             </div>
           ) : (
             <AgentSelection
@@ -73,11 +73,11 @@ const WorkingSpaceHeader = ({
           )}
         </div>
         {conversationDataById.assigned_team_member !== null &&
-          sessionData.role !== "agent" && (
+          sessionData.role !== 'agent' && (
             <div className="h-12 flex items-end mb-3">
               <Button
-                onClick={handleSelectChange}
                 className="bg-blueCustom/20 text-blueCustom h-1/2 px-2 rounded "
+                onClick={handleSelectChange}
               >
                 Unassign
               </Button>
@@ -87,11 +87,11 @@ const WorkingSpaceHeader = ({
       <div className="flex justify-end items-center gap-5 px-4">
         {/* <BsStopwatch className="h-6 w-6" /> */}
         {!showActivity ? (
-          <span onClick={toggleActivity} className="cursor-pointer">
+          <span className="cursor-pointer" onClick={toggleActivity}>
             <AiOutlineEye className="h-7 w-7 text-grayCustom" />
           </span>
         ) : (
-          <span onClick={toggleActivity} className="cursor-pointer">
+          <span className="cursor-pointer" onClick={toggleActivity}>
             <AiOutlineEyeInvisible
               className="h-7 w-7 text-grayCustom"
               onClick={toggleActivity}
@@ -107,6 +107,6 @@ const WorkingSpaceHeader = ({
       <div className="flex gap-x-2 items-center text-textGray text-lg font-medium"></div> */}
     </div>
   );
-};
+}
 
 export default WorkingSpaceHeader;
