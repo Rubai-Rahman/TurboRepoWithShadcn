@@ -3,15 +3,16 @@ import { IoMdClose } from 'react-icons/io';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Knowledge_base_icon } from 'src/shared/assets/icons/knowledgeBaseIcon';
 import type { Props } from './Article.types';
 
-function flatten(text, child) {
+function flatten(text:string, child:any):any {
   return typeof child === 'string'
     ? text + child
     : React.Children.toArray(child.props.children).reduce(flatten, text);
 }
 
-function HeadingRenderer(props) {
+function HeadingRenderer(props:any) {
   const children = React.Children.toArray(props.children);
   const text = children.reduce(flatten, '');
   const slug = text.toLowerCase().replace(/\W/g, '-');
@@ -23,7 +24,7 @@ function ViewArticle({ articleContent, closeModal }: Props) {
     <div className="border-transparent cursor-pointer group px-3">
       <div className="flex justify-between items-center gap-3" dir="auto">
         <div className="flex items-center gap-3">
-          <Knowledge_base_iconn />
+          <Knowledge_base_icon />
           <span className="text-grayCustom capitalize">
             {articleContent?.category?.name}
           </span>

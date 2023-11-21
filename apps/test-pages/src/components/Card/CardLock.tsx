@@ -6,7 +6,7 @@ import { Textarea } from '@shadcn/textarea';
 import { Button } from '@shadcn/button';
 import { CRMCustomerData } from '@pages/api/crm/customer';
 import { useCRMTempLockCard } from '@api-lib/requests';
-import { ToastMessage } from '@localShared/components/Toastify/Toastify';
+import { ToastMessage } from '@localShared/Toastify/Toastify';
 
 const CardLock = ({
   crmData,

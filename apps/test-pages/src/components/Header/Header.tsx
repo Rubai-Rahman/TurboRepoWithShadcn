@@ -10,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@shadcn/select';
-
 import { Button } from '@shadcn/button';
 import { Accordion } from '@shadcn/accordion';
 import { Tabs, TabsList, TabsTrigger } from '@shadcn/tabs';

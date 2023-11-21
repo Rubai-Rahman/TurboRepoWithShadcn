@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@shadcn/button';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
 import { CRMCustomerData } from '@pages/api/crm/customer';
 
 export interface MasterCardType {

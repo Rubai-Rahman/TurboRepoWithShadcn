@@ -16,13 +16,11 @@ import { RiCloseLine } from 'react-icons/ri';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { shallow } from 'zustand/shallow';
-import { messageTypes } from './CustomMessageBubble.types';
-
-import Icon from '@localShared/components/Icon/Icon';
 import { Button } from '@shadcn/button';
 import { Dialog, DialogContent, DialogTrigger } from '@shadcn/dialog';
-import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
 import { useTweetReplyStore } from '@store';
+import CustomDialog from '@localShared/CustomDialog/CustomDialog';
+import { messageTypes } from './CustomMessageBubble.types';
 
 const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
   const conversationMessage = message as GET_MESSAGESQuery['payload'][0];
@@ -140,7 +138,7 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
             )}
           </div>
         )}
-        {message.attachments && message.message.length > 0 && (
+        {message.attachments && message.message.length > 0 ? (
           <div
             className={`w-9/12 px-6 py-3 border-2 border-gray-200 ${
               message_type === 0
@@ -194,32 +192,32 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
           )} */}
             </div>
             {conversationMessage?.conversation?.type.includes('email') &&
-              message_type !== 4 && (
-                <div
-                  className={`flex flex-col gap-1.5 py-2 text-third font-semibold ${
-                    message.message_type === 1 && 'text-white'
-                  }`}
-                >
-                  <p className="font-normal">
-                    <span className="font-bold">From : </span>{' '}
-                    {conversationMessage?.content_attributes?.from}
+            message_type !== 4 ? (
+              <div
+                className={`flex flex-col gap-1.5 py-2 text-third font-semibold ${
+                  message.message_type === 1 && 'text-white'
+                }`}
+              >
+                <p className="font-normal">
+                  <span className="font-bold">From : </span>{' '}
+                  {conversationMessage?.content_attributes?.from}
+                </p>
+                <p className="font-normal">
+                  <span className="font-bold">To : </span>{' '}
+                  {conversationMessage?.content_attributes?.to}
+                </p>
+                {conversationMessage?.content_attributes?.cc ? (
+                  <p className="font-semibold">
+                    <span className="font-bold">CC : </span>{' '}
+                    {conversationMessage?.content_attributes?.cc.join(', ')}
                   </p>
-                  <p className="font-normal">
-                    <span className="font-bold">To : </span>{' '}
-                    {conversationMessage?.content_attributes?.to}
-                  </p>
-                  {conversationMessage?.content_attributes?.cc && (
-                    <p className="font-semibold">
-                      <span className="font-bold">CC : </span>{' '}
-                      {conversationMessage?.content_attributes?.cc.join(', ')}
-                    </p>
-                  )}
-                  <p className="font-normal">
-                    <span className="font-bold">Subject : </span>{' '}
-                    {conversationMessage?.content_attributes?.subject}
-                  </p>
-                </div>
-              )}
+                ) : null}
+                <p className="font-normal">
+                  <span className="font-bold">Subject : </span>{' '}
+                  {conversationMessage?.content_attributes?.subject}
+                </p>
+              </div>
+            ) : null}
             <div
               className={`py-3 font-medium text-[0.9rem] break-all ${
                 message_type > 0 ? 'text-white' : 'text-darkCustom'
@@ -364,7 +362,7 @@ const CustomMessageBubble = ({ message_type, message }: messageTypes) => {
               </div>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );

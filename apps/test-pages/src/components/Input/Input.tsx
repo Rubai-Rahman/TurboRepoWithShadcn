@@ -1,6 +1,6 @@
 import React from 'react';
+import CustomComboBox from '@localShared/CustomComboBox/CustomComboBox';
 import { InputTypes } from './Input.types';
-import CustomComboBox from '@localShared/components/CustomComboBox/CustomComboBox';
 
 const Input = ({
   label,

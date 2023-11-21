@@ -1,9 +1,8 @@
 import React from 'react';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
 import SearchBlock from '../SearchBlock/SearchBlock';
 import ChatPreview from '../ChatPreview/ChatPreview';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
 
 const tabs = [
   {
@@ -320,15 +319,15 @@ const ChatPReviews = () => {
               >
                 {tab.tab}
               </TabsTrigger>
-              {tab.count && (
+              {tab.count ? (
                 <p className="flex justify-center items-center h-4 w-4 text-xs rounded-full bg-primary/20 text-primary mb-2">
                   {tab.count}
                 </p>
-              )}
+              ) : null}
             </div>
           ))}
         </TabsList>
-        <TabsContent value={`Tab-0`} className="mt-3">
+        <TabsContent value="Tab-0" className="mt-3">
           {tabs.map((tab, index) => (
             <div key={index} className="flex flex-col gap-y-2">
               {tab.components.map((component, index) => (
@@ -341,14 +340,14 @@ const ChatPReviews = () => {
                 />
               ))}
 
-              {tab.disclosure && (
+              {tab.disclosure ? (
                 <CustomAccordion
                   title={tab.disclosure.title}
                   count={tab.disclosure.count}
                   data={tab.disclosure.components}
                   from="left-side-home"
                 />
-              )}
+              ) : null}
             </div>
           ))}
         </TabsContent>

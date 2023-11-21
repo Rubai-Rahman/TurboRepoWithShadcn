@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-import { ContactDetailsType } from './ContactDetails.types';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { BsInstagram, BsPieChartFill } from 'react-icons/bs';
-
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from 'ui/components/shadcn/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
 import Image from 'next/image';
+import { ContactDetailsType } from './ContactDetails.types';
 
 const ContactDetails = ({ categories }: ContactDetailsType) => {
-  let [contactCategory] = useState(categories);
+  const [contactCategory] = useState(categories);
   return (
     <div className="w-full max-w-md px-2 pb-16 py-5 border-l sm:px-0">
       <Tabs>
@@ -43,7 +37,7 @@ const ContactDetails = ({ categories }: ContactDetailsType) => {
             </TabsTrigger>
           ))}
         </TabsList>
-        <TabsContent value={`Tab-0`} className="mt-2">
+        <TabsContent value="Tab-0" className="mt-2">
           {Object.values(contactCategory).map((posts, idx) => (
             <div
               key={idx}
@@ -52,10 +46,10 @@ const ContactDetails = ({ categories }: ContactDetailsType) => {
             >
               {posts.map((post, index) => (
                 <div
-                  className={`w-full px-4 py-2 flex gap-x-3 border-b`}
+                  className="w-full px-4 py-2 flex gap-x-3 border-b"
                   key={index}
                 >
-                  {post.tag && (
+                  {post.tag ? (
                     <div className="w-fit flex flex-col gap-y-2">
                       <Image
                         className="w-10 h-10 rounded-full bg-white"
@@ -77,7 +71,7 @@ const ContactDetails = ({ categories }: ContactDetailsType) => {
                         )}
                       </div>
                     </div>
-                  )}
+                  ) : null}
 
                   <div className="w-5/6 flex flex-col gap-y-2">
                     <div className="flex justify-between items-center">
@@ -88,7 +82,7 @@ const ContactDetails = ({ categories }: ContactDetailsType) => {
                             : post.name}
                         </p>
                         <p className="text-xs text-gray-400 font-medium">
-                          {post.tag && post?.username}
+                          {post.tag ? post?.username : null}
                           {post.priority === 0 && (
                             <p className=" text-gray-400">
                               {' '}
@@ -108,11 +102,11 @@ const ContactDetails = ({ categories }: ContactDetailsType) => {
                         </p>
                       </div>
                       <div className="flex items-center gap-x-2">
-                        {post.status === 3 && post.date && (
+                        {post.status === 3 && post.date ? (
                           <p className="px-3 py-1 rounded-full bg-selectedBG/10 text-xs font-medium text-textGray">
                             Resolved
                           </p>
-                        )}
+                        ) : null}
 
                         {post.title === 'Ticket Title' &&
                           post?.channel === 'twitter' && (
@@ -140,12 +134,12 @@ const ContactDetails = ({ categories }: ContactDetailsType) => {
                         : post?.title}
                     </p>
 
-                    {post.date && (
+                    {post.date ? (
                       <div className="flex justify-between text-xs font-medium text-textGray">
                         <p>{post?.tag}</p>
                         <p>{post.date}</p>
                       </div>
-                    )}
+                    ) : null}
                     {post.title === 'Ticket Title' && (
                       <div className="flex justify-between text-xs font-medium text-textGray">
                         <p>

@@ -1,7 +1,7 @@
 import { CRMCustomerData } from '@pages/api/crm/customer';
 import React from 'react';
 import { Button } from '@shadcn/button';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
 
 function CardsList({
   setScreen,

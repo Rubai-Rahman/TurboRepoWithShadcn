@@ -1,8 +1,8 @@
-import SearchBlock from '@components/SearchBlock/SearchBlock';
-import TicketPreview from '@components/TicketPreview/TicketPreview';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
 import React from 'react';
+import SearchBlock from '@localComponents/SearchBlock/SearchBlock';
+import TicketPreview from '@localComponents/TicketPreview/TicketPreview';
 
 const LeftSideTicket = () => {
   const tabs = [
@@ -38,15 +38,15 @@ const LeftSideTicket = () => {
               >
                 {tab.name}
               </TabsTrigger>
-              {tab.count && (
+              {tab.count ? (
                 <p className="w-5 h-4 rounded-full bg-primary/10 text-primary text-xs mt-1 flex justify-center items-center font-medium">
                   {tab.count}
                 </p>
-              )}
+              ) : null}
             </div>
           ))}
         </TabsList>
-        <TabsContent value={`Tab-0`} className="flex flex-col overflow-y-auto">
+        <TabsContent value="Tab-0" className="flex flex-col overflow-y-auto">
           <div className="border-b border-gray-300">
             <TicketPreview maxWidth="w-full" />
             <TicketPreview maxWidth="w-full" selected={true} />

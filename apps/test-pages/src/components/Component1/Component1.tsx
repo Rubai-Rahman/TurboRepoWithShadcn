@@ -1,4 +1,4 @@
-import CustomComboBox from '@localShared/components/CustomComboBox/CustomComboBox';
+import CustomComboBox from '@localShared/CustomComboBox/CustomComboBox';
 import React from 'react';
 import { IoLanguage } from 'react-icons/io5';
 
