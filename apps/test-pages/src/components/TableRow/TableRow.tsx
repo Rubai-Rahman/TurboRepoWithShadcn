@@ -3,7 +3,7 @@ import { AiFillTwitterCircle, AiOutlineMail } from 'react-icons/ai';
 import { IoLogoWhatsapp } from 'react-icons/io';
 import { RiInstagramFill } from 'react-icons/ri';
 
-const TableRow = ({ data }) => {
+const TableRow = ({ data }: any) => {
   return (
     <div>
       <div className="overflow-x-auto relative">
@@ -11,7 +11,7 @@ const TableRow = ({ data }) => {
           <tbody className="text-sm">
             <div className="px-4">
               <tr className="border-b border-gray-300 text-black font-medium flex justify-between">
-                {data.map((item, index) => (
+                {data.map((item: any, index: number) => (
                   <>
                     {item.id && (
                       <td className="py-4 text-center">#{item.id}</td>
@@ -62,7 +62,7 @@ const TableRow = ({ data }) => {
                     )}
                     {item.social_profiles && (
                       <td className="py-4 text-center flex gap-x-3 text-base">
-                        {item.social_profiles.map((account, index) => (
+                        {item.social_profiles.map((account:any, index:number) => (
                           <p key={index}>
                             {account.channel_name.toLowerCase() ===
                               'twitter' && (

@@ -1,4 +1,4 @@
-import { UserProfileTypes } from "@components/UserProfile/UserProfile.types";
+import { UserProfileTypes } from "@localComponents/UserProfile/UserProfile.types";
 import React from "react";
 import { BsEnvelope, BsPlus, BsTelephone } from "react-icons/bs";
 import { IoMdMale } from "react-icons/io";

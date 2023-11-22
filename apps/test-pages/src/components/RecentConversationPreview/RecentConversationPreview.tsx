@@ -1,4 +1,5 @@
 import { GET_CONVERSATION_BY_CONTACT_IDQuery } from "@api-lib/gql/graphql";
+import Dot from "@localShared/CustomDot/CustomDot";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";

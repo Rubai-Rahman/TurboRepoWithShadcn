@@ -10,14 +10,15 @@ import ProfileSkeleton from './UserProfile/Profile.skeleton';
 import { IoCardOutline } from 'react-icons/io5';
 import { BiTransfer, BiUserCircle } from 'react-icons/bi';
 import { AiOutlineThunderbolt, AiOutlineUser } from 'react-icons/ai';
-import { Knowledge_base_icon } from '@localShared/icons/knowledgeBaseIcon';
 import { useRouter } from 'next/router';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcn/tabs';
 import { TbArrowsCross } from 'react-icons/tb';
 import { CRMCustomerData } from '@pages/api/crm/customer';
-import Cards from '@components/Card/Cards';
+import Cards from '@localComponents/Card/Cards';
+import { Knowledge_base_icon } from 'src/shared/icons/knowledgeBaseIcon';
 
-const RightSide = ({ contactId }) => {
+
+const RightSide = ({ contactId }:any) => {
   const router = useRouter();
   const {
     data: contactData,

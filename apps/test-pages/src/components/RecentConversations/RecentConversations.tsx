@@ -3,8 +3,9 @@ import { useConversationByContactId } from '@api-lib/graphql';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import RecentConversationSkeleton from './RecentConversations.skeleton';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
-import RecentConversationPreview from '@components/RecentConversationPreview/RecentConversationPreview';
+import RecentConversationPreview from '@localComponents/RecentConversationPreview/RecentConversationPreview';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
+
 
 const RecentConversations = ({
   maxWidth,
@@ -30,7 +31,7 @@ const RecentConversations = ({
             </div>
           ) : contactConversations.length > 0 ? (
             <div className="flex flex-col h-full overflow-hidden hover:overflow-y-auto justify-start items-start">
-              {contactConversations.slice(0, 5).map((conversation) => (
+              {contactConversations.slice(0, 5).map((conversation:any) => (
                 <RecentConversationPreview
                   maxWidth="w-full"
                   key={conversation.id}

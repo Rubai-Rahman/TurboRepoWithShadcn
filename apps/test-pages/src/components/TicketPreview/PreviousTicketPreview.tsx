@@ -1,8 +1,8 @@
 import { GET_TICKET_BY_CONTACT_IDQuery } from '@api-lib/gql/graphql';
+import Dot from '@localShared/CustomDot/CustomDot';
 import Link from 'next/link';
 import React from 'react';
 import { BsPieChartFill } from 'react-icons/bs';
-import Dot from '@localShared/components/CustomDot/CustomDot';
 
 const PreviousTicketPreview = ({
   maxWidth = 'w-full',

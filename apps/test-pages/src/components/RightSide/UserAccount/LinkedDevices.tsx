@@ -3,7 +3,7 @@ import { MdOutlinePermDeviceInformation } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { Button } from "@shadcn/button";
 
-const LinkedDevices = ({ setUserAccount }) => {
+const LinkedDevices = ({ setUserAccount }:any) => {
   return (
     <div className="p-4">
       <div className="flex items-center justify-between mb-5">

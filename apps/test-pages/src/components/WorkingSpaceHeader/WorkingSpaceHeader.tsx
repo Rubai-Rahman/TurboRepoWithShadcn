@@ -22,7 +22,7 @@ function WorkingSpaceHeader({
   const queryClient = useQueryClient();
 
   const { mutate: assignAgent } = useConversationAgentAssign({
-    onSuccess: (data) => {
+    onSuccess: (data:any) => {
       ToastMessage('success', `conversation is successfully unassigned`);
       queryClient.invalidateQueries(['message_list', data.id]);
       queryClient.invalidateQueries(['conversation_details', data.id]);

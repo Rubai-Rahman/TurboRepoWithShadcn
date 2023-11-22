@@ -26,8 +26,8 @@ import { Survey } from 'survey-react';
 import 'survey-react/survey.min.css';
 import { Button } from '@shadcn/button';
 import { Input } from '@shadcn/input';
-import EditIcon from '@localShared/icons/EditIcon';
 import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
+import EditIcon from 'src/shared/assets/icons/EditIcon';
 
 const surveyCss = {
   root: 'bg-white',
@@ -89,7 +89,7 @@ const TicketProperties = () => {
     isLoading: ticketDataLoading,
     status: ticketDataStatus,
   } = useTicketById(ticketId, {
-    onSuccess: (data) => {
+    onSuccess: (data:any) => {
       const arr = Object.entries(data.form_value).map(([key, value]) => ({
         key,
         value,
@@ -153,10 +153,10 @@ const TicketProperties = () => {
 
   const { data: teamsByUserID, isLoading: teamByAgentIDLoading } =
     useTeamByUserId(currentUserId);
-  const teamsID = teamsByUserID?.payload.map((team) => team.id);
+  const teamsID = teamsByUserID?.payload.map((team:any) => team.id);
 
   // full form submit
-  const onSubmit = (data) => {
+  const onSubmit = (data:any) => {
     const newData = {
       id: ticketId,
       source: data.source,
@@ -513,7 +513,7 @@ const TicketProperties = () => {
               >
                 <option>Select a Team</option>
                 {teamList &&
-                  teamList.payload.map((team) => (
+                  teamList.payload.map((team:any) => (
                     <option key={team.id} value={+team.id}>
                       {team.name}
                     </option>
@@ -549,7 +549,7 @@ const TicketProperties = () => {
                 {...register('assigned_agent')}
               >
                 <option value="">Select a Agent</option>
-                {teamSingle.team_members.map((agent) => (
+                {teamSingle.team_members.map((agent:any) => (
                   <option key={+agent.user.id} value={+agent.user.id}>
                     {agent.user.name}
                   </option>

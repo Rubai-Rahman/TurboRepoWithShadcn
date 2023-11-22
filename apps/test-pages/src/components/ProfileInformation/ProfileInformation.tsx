@@ -11,7 +11,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import GetUserCardInfo from './GetUserCardInfo';
-import CustomDialog from '@localShared/components/CustomDialog/CustomDialog';
+import CustomDialog from '@localShared/CustomDialog/CustomDialog';
 
 const profileOptions = [
   // { item: "chat", icon: BsChat },

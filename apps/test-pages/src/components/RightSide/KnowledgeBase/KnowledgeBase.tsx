@@ -5,8 +5,8 @@ import { RxCross2 } from "react-icons/rx";
 import KbSkeleton from "./KnowledgeBase.skeleton";
 import { useKnowledgeBaseArticles } from "@api-lib/graphql";
 import { Input } from "@shadcn/input";
-import Article from "@components/Article/Article";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shadcn/tabs";
+import Article from "@localComponents/Article/Article";
 
 const KnowledgeBase = () => {
   const [searchKb, setSearchKb] = useState("");
@@ -75,7 +75,7 @@ const KnowledgeBase = () => {
                   no kb-article found
                 </p>
               ) : (
-                kbData.payload.map((item) => (
+                kbData.payload.map((item:any) => (
                   <Article key={item.id} kbItem={item} />
                 ))
               )}

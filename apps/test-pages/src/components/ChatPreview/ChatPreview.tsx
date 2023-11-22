@@ -6,7 +6,7 @@ import { BiEnvelope } from 'react-icons/bi';
 import { BsGlobe2 } from 'react-icons/bs';
 import moment from 'moment';
 import { useRouter } from 'next/router';
-import TwitterListeningIcon from '';
+import TwitterListeningIcon from 'src/shared/assets/icons/TwitterListeningIcon';
 import type { ChatPreviewTypes } from './ChatPreview.types';
 
 function ChatPreview({

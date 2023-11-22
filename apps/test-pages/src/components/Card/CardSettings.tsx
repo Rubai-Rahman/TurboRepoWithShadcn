@@ -4,7 +4,7 @@ import { FaMoneyBillWave } from 'react-icons/fa';
 import { IoWifi } from 'react-icons/io5';
 import { MdFlight } from 'react-icons/md';
 import { RiShoppingBag3Line } from 'react-icons/ri';
-import CustomSwitch from '@localShared/components/CustomSwitch/CustomSwitch';
+import CustomSwitch from '@localShared/CustomSwitch/CustomSwitch';
 
 interface CardSettingsType {
   id: number;

@@ -1,7 +1,7 @@
 import { GET_CONTACT_BY_IDQuery } from '@api-lib/gql/graphql';
 import { useTicketsByContactId } from '@api-lib/graphql';
-import PreviousTicketPreview from '@components/TicketPreview/PreviousTicketPreview';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import PreviousTicketPreview from '@localComponents/TicketPreview/PreviousTicketPreview';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
 import { useTranslation } from 'next-i18next';
 
 const information = [

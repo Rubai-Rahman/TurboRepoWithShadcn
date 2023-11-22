@@ -4,13 +4,14 @@ import { FiArrowDownLeft, FiArrowUpRight } from 'react-icons/fi';
 import { TransactionDataType } from './SingleProfileTransaction.types';
 import { RxCross1 } from 'react-icons/rx';
 import moment from 'moment';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
+
 
 const SingleProfileTransaction = ({
   setSingleTransaction,
   activeTransactionData,
 }: {
-  setSingleTransaction: (value) => void;
+  setSingleTransaction: (value:any) => void;
   activeTransactionData: TransactionDataType;
 }) => {
   // console.log(activeTransactionData);

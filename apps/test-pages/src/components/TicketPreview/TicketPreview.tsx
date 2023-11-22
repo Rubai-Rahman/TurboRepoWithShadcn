@@ -1,4 +1,3 @@
-import Dot from '@localShared/components/CustomDot/CustomDot';
 import { GET_TICKET_BY_CONTACT_IDQuery } from '@api-lib/gql/graphql';
 import React from 'react';
 import { BsPieChartFill } from 'react-icons/bs';

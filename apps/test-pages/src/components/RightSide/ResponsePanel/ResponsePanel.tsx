@@ -5,8 +5,8 @@ import { FiSearch } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { Input } from "@shadcn/input";
 import CannedSkeleton from "./ResponsePanel.skeleton";
-import Response from "@components/Response/Response";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shadcn/tabs";
+import Response from "@localComponents/Response/Response";
 
 const tabs = [
   {
@@ -37,7 +37,7 @@ const ResponsePanel = () => {
     status: cannedStatus,
     isLoading: cannedLoading,
   } = useCannedList(limit, 0, searchTerm, {
-    onSuccess: (data) => {
+    onSuccess: (data:any) => {
       setLimit(data.total.aggregate.count);
     },
   });
@@ -96,7 +96,7 @@ const ResponsePanel = () => {
                 no canned response found
               </p>
             ) : (
-              cannedData.payload.map((item) => (
+              cannedData.payload.map((item:any) => (
                 <Response key={item.id} canned={item} />
               ))
             )}

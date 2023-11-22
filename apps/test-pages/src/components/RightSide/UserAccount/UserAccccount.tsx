@@ -2,9 +2,10 @@ import React, { Fragment, useState } from 'react';
 import { IoChevronDownCircleOutline } from 'react-icons/io5';
 import moment from 'moment';
 import LinkedDevices from './LinkedDevices';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
 import { CRMCustomerData } from '@pages/api/crm/customer';
-import InfoIcon from '@localShared/assets/icons/InfoIcon';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
+import InfoIcon from 'src/shared/assets/icons/InfoIcon';
+
 
 const UserAccccount = ({ crmData }: { crmData: CRMCustomerData }) => {
   const [userAccount, setUserAccount] = useState('close');

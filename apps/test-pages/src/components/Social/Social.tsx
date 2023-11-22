@@ -1,5 +1,6 @@
 import { GET_CONTACT_BY_IDQuery } from '@api-lib/gql/graphql';
-import CustomAccordion from '@localShared/components/CustomAccordion/CustomAccordion';
+import CustomAccordion from '@localShared/CustomAccordion/CustomAccordion';
+
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { BsTwitter } from 'react-icons/bs';
