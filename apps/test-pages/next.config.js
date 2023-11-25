@@ -2,6 +2,9 @@ module.exports = {
   reactStrictMode: true,
   transpilePackages: ['ui'],
   images: {
-    remotePatterns: [{ hostname: 'w7.pngwing.com' }],
+    remotePatterns: [
+      { hostname: 'w7.pngwing.com' },
+      { hostname: 'flowbite.com' },
+    ],
   },
 };

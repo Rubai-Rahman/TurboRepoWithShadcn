@@ -1,5 +1,5 @@
-import avatar from '@public/images/user_avatar.png';
-import logo from '@public/images/diwan_logo.png';
+import avatar from '../../../public/images/user_avatar.png';
+import logo from '../../../public/images/diwan_logo.png';
 import { HiChevronDown, HiOutlineBell } from 'react-icons/hi';
 import {
   Select,

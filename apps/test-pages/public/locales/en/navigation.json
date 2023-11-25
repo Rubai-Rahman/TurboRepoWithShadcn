@@ -1,0 +1,126 @@
+{
+  "NAVIGATION": {
+    "main": {
+      "conversations": "Conversations",
+      "contacts": "Contacts",
+      "reports": "Reports",
+      "campaigns": "Campaigns",
+      "settings": "Settings",
+      "notifications": "Notifications",
+      "profileSettings": "Profile Settings",
+      "home": "home",
+      "ticket": "Ticketing",
+      "analytics": "Analytics",
+      "knowledgeBase": "Knowledge Base",
+      "ticketButton": "Create New"
+    },
+    "leftMenu": {
+      "conversationPlaceholder": "Search for conversations",
+      "ticketPlaceholder": "Search for tickets",
+      "mine": "mine",
+      "pending": "pending",
+      "history": "history",
+      "unassigned": "Unassigned",
+      "error": {
+        "message": "something went wrong. data error"
+      }
+    },
+    "conversationDrawer": {
+      "firstTitle": "Home",
+      "secondTitle": "Inbox",
+      "ThirdTitle": "Smart Folder"
+    },
+    "subNavs": {
+      "teams": {
+        "title": "Teams",
+        "new": "New team"
+      },
+      "inboxes": {
+        "title": "Inboxes",
+        "new": "New inbox"
+      },
+      "labels": {
+        "title": "Labels",
+        "altTitle": "Tagged with",
+        "new": "New label"
+      }
+    },
+    "conversations": {
+      "allConversations": "All Conversations",
+      "mentions": "Mentions",
+      "approvals": "awaiting approvals",
+      "queueList": {
+        "private": "private queue",
+        "public": "private queue"
+      },
+      "folderList": {
+        "complaint": "alt complaint",
+        "inqueries": "alt inquries",
+        "requests": "alt requests"
+      },
+      "SIDE_BOX": {
+        "QUEUE": "queues",
+        "INBOX": "inbox",
+        "FOLDER": "smart folder"
+      }
+    },
+    "CONTACTS_NAV": {
+      "CONTACTS": "All Contacts",
+      "TAGGED": "tagged with",
+      "SEGMENT": {
+        "TITLE": "Sort by Segment",
+        "VIP": "VIP Customer",
+        "INFLUENCER": "Influencer",
+        "DEAD": "Dead Customer"
+      },
+      "PLATFORM": {
+        "TITLE": "Sort by Platform",
+        "TWITTER": "Twitter",
+        "MESSENGER": "Messenger",
+        "WHATSAPP": "WhatsApp",
+        "EMAIL": "Email",
+        "PHONE_NUMBER": "Phone Number"
+      },
+      "LABELS": {
+        "TITLE": "Filter by Labels"
+      }
+    },
+    "reports": {
+      "queue_monitoring": "Queue monitoring",
+      "csat": "CSAT",
+      "agents": "Agents",
+      "labels": "Labels",
+      "inbox": "Inbox",
+      "team": "Team"
+    },
+    "campaigns": {
+      "ongoing": "Ongoing",
+      "oneOff": "One Off"
+    },
+    "settings": {
+      "agents": "Agents",
+      "teams": "Teams",
+      "rules": "Rules",
+      "inboxes": "Inboxes",
+      "publishingGuideline": "Publishing Guideline",
+      "cannedResponses": "Canned Responses",
+      "tags": "Tags",
+      "contactField": "Contact Field",
+      "integrations": "Integrations",
+      "applications": "Applications",
+      "accountSettings": "Account Settings"
+    },
+    "userMenu": {
+      "title": "Set yourself as",
+      "version": "Version-tweeq-2.1.9",
+      "statusTitle": "Change my Status",
+      "online": "Online",
+      "busy": "Busy",
+      "offline": "Offline",
+      "language": "English",
+      "shortcut": "Keyboard Shortcuts",
+      "profileSettings": "Profile Settings",
+      "logout": "Sign out"
+    }
+  }
+}

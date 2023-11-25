@@ -1,0 +1,73 @@
+{
+  "CONTACT_FIELD": {
+    "HEADER": "Contact Field",
+    "HEADER_BTN_TXT": "New Custom Attributes",
+    "LOADING": "Fetching Contact List",
+    "DESC": "A Contact Field tracks facts about your contacts — like the subscription plan, or when they ordered the first item etc. For creating a Contact Field, just click on the Add Contact Field. You can also edit or delete an existing Contact Field by clicking on the Edit or Delete button.",
+    "TABLE":{
+          "HEADING":{
+            "NAME":"Field Name",
+            "KEY":"Field Key",
+            "DESC":"Field Description",
+            "TYPE":"Type",
+            "SWITCH":"Enable/Disable"
+          }
+    },
+  "ADD": {
+    "TITLE": "Add Custom Attributes",
+    "ACTIVE": "Activate Attribute",
+    "CANCEL_BUTTON_TEXT": "Cancel",
+    "FORM": {
+      "DISPLAY": {
+        "LABEL": "Display Name",
+        "PLACEHOLDER": "Enter Custom Attribute Display Name"
+      },
+      "KEY": {
+        "LABEL": "Key",
+        "PLACEHOLDER": "Enter Custom Attribute Key"
+      },
+      "DESC":{
+        "LABEL":"Description",
+        "PLACEHOLDER":"Enter Custom Attribute Description"
+      },
+      "ATTRIBUTE_TYPE": {
+        "LABEL": "Type of Attribute",
+        "DISABLED":"Please choose type of attribute",
+        "LIST": "List",
+        "TEXT": "Text",
+        "LINK": "Link",
+        "CHECKBOX": "Checkbox"
+      },
+      "LIST_VALUES": {
+        "LABEL": "List Values",
+        "PARENT": "Option 1",
+        "SECOND_PARENT": "Option 2",
+        "SUB": "Sub Option"
+      },
+      "PLUS": {
+        "PLACEHOLDER": "Enter Value and Press Enter"
+      },
+
+      "SUBMIT": "Add"
+    },
+    "API": {
+      "SUCCESS_MESSAGE": "Contact added successfully",
+      "EXIST_MESSAGE": "Attributes already in use, Please try another email address",
+      "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+    }
+  },
+  "DELETE": {
+      "BUTTON_TEXT": "Delete",
+      "API": {
+        "SUCCESS_MESSAGE": "Contact Field deleted successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "CONFIRM": {
+        "TITLE": "Confirm Deletion",
+        "MESSAGE": "Are you sure to delete ",
+        "YES": "Yes, Delete ",
+        "NO": "No, Keep "
+      }
+    }
+   }
+}

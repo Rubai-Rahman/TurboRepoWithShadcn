@@ -1,0 +1,32 @@
+{
+  "knowledgeBaseCategories": {
+    "button_txt": "إضافة فئة جديدة",
+    "newCategory": "فئة جديدة",
+    "updateCategory": "تحديث الفئة",
+    "name": {
+      "label": "اسم التصنيف",
+      "placeholder": "أدخل اسم الفئة"
+    },
+    "language": {
+      "label": "اختر اللغة",
+      "placeholder": "اختار اللغة"
+    },
+    "description": {
+      "label": "وصف قصير",
+      "placeholder": "وصف قصير"
+    },
+    "buttons": {
+      "create": "يخلق",
+      "update": "تحديث",
+      "cancel": "يلغي"
+    },
+    "createMsg": {
+      "success": "قم بإنشاء فئات بنجاح",
+      "error": "هناك خطأ ما"
+    },
+    "updateMsg": {
+      "success": "تم تحديث الفئات بنجاح",
+      "error": "هناك خطأ ما"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "ACCOUNT_SETTINGS": {
+    "HEADER": "Account settings",
+    "HEADER_BTN_TXT": "Update settings",
+    "LOADING": "Account settings Loading...",
+    "GENERAL_SETTINGS": {
+      "FORM": {
+        "NAME": {
+          "LABEL": "Account Name",
+          "PLACEHOLDER": "Alt Solution Customer Care"
+        },
+        "EMAIL": {
+          "DEFAULT": "info@alt.sa.com ",
+          "LABEL": "Account Email",
+          "PLACEHOLDER": "Please enter a name of the agent"
+        },
+        "LANGUAGE": {
+          "LABEL": "Site language (Beta)",
+          "ENGLISH": "English (En)",
+          "ARABIC": "Arabic (Ar)",
+          "FRENCH": "French (Fr)"
+        },
+        "RESOLVE": {
+          "LABEL": "Number of days after a ticket should auto resolve if there is no activity",
+          "PLACEHOLDER": "30"
+        }
+      },
+      "ACCOUNT_ID": {
+        "LABEL": "Account ID",
+        "DESC": "This ID is required if you are building an API based integration",
+        "BTN_TEXT": "Copy"
+      }
+    },
+    "USER_STATUS": {
+      "POP_TEXT": "Automatically unassign and re-queue a users Open and Snoozed conversations when their status changed to below status",
+      "GENERAL": "General",
+      "SUB_GENERAL": "General settings that are applied to all of your queues",
+      "DESC": "A Contact Field tracks facts about your contacts — like the subscription plan, or when they ordered the first item etc. For creating a Contact Field.",
+      "BTN_TEXT": "New Status",
+      "REOPEN": "Automatic Reopen a Conversation if Customer Came Back within",
+      "SUB_REOPEN": "Reopen conversation will be assigned to the same old agent if available.",
+      "HOURS": {
+        "TEXT": "Hours",
+        "PLACEHOLDER": "3"
+      },
+      "AGENT": {
+        "TITLE": "Agent Timeout",
+        "SUB_TXT": "The amount of time an agent can remain inactive in Dewan before being set to offline status. This setting can help catch situations where an agent forgets to go offline at the end of shift, or loses their internet connection.",
+        "MINUTES": {
+          "PLACEHOLDER": "45",
+          "TEXT": "Minutes"
+        }
+      },
+      "ADD": {
+        "TITLE": "New Status",
+        "NAME": {
+          "LABEL": "Status Name",
+          "PLACEHOLDER": "Status Name"
+        },
+        "DESC": {
+          "LABEL": "Status Description",
+          "PLACEHOLDER": "Queue  Description"
+        },
+        "BTN_TEXT": {
+          "SUBMIT": "Add",
+          "CANCEL": "CANCEL"
+        }
+      },
+      "DELETE": {
+        "BUTTON_TEXT": "Delete",
+        "API": {
+          "SUCCESS_MESSAGE": "Status deleted successfully",
+          "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+        },
+        "CONFIRM": {
+          "TITLE": "Confirm Deletion",
+          "MESSAGE": "Are you sure to delete ",
+          "YES": "Yes, Delete ",
+          "NO": "No, Keep "
+        }
+      }
+    }
+  }
+}

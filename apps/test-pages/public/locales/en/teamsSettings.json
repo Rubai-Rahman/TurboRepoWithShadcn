@@ -1,0 +1,166 @@
+{
+  "TEAMS_SETTINGS": {
+    "ADD_TEAM": "Add Team",
+    "HEADER": "Teams",
+    "SIDEBAR_TXT": "<p><b>Teams</b></p> <p>Teams let you organize your agents into groups based on their responsibilities. <br /> An agent can be part of multiple teams. You can assign conversations to a team when you are working collaboratively. </p>",
+    "TABLE": {
+      "HEADER": {
+        "NAME": "Team Name",
+        "DESC": "Team Description",
+        "AGENTS": "Agents",
+        "QUEUE": "Queue",
+        "SWITCH": "Enable/Disable"
+      }
+    },
+    "LIST": {
+      "404": "There are no teams created on this account.",
+      "EDIT_TEAM": "Edit team"
+    },
+    "CREATE_FLOW": {
+      "CREATE": {
+        "TITLE": "Create a new team",
+        "DESC": "Add a title and description to your new team."
+      },
+      "AGENTS": {
+        "BUTTON_TEXT": "Add agents to team",
+        "TITLE": "Add agents to team - {{teamName}}",
+        "DESC": "Add Agents to your newly created team. This lets you collaborate as a team on conversations, get notified on new events in the same conversation."
+      },
+      "WIZARD": [
+        {
+          "title": "Create",
+          "route": "settings_teams_new",
+          "body": "Create a new team of agents."
+        },
+        {
+          "title": "Add Agents",
+          "route": "settings_teams_add_agents",
+          "body": "Add agents to the team."
+        },
+        {
+          "title": "Finish",
+          "route": "settings_teams_finish",
+          "body": "You are all set to go!"
+        }
+      ]
+    },
+    "EDIT_FLOW": {
+      "CREATE": {
+        "TITLE": "Edit your team details",
+        "DESC": "Edit title and description to your team.",
+        "BUTTON_TEXT": "Update team"
+      },
+      "AGENTS": {
+        "BUTTON_TEXT": "Update agents in team",
+        "TITLE": "Add agents to team - {{teamName}}",
+        "DESC": "Add Agents to your newly created team. All the added agents will be notified when a conversation is assigned to this team."
+      },
+      "WIZARD": [
+        {
+          "title": "Team details",
+          "route": "settings_teams_edit",
+          "body": "Change name, description and other details."
+        },
+        {
+          "title": "Edit Agents",
+          "route": "settings_teams_edit_members",
+          "body": "Edit agents in your team."
+        },
+        {
+          "title": "Finish",
+          "route": "settings_teams_edit_finish",
+          "body": "You are all set to go!"
+        }
+      ]
+    },
+    "TEAM_FORM": {
+      "ERROR_MESSAGE": "Couldn't save the team details. Try again."
+    },
+    "AGENTS": {
+      "AGENT": "AGENT",
+      "EMAIL": "EMAIL",
+      "BUTTON_TEXT": "Add agents",
+      "ADD_AGENTS": "Adding Agents to your Team...",
+      "SELECT": "select",
+      "SELECT_ALL": "select all agents",
+      "SELECTED_COUNT": "{{selected}} out of {{total}} agents selected."
+    },
+    "ADD": {
+      "TITLE": "Add agents to team - {{teamName}}",
+      "DESC": "Add Agents to your newly created team. This lets you collaborate as a team on conversations, get notified on new events in the same conversation.",
+      "SELECT": "select",
+      "SELECT_ALL": "select all agents",
+      "SELECTED_COUNT": "{{selected}} out of {{total}} agents selected.",
+      "BUTTON_TEXT": "Create Team",
+      "AGENT_VALIDATION_ERROR": "Select at least one agent.",
+      "TEAM_MEMBER": "Add Team Members",
+      "UPDATE_BTN": "Update Team",
+      "CANCEL_BTN": "Cancel",
+      "SELECT_TYPE":"Select Team Type"
+    },
+
+    "FINISH": {
+      "TITLE": "Your team is ready!",
+      "MESSAGE": "You can now collaborate as a team on conversations. Happy supporting ",
+      "BUTTON_TEXT": "Finish"
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Delete",
+      "API": {
+        "SUCCESS_MESSAGE": "Team deleted successfully.",
+        "ERROR_MESSAGE": "Couldn't delete the team. Try again."
+      },
+      "CONFIRM": {
+        "TITLE": "Are you sure want to delete - {{teamName}}",
+        "PLACE_HOLDER": "Please type {{teamName}} to confirm",
+        "MESSAGE": "Deleting the team will remove the team assignment from the conversations assigned to this team.",
+        "YES": "Delete ",
+        "NO": "Cancel"
+      }
+    },
+    "SETTINGS": "Settings",
+    "FORM": {
+      "UPDATE": "Update team",
+      "CREATE": "Create team",
+      "NAME": {
+        "LABEL": "Team name",
+        "PLACEHOLDER": "Example: Sales, Customer Support"
+      },
+      "DESCRIPTION": {
+        "LABEL": "Team Description",
+        "PLACEHOLDER": "Short description about this team."
+      },
+      "AUTO_ASSIGN": {
+        "LABEL": "Allow auto assign for this team."
+      },
+      "SUBMIT_CREATE": "Create team"
+    },
+    "GENERAL_TEAM": {
+      "NAME": "Team name",
+      "DESC": "Team Description",
+      "MEMBERS": "Add Team Members",
+      "INBOX": "Add Inboxes"
+    },
+    "ROUTING_PROFILE": {
+      "HEADING": "Team routing profiles lets you assign queues to teams. Team members will get conversations assigned from their queues.",
+      "ENABLE_TITLE": "Enable Team Routing",
+      "ENABLE_CON": "Enable Routing for this team.",
+      "QUEUE_TITLE": "Assigned Queue",
+      "QUEUE_CON": "By adding queue to this team, conversation from this queue will be assigned to this team members",
+      "QUEUE_LN": {
+        "TITLE": "Select Queue",
+        "ENGLISH": "English (En)",
+        "ARABIC": "Arabic (Ar)"
+      },
+      "CONVERSATION_TITLE": "Conversation Capacity Per Agent",
+      "CONVERSATION_CON": "Capacity is the amount of conversation a user can have in their inbox at one time, and is based on conversation weight.",
+      "CONVERSATION_LIMIT": "The Max Capacity is 50",
+      "TABLE_HEADING": {
+        "NAME": "Queue Name",
+        "WEIGHT": "Weight",
+        "PRIORITY": "Priority",
+        "MAX_CAPACITY": "Max Capacity"
+      }
+    }
+  }
+}

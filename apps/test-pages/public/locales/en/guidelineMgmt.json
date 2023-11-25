@@ -1,0 +1,46 @@
+{
+    "PUBLISH_GUIDELINE":{
+        "HEADER":"publishing guideline",
+        "CARD":{
+            "FIRST_LABEL":"Tips",
+            "SECOND_LABEL":"Tricks",
+            "THIRD_LABEL":"Methods",
+            "TITLE":"Types",
+            "CONTENT":"Content",
+            "MESSAGE":"Message"    
+        },
+        "ADD":{
+            "TITLE":"Add New Guideline",
+        "FORM":{
+            "HEADING":{
+                "LABEL":"Guideline Title",
+                "PLACEHOLDER":"Title"
+            },
+            "CONTENT":{
+                "LABEL":"Content",
+                "PLACEHOLDER":"Enter Keywords separated by comma. Example: Word1, Word2, Word 3"
+            },
+            "INFO":{
+                "LABEL":"Info",
+                "CONTENT":"Show an information message when keyword entered in reply box"
+            },
+            "WARNING":{
+                "LABEL":"Warning",
+                "CONTENT":"Show Warning. but allow user to post if they dismiss warning."
+            },
+            "BLOCK":{
+                "LABEL":"Block",
+                "CONTENT":"Prevent Publishing these words from being used entirely."
+            },
+            "MESSAGE":{
+                "LABEL":"Message",
+                "PLACEHOLDER":"Type Here"
+            },
+            "SUBMISSION":{
+                "ADD":"Add",
+                "CANCEL":"Cancel"
+            }
+        }
+        }
+    }
+}

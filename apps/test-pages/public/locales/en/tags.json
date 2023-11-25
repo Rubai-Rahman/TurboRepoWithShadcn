@@ -1,0 +1,108 @@
+{
+  "TAGS": {
+    "TITLE": "Tags",
+    "ADD_TAG": "Add New Tag",
+    "PLACEHOLDER": "Search for tag",
+    "HEADER": "Tags",
+    "LOADING": "Fetching Tag List",
+    "HEADING_TXT": "User statuses provide a way for users to let their teams know if they are available to receive routed conversation.",
+    "TABLE": {
+      "HEADER": {
+        "NAME": "Tag Name",
+        "DESC": "Tag Description",
+        "TAG": "Smart tag",
+        "SWITCH": "Enable/Disable"
+      }
+    },
+    "ADD": {
+      "TITLE": "New Tag",
+      "DESC": "Tags Help you understand and group conversation.",
+      "ACTIVATE": "Activate label",
+      "CANCEL_BUTTON_TEXT": "Cancel",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Name",
+          "PLACEHOLDER": "Tag Name"
+        },
+        "DESC": {
+          "LABEL": "Short Description",
+          "PLACEHOLDER": "Short Description"
+        },
+        "TAG_LABEL": {
+          "TITLE": "Choose Tag Level",
+          "CONTACT": "Contact Level",
+          "CONVERSATION": "Conversation Level",
+          "TICKET": "Ticket Level",
+          "ARTICLE": "Article Level"
+        },
+        "TAG": {
+          "LABEL": "Smart Tag",
+          "SUB_LABEL": "Allow you to tag conversation automatically using keywords",
+          "PLACEHOLDER": "Smart Tags(word 1, word 2) [give a space after comma to differentiate tags]"
+        },
+        "COLOR": {
+          "LABEL": "Color for Tag",
+          "DEFAULT": "#1EEB2B"
+        },
+        "CATEGORY": {
+          "LABEL": "Select Parent Category",
+          "PARENT_TAG": "Parent Tag",
+          "PARENT": "Parent Category",
+          "SUB_CATEGORY": "Sub Category"
+        },
+        "SUBMIT": "Add",
+        "BUTTONS": {
+          "SAVE": "Save",
+          "CANCEL": "Cancel"
+        }
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "Tag added successfully",
+        "EXIST_MESSAGE": "Tag email already in use, Please try another email address",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      }
+    },
+    "EDIT": {
+      "TITLE": "Update Tag",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Name",
+          "PLACEHOLDER": "Tag Name"
+        },
+        "DESC": {
+          "LABEL": "Short Description",
+          "PLACEHOLDER": "Short Description"
+        },
+        "TAG_LABEL": {
+          "TITLE": "Choose Tag Level",
+          "CONTACT": "Contact Level",
+          "CONVERSATION": "Conversation Level",
+          "TICKET": "Ticket Level",
+          "ARTICLE": "Article Level"
+        },
+        "TAG": {
+          "LABEL": "Smart Tag",
+          "SUB_LABEL": "Allow you to tag conversation automatically using keywords",
+          "PLACEHOLDER": "Smart Tags(word 1, word 2) [give a space after comma to differentiate tags]"
+        },
+        "BUTTONS": {
+          "SAVE": "Update",
+          "CANCEL": "Cancel"
+        }
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Delete",
+      "API": {
+        "SUCCESS_MESSAGE": "Agent deleted successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "CONFIRM": {
+        "TITLE": "Confirm Deletion",
+        "MESSAGE": "Are you sure to delete ",
+        "YES": "Yes, Delete ",
+        "NO": "No, Keep "
+      }
+    }
+  }
+}

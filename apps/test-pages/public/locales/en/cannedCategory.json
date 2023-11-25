@@ -1,0 +1,58 @@
+{
+  "cannedCategory": {
+    "button_txt": "Add New Category",
+    "update_title": "Update Canned Category",
+    "status": "Status",
+    "language": {
+      "label": "Choose Language",
+      "placeholder": "Select Language"
+    },
+    "category_name": {
+      "label": "Category Name",
+      "placeholder": "Enter full name"
+    },
+    "createMsg": {
+      "success": "Canned Category Added Successfully",
+      "error": "Something went wrong"
+    },
+    "updateMsg": {
+      "success": "Category Updated Successfully",
+      "error": "Something went wrong"
+    }
+  },
+  "cannedResponses": {
+    "button_txt": "Add New Response",
+    "search_placeholder": "Search for Response",
+    "update_title": "Update Canned Response",
+    "editor_placeholder": "Write Text Here...",
+    "sub_heading": " Canned Responses are saved reply templates which can be used to quickly send out reply to conversation.",
+    "category": {
+      "label": "Category",
+      "placeholder": "Select a category",
+      "emptyValue": "wait a little"
+    },
+    "shortcut": {
+      "label": "Shortcut",
+      "placeholder": "add #shortcut for response"
+    },
+    "response": {
+      "label": "Response"
+    },
+    "content": {
+      "label": "Content"
+    },
+    "createMsg": {
+      "success": "Canned category added successfully",
+      "error": "Something went wrong"
+    },
+    "updateMsg": {
+      "success": "Canned response updated successfully",
+      "error": "Something went wrong"
+    }
+  },
+  "buttons": {
+    "create": "Create",
+    "update": "Update",
+    "cancel": "Cancel"
+  }
+}

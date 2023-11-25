@@ -1,0 +1,230 @@
+{
+  "text": {
+    "dewan": "الدردشة",
+    "title": "ارتباط اجتماعي",
+    "form-title": "تسجيل الدخول للمشاركة الاجتماعية",
+    "form-logo": "اوغو",
+    "email": "بريد الالكتروني",
+    "password": "كلمة المرور",
+    "reset-title": "إعادة تعيين كلمة المرور",
+    "forget-password": "نسيت رقمك السري؟",
+    "login": "تسجيل الدخول",
+    "submit": "إرسال",
+    "change-locale": "عربى"
+  },
+  "validations": {
+    "email": "البريد الإلكتروني غير صالح",
+    "invalid": "الحقل غير صالح",
+    "invalidType": "يجب أن يكون {{type}}",
+    "required": "الحقل مطلوب",
+    "stringMin": "يجب ألا يقل عدد الأحرف عن {{min}}",
+    "stringMax": "يجب ألا يتجاوز عدد الأحرف {{max}}"
+  },
+  "COMPONENTS": {
+    "FILE_BUBBLE": {
+      "DOWNLOAD": "Download",
+      "UPLOADING": "Uploading..."
+    },
+    "FORM_BUBBLE": {
+      "SUBMIT": "Submit"
+    }
+  },
+  "TEAM_AVAILABILITY": {
+    "ONLINE": "We are online",
+    "OFFLINE": "We are away at the moment"
+  },
+  "REPLY_TIME": {
+    "IN_A_FEW_MINUTES": "Typically replies in a few minutes",
+    "IN_A_FEW_HOURS": "Typically replies in a few hours",
+    "IN_A_DAY": "Typically replies in a day"
+  },
+  "START_CONVERSATION": "Start Conversation",
+  "START_NEW_CONVERSATION": "Start a new conversation",
+  "UNREAD_VIEW": {
+    "VIEW_MESSAGES_BUTTON": "See new messages",
+    "CLOSE_MESSAGES_BUTTON": "Close",
+    "COMPANY_FROM": "from",
+    "BOT": "Bot"
+  },
+  "BUBBLE": {
+    "LABEL": "Chat with us"
+  },
+  "POWERED_BY": "Powered by Dewan",
+  "EMAIL_PLACEHOLDER": "Please enter your email",
+  "CHAT_PLACEHOLDER": "Type your message",
+  "TODAY": "Today",
+  "YESTERDAY": "Yesterday",
+  "PRE_CHAT_FORM": {
+    "FIELDS": {
+      "FULL_NAME": {
+        "LABEL": "Full Name",
+        "PLACEHOLDER": "Please enter your full name",
+        "ERROR": "Full Name is required"
+      },
+      "EMAIL_ADDRESS": {
+        "LABEL": "Email Address",
+        "PLACEHOLDER": "Please enter your email address",
+        "ERROR": "Invalid email address"
+      },
+      "MESSAGE": {
+        "LABEL": "Message",
+        "PLACEHOLDER": "Please enter your message",
+        "ERROR": "Message too short"
+      }
+    }
+  },
+  "FILE_SIZE_LIMIT": "File exceeds the {MAXIMUM_FILE_UPLOAD_SIZE} attachment limit",
+  "CHAT_FORM": {
+    "INVALID": {
+      "FIELD": "Invalid field"
+    }
+  },
+  "CSAT": {
+    "TITLE": "Rate your conversation",
+    "SUBMITTED_TITLE": "Thank you for submitting the rating",
+    "PLACEHOLDER": "Tell us more..."
+  },
+  "EMAIL_TRANSCRIPT": {
+    "BUTTON_TEXT": "Request a conversation transcript",
+    "SEND_EMAIL_SUCCESS": "The chat transcript was sent successfully",
+    "SEND_EMAIL_ERROR": "There was an error, please try again"
+  },
+  "INBOX": {
+    "header": {
+      "title": "Inboxes",
+      "button": "Back"
+    },
+    "step1": {
+      "title": "Choose Channel",
+      "description": "Choose the provider you want to integrate with Social Engagement."
+    },
+    "step2": {
+      "title": "Create Inbox",
+      "description": "Authenticate your account and create an inbox."
+    },
+    "step3": {
+      "title": "Add Agents",
+      "description": "Add agents to the created inbox."
+    },
+    "step4": {
+      "title": "Voila!",
+      "description": "You are all set to go!"
+    },
+    "title": "Choose a channel",
+    "description": "Social Engagement supports live-chat widget, Facebook page, Twitter profile, WhatsApp, Email etc., as channels. If you want to build a custom channel, you can create it using the API channel. Select one channel from the options below to proceed.",
+    "website": "Website",
+    "messenger": "Messenger",
+    "twitter": "Twitter",
+    "whatsapp": "WhatsApp",
+    "sms": "Sms Via Twilio",
+    "email": "Email",
+    "api": "API",
+    "telegram": "Telegram",
+    "line": "Line"
+  },
+  "AGENT": {
+    "title": "Agents",
+    "description": "Here you can add agents to manage your newly created inbox. Only these selected agents will have access to your inbox. Agents which are not part of this inbox will not be able to see or respond to messages in this inbox when they login.",
+    "note": "PS: As an administrator, if you need access to all inboxes, you should add yourself as agent to all inboxes that you create.",
+    "add-agent": "Add Agent"
+  },
+  "WEBSITE": {
+    "title": "Website channel",
+    "description": "Create a channel for your website and start supporting your customers via our website widget.",
+    "form-name": "WEBSITE NAME",
+    "form-name-placeholder": "Enter your website name (eg: Acme Inc)",
+    "form-domain": "WEBSITE DOMAIN",
+    "form-domain-placeholder": "Enter your website domain (eg: acme.com)",
+    "form-color": "WIDGET COLOR",
+    "form-heading": "WELCOME HEADING",
+    "form-heading-placeholder": "Hi there!",
+    "form-tagline": "WELCOME TAGLINE",
+    "form-tagline-placeholder": "We make it simple to connect with us. Ask us anything, or share your feedback",
+    "form-greeting": "ENABLE CHANNEL GREETING",
+    "form-greeting-enable": "Enable",
+    "form-greeting-disable": "Disable",
+    "form-greeting-text": "Send a greeting message to the user when he starts the conversation",
+    "form-submit": "Create Inbox"
+  },
+  "EMAIL": {
+    "title": "قناة البريد الإلكتروني",
+    "description": "دمج صندوق البريد الإلكتروني الخاص بك.",
+    "form-name": "اسم القناة",
+    "form-name-placeholder": "الرجاء إدخال اسم قناتك",
+    "form-email": "البريد الإلكتروني",
+    "form-email-placeholder": "البريد الإلكتروني",
+    "form-helper-text": "بريد إلكتروني حيث يرسل عملاؤك تذاكر الدعم إليك",
+    "form-submit": "إنشاء قناة بريد إلكتروني",
+    "error": "لقد استخدمت هذا البريد الإلكتروني من قبل!",
+    "validations": {
+      "name": "اسم القناة هو حقل مطلوب",
+      "email": "إن البريد الإلكترونى حقل مطلوب"
+    }
+  },
+  "TELEGRAM": {
+    "title": "Telegram Channel",
+    "description": "Integrate with Telegram channel and start supporting your customers.",
+    "form-title": "BOT TOKEN",
+    "form-helper-text": "Configure the bot token you have obtained from Telegram BotFather.",
+    "form-submit": "Create Telegram Channel",
+    "error": "Please, use valid bot token!",
+    "validations": {
+      "required": "Bot Token is a required field"
+    }
+  },
+  "FINISH": {
+    "title": "Your Inbox is ready!",
+    "web-description": "You have successfully finished creating a website channel. Copy the code shown below and paste it on your website. Next time a customer use the live chat, the conversation will automatically appear on your inbox.",
+    "copy": "Copy",
+    "more-setting": "More Settings",
+    "take-me-there": "Take Me There",
+    "email-description": "Start forwarding your emails to the following email address."
+  },
+  "emptyChatMsg": "يرجى الاتصال بالبريد الوارد أولاً لبدء الاتصال بعملائك.",
+  "chattingTab": {
+    "placeholder": "اكتب نص هنا ...",
+    "public": "الرد العام",
+    "note": "ملحوظة",
+    "close": "يغلق",
+    "private": "الرد الخاص",
+    "customer": "الرد على الزبون"
+  },
+  "tableHeading": {
+    "name": "الاسم",
+    "phone": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "location": "الموقع",
+    "activity": "آخر نشاط",
+    "socialProfile": "الملفات الاجتماعية",
+    "conversation": "المحادثات",
+    "ticket": "التذاكر",
+    "role": "الدور",
+    "verify": "التحقق",
+    "team": "الفريق",
+    "status": "الحالة",
+    "action": "الإجراء",
+    "description": "الوصف",
+    "assignAgents": "الوكلاء المعينين",
+    "assignInboxes": "البريد الوارد المعين",
+    "reason": "سبب الاتصال",
+    "mainCat": "الفئة الرئيسية",
+    "subCat": "الفئة الفرعية",
+    "created": "تم الإنشاء في",
+    "updated": "تم التحديث",
+    "fieldKey": "مفتاح الحقل",
+    "type": "النوع",
+    "credentials": "بيانات الاعتماد",
+    "smartTag": "وسم ذكي",
+    "level": "المستوى",
+    "createdBy": "تم الإنشاء بواسطة",
+    "catName": "اسم الفئة",
+    "catDes": "وصف الفئة",
+    "language": "اللغة",
+    "articleName": "اسم المقالة",
+    "permission": "الصلاحيات",
+    "readCount": "عدد المرات المقروءة",
+    "shortcut": "اختصار",
+    "useCount": "عدد الاستخدامات",
+    "category": "الفئة"
+  }
+}

@@ -17,7 +17,7 @@ const InactiveCards = ({
       <div className="flex justify-between items-center py-5 px-5 border-b">
         <h3 className="text-darkCustom text-sm ">
           Inactive Cards (
-          {displayedCard?.filter((item) => item.status === 2).length})
+          {displayedCard?.filter((item:any) => item.status === 2).length})
         </h3>
         <div className="cursor-pointer" onClick={() => setScreen(0)}>
           <GrClose className="text-grayCustom" />

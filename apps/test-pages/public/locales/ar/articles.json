@@ -1,0 +1,56 @@
+{
+  "knowledgeBaseArticles": {
+    "button_txt": "أضف مادة جديدة",
+    "search_placeholder": "ابحث عن المقال",
+    "heading_placeholder": "العنوان هنا",
+    "editor_placeholder": "اكتب مقالتك هنا ...",
+    "preview": "معاينة المادة",
+    "articleStatus": {
+      "label": "حالة المادة",
+      "publish": "نشرت",
+      "draft": "مسودة",
+      "archive": "أرشيف"
+    },
+    "articlePermission": {
+      "label": "أذونات المادة",
+      "public": "عام",
+      "private": "خاص"
+    },
+    "language": {
+      "label": "اختر اللغة",
+      "placeholder": "اختار اللغة"
+    },
+    "category": {
+      "label": "اختر الفئة",
+      "placeholder": "اختر الفئة",
+      "reg_msg": "اختيار القسم مطلوب"
+    },
+    "authorLabel": "مؤلف",
+    "descLabel": "وصف",
+    "trigger": {
+      "label": "مشغل المحادثة",
+      "placeholder": "أضف الكلمات الرئيسية مفصولة بفواصل"
+    },
+    "metaDesc": {
+      "label": "ميتا الوصف",
+      "placeholder": "أضف وصفًا تعريفيًا لنتائج أفضل"
+    },
+    "metaTags": {
+      "label": "العلامات الفوقية",
+      "placeholder": "أضف العلامات الوصفية مفصولة بفاصلة"
+    },
+    "createMsg": {
+      "success": "تم إنشاء المقالة بنجاح",
+      "error": "هناك خطأ ما!"
+    },
+    "updateMsg": {
+      "success": "تم تحديث المقالة بنجاح",
+      "error": "هناك خطأ ما!"
+    },
+    "buttons": {
+      "create": "يخلق",
+      "update": "تحديث",
+      "cancel": "يلغي"
+    }
+  }
+}

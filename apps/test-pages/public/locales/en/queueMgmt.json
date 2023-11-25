@@ -1,0 +1,22 @@
+{
+    "QUEUE_MGMT":{
+        "QUEUE_MONITORING":{
+            "TITLE":"queue monitoring"
+        },
+        "CSAT":{
+            "TITLE":"Titile"
+        },
+        "AGENTS":{
+            "TITLE":"Agents"
+        },
+        "LABELS":{
+            "TITLE":"labels"
+        },
+        "INBOX":{
+            "TITLE":"Inbox"
+        },
+        "TEAMS":{
+            "TITLE":"Teams"
+        }
+    }
+}

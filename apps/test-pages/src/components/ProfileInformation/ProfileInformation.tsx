@@ -33,7 +33,7 @@ const ProfileInformation = ({
   const closeModal = () => {
     setIsOpen(false);
   };
-  const handleClick = (item) => {
+  const handleClick = (item:any) => {
     setSelected(item);
   };
   return (

@@ -1,0 +1,98 @@
+{
+  "ticket": {
+    "placeholder": "ابحث عن التذاكر",
+    "smartFolderPlaceholder": "ابحث عن النتائج",
+    "editorFieldTab": "قم بالرد داخليًا",
+    "tabs": {
+      "mine": "مِلكِي",
+      "team": "فريق",
+      "history": "تاريخ"
+    },
+    "ticketDrawer": {
+      "title": "التذاكر",
+      "status": "حالة التذكرة",
+      "folder": "مجلد ذكي",
+      "allTicket": "جميع التذاكر"
+    },
+    "createTicket": {
+      "title": "إنشاء تذكرة جديدة",
+      "updateNumber": {
+        "placeholder": "البحث عن جهة اتصال",
+        "emptyMsg": "يرجى تحديد جهة اتصال",
+        "mutationMsg": {
+          "success": "تم تحديث رقم الهاتف بنجاح",
+          "error": "حدث خطأ ما",
+          "validationError": "إدخال غير صالح! الحد الأدنى 9، الحد الأقصى 15"
+        }
+      },
+      "button_text": "إضافة جهة اتصال",
+      "manualContact": {
+        "name": {
+          "label": "الاسم",
+          "placeholder": "الرجاء إدخال الاسم"
+        },
+        "email": {
+          "label": "البريد الإلكتروني",
+          "placeholder": "الرجاء إدخال البريد الإلكتروني"
+        },
+        "phone": {
+          "label": "رقم الهاتف",
+          "placeholder": "الرجاء إدخال الرقم"
+        },
+        "submit": {
+          "success": "تم إنشاء جهة اتصال بنجاح",
+          "error": "حدث خطأ ما"
+        },
+        "buttons": {
+          "cancel": "إلغاء",
+          "create": "إنشاء جهة اتصال"
+        }
+      },
+      "contactInfo": "معلومات الاتصال",
+      "ticketProperties": "خصائص التذكرة",
+      "ticketDetails": "تفاصيل التذكرة",
+      "buttons": {
+        "cancel": "يلغي",
+        "create": "إنشاء كالجديد"
+      }
+    },
+    "ticketProperties": {
+      "title": "خصائص التذكرة",
+      "fields": {
+        "title": "عنوان التذكرة",
+        "created": "انشأ من قبل",
+        "date": "تاريخ الإنشاء",
+        "breached": "تم اختراق جيش تحرير السودان",
+        "conversation": {
+          "title": "معرف المحادثة",
+          "change": "تغيير المعرف",
+          "linkConversation": "ربط محادثة"
+        },
+        "source": "مصدر",
+        "status": "حالة",
+        "priority": "أولوية",
+        "assignDetails": "تعيين التفاصيل",
+        "assignTeam": "تعيين الفريق",
+        "assignTo": "يسند إلى",
+        "shareWith": "شارك مع",
+        "contactDetails": {
+          "title": "بيانات المتصل",
+          "name": "الاسم الكامل",
+          "email": "بريد إلكتروني",
+          "phone": "رقم التليفون"
+        },
+        "survey": {
+          "title": "تفاصيل المسح",
+          "emptySurvey": "لا توجد بيانات مسح متاحة"
+        },
+        "conversationLink": {
+          "title": "ربط المحادثة بالتذكرة",
+          "buttonText": "يُقدِّم"
+        }
+      }
+    },
+    "unassign": "غير معين",
+    "errorMsg": "خطأ - حدث خطأ ما",
+    "emptyMsg": "الرجاء تحديد تذكرة من الجزء الأيسر."
+  }
+}

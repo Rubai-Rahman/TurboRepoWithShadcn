@@ -39,13 +39,13 @@ function ChatPreview({
       : `/conversations/${cnvId}`;
   };
 
-  if (data.id === Number(router.query.conversationId)) {
+  if (data?.id === Number(router.query.conversationId)) {
     selected = true;
   } else {
     selected = false;
   }
   return (
-    <Link href={pathUrl(data.id)}>
+    <Link href={pathUrl(data?.id)}>
       <div>
         {/*         {Array.isArray(data) === true ? (
         data.map((item) => (

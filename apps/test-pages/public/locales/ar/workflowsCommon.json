@@ -1,0 +1,23 @@
+{
+  "contactReason": {
+    "tabs": {
+      "create": "إنشاء استبيان",
+      "preview": "معاينة الاستبيان"
+    },
+    "surveyLabel": "نموذج SurveyJS",
+    "mutationMsg": {
+      "success": "تم تحديث سبب الاتصال بنجاح",
+      "error": "حدث خطأ ما"
+    },
+    "buttons": {
+      "update": "تحديث النموذج",
+      "cancel": "إلغاء"
+    }
+  },
+  "ticketForm": {
+    "mutationMsg": {
+      "success": "تم تحديث نموذج التذكرة بنجاح",
+      "error": "حدث خطأ ما"
+    }
+  }
+}

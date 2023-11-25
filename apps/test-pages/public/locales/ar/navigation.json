@@ -1,0 +1,123 @@
+{
+  "NAVIGATION": {
+    "main": {
+      "conversations": "المحادثات",
+      "contacts": "جهات الاتصال",
+      "reports": "التقارير",
+      "campaigns": "الحملات",
+      "settings": "إعدادات",
+      "notifications": "إشعارات",
+      "profileSettings": "إعدادات الملف الشخصي",
+      "home": "بيت",
+      "ticket": "التذاكر",
+      "analytics": "التحليلات",
+      "knowledgeBase": "قاعدة المعرفة",
+      "ticketButton": "خلق جديد إبداع جديد"
+    },
+    "leftMenu": {
+      "conversationPlaceholder": "ابحث عن محادثات",
+      "ticketPlaceholder": "ابحث عن التذاكر",
+      "mine": "مِلكِي",
+      "pending": "قيد الانتظار",
+      "history": "تاريخ",
+      "unassigned": "غير معين",
+      "error": {
+        "message": "هناك خطأ ما. خطأ في البيانات"
+      }
+    },
+    "conversationDrawer": {
+      "firstTitle": "بيت",
+      "secondTitle": "صندوق الوارد",
+      "ThirdTitle": "مجلد ذكي"
+    },
+    "subNavs": {
+      "teams": {
+        "title": "فرق",
+        "new": "فريق جديد"
+      },
+      "inboxes": {
+        "title": "البريد الوارد",
+        "new": "بريد وارد جديد"
+      },
+      "labels": {
+        "title": "تسميات",
+        "altTitle": "الموسومة ب",
+        "new": "تسمية جديدة"
+      }
+    },
+    "conversations": {
+      "allConversations": "كل المحادثات",
+      "mentions": "يذكر",
+      "approvals": "في انتظار الموافقات",
+      "queueList": {
+        "private": "قائمة انتظار خاصة",
+        "public": "قائمة انتظار خاصة"
+      },
+      "folderList": {
+        "complaint": "شكوى بديلة",
+        "inqueries": "استفسارات بديل",
+        "requests": "طلبات بديل"
+      },
+      "SIDE_BOX": {
+        "QUEUE": "طوابير",
+        "INBOX": "صندوق الوارد",
+        "FOLDER": "مجلد ذكي"
+      }
+    },
+    "CONTACTS_NAV": {
+      "CONTACTS": "كل الاتصالات",
+      "TAGGED": "الموسومة ب",
+      "SEGMENT": {
+        "TITLE": "فرز حسب المقطع",
+        "VIP": "عميل VIP",
+        "INFLUENCER": "المؤثر",
+        "DEAD": "زبون ميت"
+      },
+      "PLATFORM": {
+        "TITLE": "فرز حسب النظام الأساسي",
+        "TWITTER": "تويتر",
+        "MESSENGER": "رسول",
+        "WHATSAPP": "ال WhatsApp",
+        "EMAIL": "البريد الإلكتروني",
+        "PHONE_NUMBER": "رقم الهاتف"
+      }
+    },
+    "reports": {
+      "overview": "Overview",
+      "csat": "CSAT",
+      "agents": "Agents",
+      "labels": "Labels",
+      "inbox": "Inbox",
+      "team": "Team"
+    },
+    "campaigns": {
+      "ongoing": "Ongoing",
+      "oneOff": "One Off"
+    },
+    "settings": {
+      "agents": "عملاء",
+      "teams": "فرق",
+      "rules": "قواعد",
+      "inboxes": "البريد الوارد",
+      "publishingGuideline": "دليل النشر",
+      "cannedResponses": "الردود الجاهزة",
+      "tags": "العلامات",
+      "contactField": "مجال الاتصال",
+      "integrations": "تكاملات",
+      "applications": "التطبيقات",
+      "accountSettings": "إعدادت الحساب"
+    },
+    "userMenu": {
+      "title": "ضع نفسك كـ",
+      "version": "الإصدار- tweeq-2.1.9",
+      "statusTitle": "تغيير حالتي",
+      "online": "متصل",
+      "busy": "مشغول",
+      "offline": "غير متصل على الانترنت",
+      "language": "عربي",
+      "shortcut": "اختصارات لوحة المفاتيح",
+      "profileSettings": "إعدادات الملف الشخصي",
+      "logout": "خروج"
+    }
+  }
+}

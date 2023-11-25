@@ -1,0 +1,98 @@
+{
+  "ticket": {
+    "placeholder": "Search for Ticket",
+    "smartFolderPlaceholder": "Search for Results",
+    "editorFieldTab": "Reply Internally",
+    "tabs": {
+      "mine": "mine",
+      "team": "team",
+      "history": "history"
+    },
+    "ticketDrawer": {
+      "title": "Ticketing",
+      "status": "Ticket Status",
+      "folder": "Smart Folder",
+      "allTicket": "All Tickets"
+    },
+    "createTicket": {
+      "title": "Create New Ticket",
+      "updateNumber": {
+        "placeholder": "Search for contact",
+        "emptyMsg": "Please select a contact",
+        "mutationMsg": {
+          "success": "Successfully updated a phone number",
+          "error": "Something went wrong",
+          "validationError": "Invalid input! min 9, max:15"
+        }
+      },
+      "button_text": "Add Contact",
+      "manualContact": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Please enter name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Please enter email"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Please enter number"
+        },
+        "submit": {
+          "success": "Successfully create a contact",
+          "error": "Something went wrong"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "create": "Create Contact"
+        }
+      },
+      "contactInfo": "Contact Information",
+      "ticketProperties": "Ticket Properties",
+      "ticketDetails": "Ticket Details",
+      "buttons": {
+        "cancel": "Cancel",
+        "create": "Create as New"
+      }
+    },
+    "ticketProperties": {
+      "title": "Ticket Properties",
+      "fields": {
+        "title": "Ticket title",
+        "created": "Created By",
+        "date": "Created date",
+        "breached": "SLA Breached on",
+        "conversation": {
+          "title": "conversation ID",
+          "change": "Change ID",
+          "linkConversation": "Link a conversation"
+        },
+        "source": "Source",
+        "status": "Status",
+        "priority": "Priority",
+        "assignDetails": "Assign Details",
+        "assignTeam": "Assign Team",
+        "assignTo": "Assign To",
+        "shareWith": "Share With",
+        "contactDetails": {
+          "title": "Contact Details",
+          "name": "Full Name",
+          "email": "Email",
+          "phone": "Phone Number"
+        },
+        "survey": {
+          "title": "Survey Details",
+          "emptySurvey": "No survey data available"
+        },
+        "conversationLink": {
+          "title": "Link conversation to the ticket",
+          "buttonText": "Submit"
+        }
+      }
+    },
+    "unassign": "Unassigned",
+    "errorMsg": "Error-Something went wrong",
+    "emptyMsg": "Please select a ticket from left pane."
+  }
+}

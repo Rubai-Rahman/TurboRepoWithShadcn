@@ -1,0 +1,340 @@
+{
+  "text": {
+    "dewan": "Dewan",
+    "title": "Dewan Social Engagement",
+    "form-title": "Login to Dewan",
+    "form-logo": "Logo",
+    "email": "Email",
+    "password": "Password",
+    "reset-title": "Reset Password",
+    "forget-password": "Forgot your password?",
+    "login": "Login",
+    "submit": "Login",
+    "change-locale": "English"
+  },
+  "validations": {
+    "email": "Email filed is required",
+    "invalid": "Invalid data type",
+    "invalidType": " Invalid  {{type}}",
+    "required": "This filed is required",
+    "stringMin": "Password should be at minimum {{min}} characters",
+    "stringMax": "Password should be at least {{max}} characters"
+  },
+
+  "INBOX": {
+    "header": {
+      "title": "Inboxes",
+      "button": "Back"
+    },
+    "step1": {
+      "title": "Choose Channel",
+      "description": "Choose the provider you want to integrate with Social Engagement."
+    },
+    "step2": {
+      "title": "Create Inbox",
+      "description": "Authenticate your account and create an inbox."
+    },
+    "step3": {
+      "title": "Add Agents",
+      "description": "Add agents to the created inbox."
+    },
+    "step4": {
+      "title": "Voila!",
+      "description": "You are all set to go!"
+    },
+    "title": "Choose a channel",
+    "description": "Social Engagement supports live-chat widget, Facebook page, Twitter profile, WhatsApp, Email etc., as channels. If you want to build a custom channel, you can create it using the API channel. Select one channel from the options below to proceed.",
+    "website": "Website",
+    "messenger": "Messenger",
+    "twitter": "Twitter",
+    "whatsapp": "WhatsApp",
+    "sms": "Sms Via Twilio",
+    "email": "Email",
+    "api": "API",
+    "telegram": "Telegram",
+    "line": "Line"
+  },
+  "AGENT": {
+    "title": "Agents",
+    "description": "Here you can add agents to manage your newly created inbox. Only these selected agents will have access to your inbox. Agents which are not part of this inbox will not be able to see or respond to messages in this inbox when they login.",
+    "note": "PS: As an administrator, if you need access to all inboxes, you should add yourself as agent to all inboxes that you create.",
+    "add-agent": "Add Agent"
+  },
+  "WEBSITE": {
+    "title": "Website channel",
+    "description": "Create a channel for your website and start supporting your customers via our website widget.",
+    "form-name": "WEBSITE NAME",
+    "form-name-placeholder": "Enter your website name (eg: Acme Inc)",
+    "form-domain": "WEBSITE DOMAIN",
+    "form-domain-placeholder": "Enter your website domain (eg: acme.com)",
+    "form-color": "WIDGET COLOR",
+    "form-heading": "WELCOME HEADING",
+    "form-heading-placeholder": "Hi there!",
+    "form-tagline": "WELCOME TAGLINE",
+    "form-tagline-placeholder": "We make it simple to connect with us. Ask us anything, or share your feedback",
+    "form-greeting": "ENABLE CHANNEL GREETING",
+    "form-greeting-enable": "Enable",
+    "form-greeting-disable": "Disable",
+    "form-greeting-text": "Send a greeting message to the user when he starts the conversation",
+    "form-submit": "Create Inbox"
+  },
+  "WHATSAPP": {
+    "title": "WhatsApp Channel",
+    "description": "Start supporting your customers via WhatsApp",
+    "provider": {
+      "title": "API PROVIDER"
+    },
+    "form-name": "Inbox Name",
+    "form-name-placeholder": "Please enter your inbox name",
+    "form-number": "Phone Number",
+    "form-number-placeholder": "Please enter your phone number",
+    "form-account-sid": "Account SID",
+    "form-account-sid-placeholder": "Please enter your Twilio Account SID",
+    "form-account-token": "Auth Token",
+    "form-account-token-placeholder": "Please enter your Twilio Account Token",
+    "form-account-api": "Api Key",
+    "form-account-api-placeholder": "Please enter your twilio account token",
+    "form-account-api-link": "(Don't have any API key? Apply for access here)",
+    "form-submit": "Create Whatsapp channel",
+    "validations": {
+      "required": "This is a required field",
+      "number-required": "This is a required field",
+      "number-match": "Please enter a valid value. Phone number should start with `+` sign.",
+      "api-required": "Please enter a valid value"
+    }
+  },
+  "EMAIL": {
+    "title": "Email Channel",
+    "description": "Integrate you email inbox.",
+    "form-name": "Channel Name",
+    "form-name-placeholder": "Please enter your channel Name",
+    "form-email": "Email",
+    "form-email-placeholder": "Email",
+    "form-helper-text": "Email where your customers sends you support tickets",
+    "form-submit": "Create Email Channel",
+    "error": "You used this email before!",
+    "validations": {
+      "name": "Channel Name is a required field",
+      "email": "Email is a required filed"
+    }
+  },
+  "TELEGRAM": {
+    "title": "Telegram Channel",
+    "description": "Integrate with Telegram channel and start supporting your customers.",
+    "form-title": "BOT TOKEN",
+    "form-helper-text": "Configure the bot token you have obtained from Telegram BotFather.",
+    "form-submit": "Create Telegram Channel",
+    "error": "Please, use valid bot token!",
+    "validations": {
+      "required": "Bot Token is a required field"
+    }
+  },
+  "FINISH": {
+    "title": "Your Inbox is ready!",
+    "web-description": "You have successfully finished creating a website channel. Copy the code shown below and paste it on your website. Next time a customer use the live chat, the conversation will automatically appear on your inbox.",
+    "copy": "Copy",
+    "more-setting": "More Settings",
+    "take-me-there": "Take Me There",
+    "email-description": "Start forwarding your emails to the following email address.",
+    "whatsapp-message": "You can now engage with your customers through your new Channel. Happy supporting . You have to configure the message callback URL in Twilio with the URL mentioned here."
+  },
+  "NOTIFICATIONS": {
+    "header": "Notifications",
+    "no-notification": "No Notifications",
+    "done": "Mark All Done"
+  },
+  "PROFILE-SETTINGS": {
+    "header": "Account settings",
+    "profile": {
+      "title": "Profile",
+      "description": "Your email address is your identity and is used to log in.",
+      "avatar-title": "Profile Image",
+      "avatar-delete-btn": "Delete Avatar",
+      "form-name": "Your full name",
+      "form-display-name": "Display name",
+      "form-display-placeholder": "Please enter your display name",
+      "form-email": "Your email address",
+      "form-submit": "Update Profile"
+    },
+    "password": {
+      "title": "Password",
+      "description": "Updating your password would reset your logins in multiple devices.",
+      "form-current": "Current password",
+      "form-current-placeholder": "Please enter the current password",
+      "form-new": "New password",
+      "form-new-placeholder": "Please enter new password",
+      "form-confirm": "Confirm new password",
+      "form-confirm-placeholder": "Please re-enter your new password",
+      "form-submit": "Change password",
+      "validations": {
+        "required": "This filed is required",
+        "min": "Please enter a password of length 6 or more",
+        "confirm": "Confirm password should match the password"
+      }
+    },
+    "audio": {
+      "title": "Audion Notification",
+      "description": "Enable audio notifications in dashboard for new messages and conversations.",
+      "none": "None",
+      "assign": "Assigned Conversations",
+      "all": "All Conversations"
+    },
+    "email": {
+      "title": "Email Notifications",
+      "description": "Update your email notification preferences here",
+      "created": "Send email notifications when a new conversation is created",
+      "assign": "Send email notifications when a conversation is assigned to me",
+      "mention": "Send email notifications when you are mentioned in a conversation",
+      "message": "Send email notifications when a new message is created in an assigned conversation"
+    },
+    "push": {
+      "title": "Push Notifications",
+      "description": "Update your push notification preferences here",
+      "helper-text": "You have enabled push for this browser.",
+      "submit": "Enable push notifications",
+      "created": "Send email notifications when a new conversation is created",
+      "assign": "Send email notifications when a conversation is assigned to me",
+      "mention": "Send email notifications when you are mentioned in a conversation",
+      "message": "Send email notifications when a new message is created in an assigned conversation"
+    },
+    "access": {
+      "title": "Access Token",
+      "description": "This token can be used if you are building an API based integration"
+    }
+  },
+
+  "NAVIGATION": {
+    "main": {
+      "conversations": "Conversations",
+      "contacts": "Contacts",
+      "reports": "Reports",
+      "campaigns": "Campaigns",
+      "settings": "Settings",
+      "notifications": "Notifications",
+      "profileSettings": "Profile Settings"
+    },
+    "subNavs": {
+      "teams": {
+        "title": "Teams",
+        "new": "New team"
+      },
+      "inboxes": {
+        "title": "Inboxes",
+        "new": "New inbox"
+      },
+      "labels": {
+        "title": "Labels",
+        "altTitle": "Tagged with",
+        "new": "New label"
+      }
+    },
+    "conversations": {
+      "allConversations": "All Conversations",
+      "mentions": "Mentions"
+    },
+    "contacts": {
+      "allContacts": "All Contacts"
+    },
+    "reports": {
+      "overview": "Overview",
+      "csat": "CSAT",
+      "agents": "Agents",
+      "labels": "Labels",
+      "inbox": "Inbox",
+      "team": "Team"
+    },
+    "campaigns": {
+      "ongoing": "Ongoing",
+      "oneOff": "One Off"
+    },
+    "settings": {
+      "agents": "Agents",
+      "teams": "Teams",
+      "inboxes": "Inboxes",
+      "labels": "Labels",
+      "customAttributes": "Custom Attributes",
+      "automation": "Automation",
+      "cannedResponses": "Canned Responses",
+      "integrations": "Integrations",
+      "applications": "Applications",
+      "accountSettings": "Accout Settings"
+    },
+    "userMenu": {
+      "title": "Set yourself as",
+      "online": "Online",
+      "busy": "Busy",
+      "offline": "Offline",
+      "shortcut": "Keyboard Shortcuts",
+      "profileSettings": "Profile Settings",
+      "logout": "Logout"
+    }
+  },
+  "REPORTS": {
+    "header": {
+      "overviewBtn": "Download agent reports"
+    }
+  },
+  "TXTEDITOR": {
+    "BOLD": "Bold",
+    "ITALIC": "Italic",
+    "CODE": "Code",
+    "UL": "Unordered List",
+    "OL": "Ordered List",
+    "UNDO": "Undo",
+    "REDO": "Redo",
+    "LINK": "Link",
+    "SEND": "Send",
+    "ADD": "Add",
+    "SENDING": "Sending message",
+    "LINK_CREATE": "Create a link",
+    "CREATE": "Create",
+    "CANCEL": "Cancel"
+  },
+  "emptyChatMsg": "Please Connect inbox first to start connect with your customers.",
+  "chattingTab": {
+    "placeholder": "Write Text Here...",
+    "public": "reply public",
+    "note": "note",
+    "close": "close",
+    "private": "reply privates",
+    "customer": "reply to customer"
+  },
+  "tableHeading": {
+    "name": "Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "location": "Location",
+    "activity": "Last Activity",
+    "socialProfile": "Social Profiles",
+    "conversation": "Conversations",
+    "ticket": "Tickets",
+    "role": "Role",
+    "verify": "Verification",
+    "team": "Team",
+    "status": "Status",
+    "action": "Action",
+    "description": "Description",
+    "assignAgents": "Assigned Agents",
+    "assignInboxes": "Assigned Inboxes",
+    "reason": "Contact Reason",
+    "mainCat": "Main Category",
+    "subCat": "Sub Category",
+    "created": "Created at",
+    "updated": "Updated",
+    "fieldKey": "Field Key",
+    "type": "Type",
+    "credentials": "Credentials",
+    "smartTag": "Smart Tag",
+    "level": "Level",
+    "createdBy": "Created by",
+    "catName": "Category Name",
+    "catDes": "Category Description",
+    "language": "Language",
+    "articleName": "Article Name",
+    "permission": "Permissions",
+    "readCount": "Read Count",
+    "shortcut": "Shortcut",
+    "useCount": "Use Count",
+    "category": "Category"
+  }
+}

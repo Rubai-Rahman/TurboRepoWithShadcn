@@ -1,0 +1,22 @@
+{
+    "QUEUE_MGMT":{
+        "QUEUE_MONITORING":{
+            "TITLE":"مراقبة قائمة الانتظار"
+        },
+        "CSAT":{
+            "TITLE":"البلاط"
+        },
+        "AGENTS":{
+            "TITLE":"عملاء"
+        },
+        "LABELS":{
+            "TITLE":"ملصقات"
+        },
+        "INBOX":{
+            "TITLE":"صندوق الوارد"
+        },
+        "TEAMS":{
+            "TITLE":"فرق"
+        }
+    }
+}

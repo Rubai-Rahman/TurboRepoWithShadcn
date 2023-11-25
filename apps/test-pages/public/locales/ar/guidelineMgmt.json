@@ -1,0 +1,46 @@
+{
+    "PUBLISH_GUIDELINE":{
+        "HEADER":"دليل النشر",
+        "CARD":{
+            "FIRST_LABEL":"نصائح",
+            "SECOND_LABEL":"الخدع",
+            "THIRD_LABEL":"طُرق",
+            "TITLE":"أنواع",
+            "CONTENT":"محتوى",
+            "MESSAGE":"رسالة"    
+        },
+        "ADD":{
+            "TITLE":"أضف إرشادات جديدة",
+        "FORM":{
+            "HEADING":{
+                "LABEL":"العنوان التوجيهي",
+                "PLACEHOLDER":"عنوان"
+            },
+            "CONTENT":{
+                "LABEL":"محتوى",
+                "PLACEHOLDER":"أدخل الكلمات الرئيسية مفصولة بفاصلة. مثال: Word1، Word2، Word 3"
+            },
+            "INFO":{
+                "LABEL":"معلومات",
+                "CONTENT":"إظهار رسالة معلومات عند إدخال الكلمة الأساسية في مربع الرد"
+            },
+            "WARNING":{
+                "LABEL":"تحذير",
+                "CONTENT":"إظهار التحذير. مع السماح للمستخدم بالنشر إذا تجاهل التحذير."
+            },
+            "BLOCK":{
+                "LABEL":"حاجز",
+                "CONTENT":"منع نشر هذه الكلمات من استخدامها بالكامل."
+            },
+            "MESSAGE":{
+                "LABEL":"رسالة",
+                "PLACEHOLDER":"أكتب هنا"
+            },
+            "SUBMISSION":{
+                "ADD":"يضيف",
+                "CANCEL":"يلغي"
+            }
+        }
+        }
+    }
+}

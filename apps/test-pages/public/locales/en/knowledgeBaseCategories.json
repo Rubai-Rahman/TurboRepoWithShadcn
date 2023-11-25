@@ -1,0 +1,32 @@
+{
+  "knowledgeBaseCategories": {
+    "button_txt": "Add New Category",
+    "newCategory": "New Category",
+    "updateCategory": "Update Category",
+    "name": {
+      "label": "Category Name",
+      "placeholder": "Enter Category Name"
+    },
+    "language": {
+      "label": "Choose Language",
+      "placeholder": "Select Language"
+    },
+    "description": {
+      "label": "Short Description",
+      "placeholder": "Short Description"
+    },
+    "buttons": {
+      "create": "Create",
+      "update": "Update",
+      "cancel": "Cancel"
+    },
+    "createMsg": {
+      "success": "Successfully Create a categories",
+      "error": "Something went wrong"
+    },
+    "updateMsg": {
+      "success": "Successfully Updated categories",
+      "error": "Something went wrong"
+    }
+  }
+}

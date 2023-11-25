@@ -1,0 +1,56 @@
+{
+  "knowledgeBaseArticles": {
+    "button_txt": "Add New Article",
+    "search_placeholder": "Search for article",
+    "heading_placeholder": "Title here",
+    "editor_placeholder": "Write your article here...",
+    "preview": "Preview Article",
+    "articleStatus": {
+      "label": "Article Status",
+      "publish": "Published",
+      "draft": "Draft",
+      "archive": "Archive"
+    },
+    "articlePermission": {
+      "label": "Article Permissions",
+      "public": "Public",
+      "private": "Private"
+    },
+    "language": {
+      "label": "Choose Language",
+      "placeholder": "Select Language"
+    },
+    "category": {
+      "label": "Choose Category",
+      "placeholder": "Select Category",
+      "reg_msg": "Category is required"
+    },
+    "authorLabel": "Author",
+    "descLabel": "Description",
+    "trigger": {
+      "label": "Conversation Trigger",
+      "placeholder": "Add keywords separated by comma"
+    },
+    "metaDesc": {
+      "label": "Meta Description",
+      "placeholder": "Add meta description for better results"
+    },
+    "metaTags": {
+      "label": "Meta Tags",
+      "placeholder": "Add meta tags separated by comma"
+    },
+    "createMsg": {
+      "success": "Successfully created article",
+      "error": "Something went wrong!"
+    },
+    "updateMsg": {
+      "success": "Successfully updated article",
+      "error": "Something went wrong!"
+    },
+    "buttons": {
+      "create": "Create",
+      "update": "Update",
+      "cancel": "Cancel"
+    }
+  }
+}

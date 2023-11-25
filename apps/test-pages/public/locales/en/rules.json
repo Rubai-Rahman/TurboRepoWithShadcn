@@ -1,0 +1,20 @@
+{
+  "RULES": {
+    "NEW_RULE": "New Rule",
+    "HEADER": "Rules",
+    "DELETE": {
+      "BUTTON_TEXT": "Delete",
+      "API": {
+        "SUCCESS_MESSAGE": "Rule deleted successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "CONFIRM": {
+        "TITLE": "Are you sure want to delete - {{ruleName}}",
+        "PLACE_HOLDER": "Please type {{ruleName}} to confirm",
+        "MESSAGE": "Deleting the team will remove the team assignment from the conversations assigned to this team.",
+        "YES": "Yes, Delete ",
+        "NO": "No, Keep "
+      }
+    }
+  }
+}

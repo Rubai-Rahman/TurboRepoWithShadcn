@@ -1,0 +1,55 @@
+{
+  "rightSide": {
+    "social": "Social",
+    "recent": "Recent Conversations",
+    "previousTicket": "Previous Tickets",
+    "knowledgeBase": "Knowledge Base",
+    "response": "Response",
+    "newTicket": {
+      "title": "New Ticket",
+      "fields": {
+        "source": "Source"
+      },
+      "button": {
+        "create": "Create Ticket",
+        "cancel": "Cancel"
+      },
+      "message": {
+        "success": "Successfully created a ticket",
+        "error": "Failed to create ticket"
+      }
+    },
+    "editContact": {
+      "title": "Edit Contact",
+      "fields": {
+        "name": "Full Name",
+        "phone": "Phone Number",
+        "email": "Email",
+        "gender": "Gender",
+        "language": "Preferred Language",
+        "social": {
+          "title": "Social Profile",
+          "mediaName": "Twitter"
+        }
+      },
+      "button": {
+        "update": "Update",
+        "cancel": "Cancel"
+      },
+      "message": {
+        "success": "Contact Updated Successfully",
+        "error": "Failed To Update Contact"
+      }
+    },
+    "tweeqInfo": {
+      "buttonName": "Get Tweeq Info",
+      "title": "User Card Info",
+      "contact": "Contact Mobile No",
+      "digit": "Last 4 digit",
+      "button": {
+        "crmData": "Get CRM Data",
+        "cancel": "Cancel"
+      }
+    }
+  }
+}

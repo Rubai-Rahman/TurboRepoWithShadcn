@@ -1,0 +1,55 @@
+{
+  "rightSide": {
+    "social": "اجتماعي",
+    "recent": "المحادثات الأخيرة",
+    "previousTicket": "التذاكر السابقة",
+    "knowledgeBase": "قاعدة المعرفة",
+    "response": "إجابة",
+    "newTicket": {
+      "title": "تذكرة جديدة",
+      "fields": {
+        "source": "مصدر"
+      },
+      "button": {
+        "create": "إنشاء تذكرة",
+        "cancel": "يلغي"
+      },
+      "message": {
+        "success": "تم إنشاء تذكرة بنجاح",
+        "error": "فشل إنشاء التذكرة"
+      }
+    },
+    "editContact": {
+      "title": "تحرير جهة الاتصال",
+      "fields": {
+        "name": "الاسم الكامل",
+        "phone": "رقم التليفون",
+        "email": "بريد إلكتروني",
+        "gender": "جنس",
+        "language": "اللغة المفضلة",
+        "social": {
+          "title": "الملف الاجتماعي",
+          "mediaName": "تويتر"
+        }
+      },
+      "button": {
+        "update": "اللغة المفضلة",
+        "cancel": "يلغي"
+      },
+      "message": {
+        "success": "تم تحديث جهة الاتصال بنجاح",
+        "error": "فشل تحديث جهة الاتصال"
+      }
+    },
+    "tweeqInfo": {
+      "buttonName": "احصل على معلومات طويق",
+      "title": "معلومات بطاقة المستخدم",
+      "contact": "رقم الجوال للاتصال",
+      "digit": "آخر 4 أرقام",
+      "button": {
+        "crmData": "احصل على بيانات CRM",
+        "cancel": "يلغي"
+      }
+    }
+  }
+}

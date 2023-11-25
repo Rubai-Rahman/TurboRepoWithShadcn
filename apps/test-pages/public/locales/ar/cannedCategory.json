@@ -1,0 +1,58 @@
+{
+  "cannedCategory": {
+    "button_txt": "إضافة فئة جديدة",
+    "update_title": "تحديث فئة المعلبات",
+    "status": "حالة",
+    "language": {
+      "label": "اختر اللغة",
+      "placeholder": "اختار اللغة"
+    },
+    "category_name": {
+      "label": "اسم التصنيف",
+      "placeholder": "أدخل الاسم الكامل"
+    },
+    "createMsg": {
+      "success": "تمت إضافة فئة المعلبات بنجاح",
+      "error": "هناك خطأ ما"
+    },
+    "updateMsg": {
+      "success": "تم تحديث الفئة بنجاح",
+      "error": "هناك خطأ ما"
+    }
+  },
+  "cannedResponses": {
+    "button_txt": "أضف إجابة جديدة",
+    "search_placeholder": "ابحث عن الردe",
+    "update_title": "تحديث الاستجابة الجاهزة",
+    "editor_placeholder": "اكتب نص هنا ...",
+    "sub_heading": "الردود الجاهزة عبارة عن قوالب رد محفوظة يمكن استخدامها لإرسال رد على المحادثة بسرعة.",
+    "category": {
+      "label": "فئة",
+      "placeholder": "اختر تصنيف",
+      "emptyValue": "انتظر قليلا"
+    },
+    "shortcut": {
+      "label": "الاختصار",
+      "placeholder": "إضافة # اختصار للرد"
+    },
+    "response": {
+      "label": "إجابة"
+    },
+    "content": {
+      "label": "محتوى"
+    },
+    "createMsg": {
+      "success": "تمت إضافة فئة المعلبات بنجاح",
+      "error": "هناك خطأ ما"
+    },
+    "updateMsg": {
+      "success": "تم تحديث الرد الجاهز بنجاح",
+      "error": "هناك خطأ ما"
+    }
+  },
+  "buttons": {
+    "create": "يخلق",
+    "update": "تحديث",
+    "cancel": "يلغي"
+  }
+}

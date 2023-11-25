@@ -1,0 +1,23 @@
+{
+  "contactReason": {
+    "tabs": {
+      "create": "Create Survey",
+      "preview": "Preview Survey"
+    },
+    "surveyLabel": "SurveyJS Form",
+    "mutationMsg": {
+      "success": "Successfully contact reason updated",
+      "error": "Something went wrong"
+    },
+    "buttons": {
+      "update": "Update Form",
+      "cancel": "Cancel"
+    }
+  },
+  "ticketForm": {
+    "mutationMsg": {
+      "success": "Successfully ticket form updated",
+      "error": "Something went wrong"
+    }
+  }
+}

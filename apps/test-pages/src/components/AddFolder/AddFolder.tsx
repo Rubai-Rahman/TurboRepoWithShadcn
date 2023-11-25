@@ -3,7 +3,7 @@ import { Button } from '@shadcn/button';
 import { Input } from '@shadcn/input';
 
 interface Foldertype {
-  maxWidth: number;
+  maxWidth: string;
   placeholder: string;
   cancelBtnText: string;
   saveBtnText: string;
