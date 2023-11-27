@@ -26,7 +26,7 @@ const RecentConversationPreview = ({
   conversation: GET_CONVERSATION_BY_CONTACT_IDQuery["payload"][0];
 }) => {
   return (
-    <Link href={`/conversations/${conversation.id}`} className="w-full">
+    <Link href={`/conversations/${conversation?.id}`} className="w-full">
       <div
         className={`${maxWidth} border-b py-3 px-4 hover:bg-blueCustom/10 cursor-pointer`}
       >
@@ -81,7 +81,7 @@ const RecentConversationPreview = ({
             }`}</p>
             {/* <p className="text-small leading-4 font-medium text-grayCustom">{conversation.status === statusOptionsList ? item.category : "Ticket Escalated"}</p> */}
             <p className="text-small leading-4 font-medium text-grayCustom">
-              {conversation.status
+              {conversation?.status
                 ? statusOptionsList.find(
                     (item) => item.value === conversation.status
                   ).label

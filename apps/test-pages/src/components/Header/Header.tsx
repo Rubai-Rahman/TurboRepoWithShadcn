@@ -123,7 +123,7 @@ const Header = () => {
               {/* right side */}
               <div className="flex items-center gap-x-4">
                 <Select>
-                  <>
+                  <SelectGroup>
                     <SelectLabel>Change published status</SelectLabel>
                     <div className="relative">
                       <div className="inline-flex rounded-md ">
@@ -182,7 +182,7 @@ const Header = () => {
             </Listbox.Options> 
           </Transition>*/}
                     </div>
-                  </>
+                  </SelectGroup>
                 </Select>
                 <Button
                   type="button"

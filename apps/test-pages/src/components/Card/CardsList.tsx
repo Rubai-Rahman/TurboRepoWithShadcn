@@ -9,8 +9,8 @@ function CardsList({
   selectedCard,
   displayedCard,
 }: {
-  setScreen: (value) => void;
-  setSelectedCard: (value) => void;
+  setScreen: (value:any) => void;
+  setSelectedCard: (value:any) => void;
   selectedCard: CRMCustomerData['cardDetails']['data'][0];
   displayedCard: CRMCustomerData['cardDetails']['data'];
 }) {

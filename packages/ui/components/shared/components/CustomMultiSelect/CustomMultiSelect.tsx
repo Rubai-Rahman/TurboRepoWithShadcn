@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Select,
   SelectContent,
@@ -6,18 +7,17 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@shadcn/select";
-import React from "react";
-import { ColourOption } from "./CustomMultiSelect.types";
+} from '../../../shadcn/ui/select';
+import type { ColourOption } from './CustomMultiSelect.types';
 
 export const colourOptions: ColourOption[] = [
-  { value: "facebook", label: "Team Facebook", color: "#00B8D9" },
-  { value: "twitter", label: "Team Twitter", color: "#5243AA" },
-  { value: "whatsapp", label: "Team Whatsapp", color: "#FF5630" },
-  { value: "messenger", label: "Team Messenger", color: "#FF8B00" },
+  { value: 'facebook', label: 'Team Facebook', color: '#00B8D9' },
+  { value: 'twitter', label: 'Team Twitter', color: '#5243AA' },
+  { value: 'whatsapp', label: 'Team Whatsapp', color: '#FF5630' },
+  { value: 'messenger', label: 'Team Messenger', color: '#FF8B00' },
 ];
 
-const CustomMultiSelect = () => {
+function CustomMultiSelect() {
   return (
     <Select>
       <SelectTrigger className="w-96 ">
@@ -36,6 +36,6 @@ const CustomMultiSelect = () => {
       </SelectContent>
     </Select>
   );
-};
+}
 
 export default CustomMultiSelect;

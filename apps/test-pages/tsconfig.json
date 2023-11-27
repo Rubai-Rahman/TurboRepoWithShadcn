@@ -14,7 +14,9 @@
       "@shadcn/*": ["../../packages/ui/components/shadcn/ui/*"],
       "@lib/*": ["../../packages/ui/lib/*"],
       "@localShared/*": ["./src/shared/components/*"],
-      "@localComponents/*": ["./src/components/*"]
+      "@localComponents/*": ["./src/components/*"],
+      "@pages/*": ["./pages/*"],
+      "@api-lib/*": ["./api-lib/*"]
     }
   }
 }

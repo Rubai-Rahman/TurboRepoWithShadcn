@@ -3,12 +3,15 @@ import React from 'react';
 import { IoLanguage } from 'react-icons/io5';
 
 const Component1 = () => {
-  const data = [
+  type DataType = {
+    value: string;
+    label: string;
+  }[];
+  const data: DataType = [
     { value: 'Arabic', label: 'Arabic' },
     { value: 'English', label: 'English' },
     { value: 'French', label: 'French' },
     { value: 'Urdu', label: 'Urdu' },
-    ,
   ];
   return (
     <div className="flex gap-x-2 items-center">
