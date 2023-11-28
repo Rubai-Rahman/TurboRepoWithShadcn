@@ -1,40 +1,40 @@
-import React, { useState } from "react";
-import { Button } from "@shadcn/button";
-import Image from "next/image";
-import { Textarea } from "@shadcn/textarea";
+import React, { useState } from 'react';
+import { Button } from '@shadcn/button';
+import Image from 'next/image';
+import { Textarea } from '@shadcn/textarea';
 
 const messages = [
   {
     message_type: 0,
-    message: "Hey friend. How can I help you?",
+    message: 'Hey friend. How can I help you?',
     image:
-      "https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953",
+      'https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953',
   },
   {
     message_type: 1,
-    message: "I have a question",
+    message: 'I have a question',
   },
   {
     message_type: 0,
     message: "First, don't forget to check out the Documentation.",
     image:
-      "https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953",
+      'https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953',
   },
   {
     message_type: 0,
     message: "Otherwise, I'm all ears!",
     image:
-      "https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953",
+      'https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953',
   },
   {
     message_type: 0,
-    gif_link: "https://media.tenor.com/YnuPB-Hr5boAAAAM/all-ears-hear-out.gif",
+    gif_link: 'https://media.tenor.com/YnuPB-Hr5boAAAAM/all-ears-hear-out.gif',
     image:
-      "https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953",
+      'https://www.netapp.com/media/web-side-x-side-professional-services_tcm19-8095.jpg?v=102953',
   },
 ];
 
-const GuidedWorkflow = ({ maxWidth = "w-full" }) => {
+const GuidedWorkflow = ({ maxWidth = 'w-full' }) => {
   const [checkDisable, setCheckDisable] = useState(true);
 
   const handleChange = (e) => {
@@ -54,6 +54,8 @@ const GuidedWorkflow = ({ maxWidth = "w-full" }) => {
           {item.message_type === 0 && (
             <div className="flex gap-x-4 items-end">
               <Image
+                width={80}
+                height={80}
                 src={item.image}
                 alt="user_image"
                 className="w-6 h-6 rounded-full"
@@ -64,7 +66,14 @@ const GuidedWorkflow = ({ maxWidth = "w-full" }) => {
                     {item.message}
                   </p>
                 )}
-                {item.gif_link && <Image src={item.gif_link} alt="gify" />}
+                {item.gif_link && (
+                  <Image
+                    width={80}
+                    height={80}
+                    src={item.gif_link}
+                    alt="gify"
+                  />
+                )}
               </div>
             </div>
           )}
@@ -89,7 +98,7 @@ const GuidedWorkflow = ({ maxWidth = "w-full" }) => {
             disabled={checkDisable}
             type="button"
             className={`text-white bg-purple-700 font-medium rounded-lg text-normal px-5 py-2.5 mb-2 ${
-              checkDisable && "bg-purple-700/30"
+              checkDisable && 'bg-purple-700/30'
             }`}
           >
             Send

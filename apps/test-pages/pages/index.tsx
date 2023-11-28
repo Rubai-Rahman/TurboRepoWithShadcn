@@ -66,6 +66,9 @@ import ReplyingField from '@localComponents/ReplyingField/ReplyingField';
 import Response from '@localComponents/Response/Response';
 import EditorField from '@localComponents/ReplyingField/EditorField/EditorField';
 import GifBox from '@localComponents/ReplyingField/EditorField/EditorParts/GiftBox';
+import RightSide from '@localComponents/RightSide/RightSide';
+import Boarding from '@localComponents/RightSide/Boarding/Boarding';
+import GuidedWorkflow from '@localComponents/RightSide/GuidedWorkflow/GuidedWorkflow';
 
 const data = [
   {
@@ -531,6 +534,16 @@ export default function Home() {
       {/* <div className="bg-sky-900 p-9">
         <Response />
       </div> */}
+      {/* <div>
+        <RightSide/>
+    </div> */}
+      <div className='bg-lime-200 pb-9'>
+        <Boarding/>
+      </div>
+      <div className='bg-lime-300 pb-9'>
+        <GuidedWorkflow/>
+      </div>
+
     </div>
   );
 }
