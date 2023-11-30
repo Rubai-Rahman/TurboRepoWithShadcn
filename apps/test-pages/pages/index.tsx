@@ -69,6 +69,13 @@ import GifBox from '@localComponents/ReplyingField/EditorField/EditorParts/GiftB
 import RightSide from '@localComponents/RightSide/RightSide';
 import Boarding from '@localComponents/RightSide/Boarding/Boarding';
 import GuidedWorkflow from '@localComponents/RightSide/GuidedWorkflow/GuidedWorkflow';
+import KnowledgeBase from '@localComponents/RightSide/KnowledgeBase/KnowledgeBase';
+import KbSkeleton from '@localComponents/RightSide/KnowledgeBase/KnowledgeBase.skeleton';
+import ResponsePanel from '@localComponents/RightSide/ResponsePanel/ResponsePanel';
+import TicketProperties from '@localComponents/RightSide/TicketProperties/TicketProperties';
+import SingleProfileTransaction from '@localComponents/RightSide/Transaction/SingleProfileTransaction/SingleProfileTransaction';
+import Transaction from '@localComponents/RightSide/Transaction/Transaction/Transaction';
+import TransactionProfile from '@localComponents/RightSide/Transaction/TransactionProfile/TransactionProfile';
 
 const data = [
   {
@@ -314,6 +321,51 @@ const contactDetailsData: ContactDetailsType = {
     notes: [],
   },
 };
+const detailsMapData = {
+  amount: '100',
+  cr_currency: 'USD',
+  dr_currency: 'USD',
+  from_account_id: '789012345',
+  funds_transfer_tx_created_at: new Date(),
+  funds_transfer_tx_id: '987654321',
+  message: 'Payment for services',
+  payment_plugin_name: 'Stripe',
+  outgoing_account_transaction_id: '654321987',
+  payment_network_tx_id: '456789012',
+  purpose_of_transfer: 'Service Payment',
+  receiver_first_name_arabic: 'محمد',
+  receiver_first_name_english: 'Mohammed',
+  receiver_last_name_arabic: 'علي',
+  receiver_last_name_english: 'Ali',
+  receiver_second_name_arabic: '',
+  receiver_second_name_english: '',
+  receiver_third_name_arabic: '',
+  receiver_third_name_english: '',
+  sender_first_name_arabic: 'جون',
+  sender_first_name_english: 'John',
+  sender_last_name_arabic: 'دو',
+  sender_last_name_english: 'Doe',
+  sender_second_name_arabic: '',
+  sender_second_name_english: '',
+  sender_third_name_arabic: '',
+  sender_third_name_english: '',
+  to_account_id: '123456789',
+  scheme_acceptor_name: 'Acme Corp',
+  scheme_tx_currency: 'USD',
+};
+
+const transactionData = {
+  id: '123456789',
+  reference: 'TXN-123',
+  isDebit: true,
+  type: 'purchase',
+  amount: 500.0,
+  status: 1,
+  detailsMap: detailsMapData,
+  createdAt: '2023-11-30T12:30:00Z',
+  updatedAt: '2023-11-30T13:45:00Z',
+  postedAt: '2023-11-30T14:00:00Z',
+};
 
 export default function Home() {
   const [checked, setChecked] = useState<boolean>(true);
@@ -537,13 +589,38 @@ export default function Home() {
       {/* <div>
         <RightSide/>
     </div> */}
-      <div className='bg-lime-200 pb-9'>
-        <Boarding/>
+      <div className="bg-lime-200 pb-9">
+        <Boarding />
       </div>
-      <div className='bg-lime-300 pb-9'>
-        <GuidedWorkflow/>
+      <div className="bg-lime-300 pb-9">
+        <GuidedWorkflow />
       </div>
-
+      {/* <div className="bg-lime-300 pb-9">
+        <KnowledgeBase />
+      </div> */}
+      <div className="bg-lime-300 pb-9">
+        <KbSkeleton />
+      </div>
+      {/* <div className="bg-lime-400 pb-9">
+        <ResponsePanel/>
+      </div> */}
+      {/* <div className="bg-lime-300 pb-9">
+        <TicketProperties/>
+      </div> */}
+      {/* <div className="bg-lime-300 pb-9">
+        <SingleProfileTransaction/>
+      </div> */}
+      {/* <div className="bg-lime-300 pb-9">
+        <Transaction accountData={data}/>
+      </div>  */}
+      <div className="bg-lime-300 pb-9">
+        <TransactionProfile
+          item={transactionData}
+          setActiveTransactionData="hello"
+          setSingleTransaction="Again"
+          transactionIcon={IoTicketOutline}
+        />
+      </div>
     </div>
   );
 }
